@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/ll_tab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_search"
+        android:background="@drawable/home_search_tab_bg"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/rl_mine_order_all"
+            style="@style/Home_search_tab_bg">
+
+            <TextView
+                style="@style/Home_btn"
+                android:id="@+id/tv_mine_order_all"
+                android:layout_centerInParent="true"
+                android:text="@string/str_mine_order_all"
+
+                />
+
+            <ImageView
+                android:id="@+id/iv_mine_order_all"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:layout_alignParentBottom="true"
+                />
+
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/tab_bar_line">
+
+        </ImageView>
+
+        <RelativeLayout
+            android:id="@+id/rl_mine_order_obligation"
+            android:layout_gravity="center_vertical"
+            style="@style/Home_search_tab_bg">
+
+            <TextView
+                style="@style/Home_btn"
+                android:id="@+id/tv_mine_order_obligation"
+                android:layout_centerInParent="true"
+                android:text="@string/str_mine_order_obligation"
+
+                />
+            <ImageView
+                android:id="@+id/iv_mine_order_obligation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                />
+
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/tab_bar_line">
+
+        </ImageView>
+
+        <RelativeLayout
+            android:id="@+id/rl_mine_order_receive"
+            android:layout_gravity="center_vertical"
+            style="@style/Home_search_tab_bg">
+
+            <TextView
+                style="@style/Home_btn"
+                android:id="@+id/tv_mine_order_receive"
+                android:layout_centerInParent="true"
+                android:text="@string/str_mine_order_receive"
+
+                />
+            <ImageView
+                android:id="@+id/iv_mine_order_receive"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                />
+
+        </RelativeLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/tab_bar_line">
+
+    </ImageView>
+
+    <RelativeLayout
+        android:id="@+id/rl_mine_order_to_evaluate"
+        android:layout_gravity="center_vertical"
+        style="@style/Home_search_tab_bg">
+
+        <TextView
+            style="@style/Home_btn"
+            android:id="@+id/tv_mine_order_to_evaluate"
+            android:layout_centerInParent="true"
+            android:text="@string/str_mine_order_to_evaluate"
+
+            />
+        <ImageView
+            android:id="@+id/iv_mine_order_to_evaluate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/tab_bar_line">
+
+    </ImageView>
+
+    <RelativeLayout
+        android:id="@+id/rl_mine_order_back"
+        android:layout_gravity="center_vertical"
+        style="@style/Home_search_tab_bg">
+
+        <TextView
+            style="@style/Home_btn"
+            android:id="@+id/tv_mine_order_back"
+            android:layout_centerInParent="true"
+            android:text="@string/str_mine_order_back"
+
+            />
+        <ImageView
+            android:id="@+id/iv_mine_order_back"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            />
+
+    </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+

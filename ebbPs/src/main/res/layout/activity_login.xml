@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:paddingLeft="@dimen/common_RegisteredLeft"
+    android:paddingRight="@dimen/common_RegisteredLeft"
+    android:paddingTop="@dimen/common_RegisteredTop_big"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/phone_number_background"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/image_left"
+            android:layout_marginRight="@dimen/image_left"
+            android:src="@drawable/phone_number"
+            android:layout_centerVertical="true"/>
+
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/str_phone"
+            android:singleLine="true"
+            android:numeric="integer"
+            android:layout_marginLeft="@dimen/edit_left"
+            android:textSize="@dimen/common_InputBox_28px"
+            android:textColor="@color/common_InputBox"
+            android:layout_centerVertical="true"
+            android:background="@null"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_RegisteredLeft"
+        android:background="@drawable/phone_number_background"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/image_left"
+            android:layout_marginRight="@dimen/image_left"
+            android:src="@drawable/password_image"
+            android:layout_centerVertical="true"/>
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/str_password_input"
+            android:singleLine="true"
+            android:password="true"
+            android:layout_marginLeft="@dimen/edit_left"
+            android:textSize="@dimen/common_InputBox_28px"
+            android:textColor="@color/common_InputBox"
+            android:layout_centerVertical="true"
+            android:background="@null"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_RegisteredLeft">
+
+        <TextView
+            android:id="@+id/password_forget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="@string/str_password_forget"
+            android:textColor="@color/common_blue"
+            android:textSize="@dimen/common_radioTitleImage_22px"/>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/Login"
+        android:layout_marginTop="@dimen/common_BlueButtonTop"
+        style="@style/BlueButton"
+        android:text="@string/Login"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/account_login"
+        android:layout_marginBottom="@dimen/account_login"
+        android:text="@string/str_account_login"
+        android:textSize="@dimen/common_Login_30px"
+        android:textColor="@color/common_InputBox"
+        android:gravity="center_horizontal"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <ImageButton
+            android:id="@+id/qq"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:src="@drawable/qq"/>
+
+        <ImageButton
+            android:id="@+id/weibo"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:src="@drawable/weibo"/>
+
+        <ImageButton
+
+            android:id="@+id/sina"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:src="@drawable/sina"/>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

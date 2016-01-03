@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_item_down"
+    android:padding="@dimen/common_distance">
+    <RelativeLayout
+        android:id="@+id/soft_rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/common_distance"
+
+        >
+        <TextView
+            android:id="@+id/soft"
+            android:layout_width="match_parent"
+            android:layout_height="26dp"
+            android:text="A"
+            android:textColor="@color/common_black"
+            android:gravity="center_vertical"
+            />
+        <TextView
+            android:layout_below="@id/soft"
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/line"
+            />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_below="@id/soft_rl"
+        android:id="@+id/iv_image_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/lv_item_image_bg" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="@dimen/common_padding_distance"
+        android:layout_below="@id/soft_rl"
+        android:layout_toRightOf="@id/iv_image_bg"
+        android:padding="@dimen/common_padding_distance">
+
+
+        <TextView
+            android:id="@+id/tv_search_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="紫薯庄园"
+            android:textColor="@color/common_black"
+            android:textSize="@dimen/common_InputBox_28px" />
+
+
+        <TextView
+            android:id="@+id/tv_tel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_search_item"
+            android:layout_marginTop="@dimen/common_padding_distance"
+            android:text="Tel:17688982345"
+            android:textColor="@color/common_InputBox"
+            android:textSize="12sp" />
+
+
+        <TextView
+            android:id="@+id/tv_charge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_tel"
+            android:layout_marginTop="@dimen/common_padding_distance"
+            android:text="北京市邪恶医院急诊楼6层14床"
+            android:textColor="@color/common_gray"
+            android:textSize="12sp" />
+
+
+        <TextView
+            android:background="@drawable/button_background"
+            android:id="@+id/iv_search_more"
+            android:text="代点餐"
+            android:gravity="center"
+            android:textColor="@color/common_blue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            />
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

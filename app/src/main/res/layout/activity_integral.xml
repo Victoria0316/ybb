@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg">
+
+
+    <RelativeLayout
+    android:id="@+id/rl_alipay"
+    style="@style/pay_item_bg"
+    android:layout_marginTop="@dimen/common_distance">
+
+    <TextView
+        android:id="@+id/integrate"
+        style="@style/pay_item_content"
+        android:textColor="@color/common_gray"
+        android:text="@string/str_integral" />
+
+</RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_line1"
+        style="@style/pay_item_line"
+        android:layout_below="@id/rl_alipay"></ImageView>
+
+    <RelativeLayout
+        android:layout_below="@id/iv_line1"
+        android:id="@+id/rl_redemption"
+        style="@style/pay_item_bg">
+
+        <TextView
+            style="@style/pay_item_content"
+            android:textColor="@color/common_black_lighter"
+            android:text="@string/str_redemption" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:paddingRight="@dimen/common_big_distance"
+            android:textColor="@color/common_black_lighter"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/common_InputBox_28px"
+            android:text="@string/str_integral_water"/>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_line_down"
+        style="@style/pay_item_line"
+        android:layout_below="@id/rl_redemption">
+
+    </ImageView>
+
+
+
+
+    <ListView
+        android:id="@+id/lv_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:cacheColorHint="@android:color/white"
+        android:divider="@null"
+        android:dividerHeight="10dp"
+        android:fadingEdge="none"
+        android:layout_below="@id/iv_line_down"
+        android:listSelector="@android:color/transparent"
+        android:scrollbars="none">
+        >
+    </ListView>
+
+
+
+
+    <ListView
+        android:id="@+id/lv_list_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:cacheColorHint="@android:color/white"
+        android:divider="@null"
+        android:dividerHeight="10dp"
+        android:layout_weight="1"
+        android:fadingEdge="none"
+        android:layout_below="@id/lv_detail"
+        android:listSelector="@android:color/transparent"
+        android:scrollbars="none">
+        >
+    </ListView>
+
+
+
+
+</RelativeLayout>

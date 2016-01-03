@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line"
+        android:layout_marginTop="@dimen/common_distance"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/white">
+
+        <TextView
+            style="@style/text_13_sp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/common_distance"
+            android:text="@string/setting_new_remind"
+            />
+        <com.bluemobi.ybb.ps.view.SwitchView
+            android:id="@+id/switchView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/common_distance" />
+
+
+    </RelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line"
+        android:layout_marginTop="@dimen/common_distance"
+        />
+
+    <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="40dp"-->
+        <!--android:background="@color/white">-->
+
+        <!--<TextView-->
+            <!--style="@style/text_13_sp"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginLeft="@dimen/common_distance"-->
+            <!--android:text="@string/setting_remind_type"-->
+            <!--/>-->
+       <!--<ImageView-->
+           <!--android:id="@+id/arrow_right"-->
+           <!--android:layout_width="wrap_content"-->
+           <!--android:layout_height="wrap_content"-->
+           <!--android:src="@drawable/down_arrow"-->
+           <!--android:layout_alignParentRight="true"-->
+           <!--android:layout_centerVertical="true"-->
+           <!--android:layout_marginRight="@dimen/common_distance"-->
+
+           <!--/>-->
+        <!--<TextView-->
+            <!--style="@style/text_13_sp"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginLeft="@dimen/common_distance"-->
+            <!--android:text="@string/setting_remind_type"-->
+            <!--android:layout_toLeftOf="@id/arrow_right"-->
+            <!--android:layout_marginRight="@dimen/common_padding_distance"-->
+            <!--android:id="@+id/show_text"-->
+            <!--/>-->
+
+
+    <!--</RelativeLayout>-->
+    <com.bluemobi.ybb.ps.view.CustomLongSpinner
+        android:id="@+id/remind_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true">
+    </com.bluemobi.ybb.ps.view.CustomLongSpinner>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line"
+        />
+</LinearLayout>

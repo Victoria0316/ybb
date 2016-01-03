@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:paddingTop="@dimen/common_RegisteredLeft"
+    android:layout_height="match_parent">
+
+    <View
+        style="@style/The_divider"/>
+
+    <RelativeLayout
+        android:id="@+id/order_remind_item"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/message_item"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/order_remind_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/order_remind"
+            android:layout_marginLeft="@dimen/common_RegisteredLeft"
+            android:layout_centerVertical="true"/>
+
+        <TextView
+            android:id="@+id/order_remind_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/message_item_left"
+            android:layout_alignTop="@id/order_remind_image"
+            android:text="@string/order_remind"
+            android:textSize="@dimen/common_ListTitle_27px"
+            android:textColor="@color/common_black"/>
+
+        <TextView
+            android:id="@+id/order_remind_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/order_remind_image"
+            android:layout_marginLeft="@dimen/message_item_left"
+            android:layout_below="@id/order_remind_title"
+            android:text="您下的商品订单已被确认，正在配送中。"
+            android:gravity="center_vertical"
+            android:textColor="@color/common_InputBox"
+            android:textSize="@dimen/common_ListContent_25px"/>
+
+        <TextView
+            android:id="@+id/order_remind_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/common_RegisteredLeft"
+            android:layout_alignBottom="@id/order_remind_title"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/common_InputBox"
+            android:textSize="@dimen/common_ListTime_20px"/>
+
+    </RelativeLayout>
+
+    <View
+        style="@style/The_divider"/>
+
+    <RelativeLayout
+        android:id="@+id/system_remind_item"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/message_item"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/system_remind_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/system_remind"
+            android:layout_marginLeft="@dimen/common_RegisteredLeft"
+            android:layout_centerVertical="true"/>
+
+        <TextView
+            android:id="@+id/system_remind_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/message_item_left"
+            android:layout_alignTop="@id/system_remind_image"
+            android:text="系统提醒"
+            android:textSize="@dimen/common_ListTitle_27px"
+            android:textColor="@color/common_black"/>
+
+        <TextView
+            android:id="@+id/system_remind_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/system_remind_image"
+            android:layout_marginLeft="@dimen/message_item_left"
+            android:layout_below="@id/system_remind_title"
+            android:text="医帮宝2.0版本更新啦。"
+            android:gravity="center_vertical"
+            android:textColor="@color/common_InputBox"
+            android:textSize="@dimen/common_ListContent_25px"/>
+
+        <TextView
+            android:id="@+id/system_remind_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/common_RegisteredLeft"
+            android:layout_alignBottom="@id/system_remind_title"
+            android:layout_alignParentRight="true"
+            android:text="2015/06/05"
+            android:textColor="@color/common_InputBox"
+            android:textSize="@dimen/common_ListTime_20px"/>
+
+    </RelativeLayout>
+
+    <View
+        style="@style/The_divider"/>
+
+</LinearLayout>

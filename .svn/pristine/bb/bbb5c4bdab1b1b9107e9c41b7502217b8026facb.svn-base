@@ -1,0 +1,843 @@
+package com.bluemobi.ybb.activity;
+
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.Response;
+import com.bluemobi.base.utils.Logger;
+import com.bluemobi.ybb.R;
+import com.bluemobi.ybb.adapter.CommonAdapter;
+import com.bluemobi.ybb.adapter.ViewHolder;
+import com.bluemobi.ybb.app.TitleBarManager;
+import com.bluemobi.ybb.app.YbbApplication;
+import com.bluemobi.ybb.base.BaseActivity;
+import com.bluemobi.ybb.network.YbbHttpJsonRequest;
+import com.bluemobi.ybb.network.model.EditShopCarDto;
+import com.bluemobi.ybb.network.model.EditShopCarModel;
+import com.bluemobi.ybb.network.model.ParamModel;
+import com.bluemobi.ybb.network.request.EditShopCartRequest;
+import com.bluemobi.ybb.network.request.ShopCartRequest;
+import com.bluemobi.ybb.network.response.CommonResponse;
+import com.bluemobi.ybb.network.response.ShopCartResponse;
+import com.bluemobi.ybb.util.Constants;
+import com.bluemobi.ybb.util.StringUtils;
+import com.bluemobi.ybb.util.Utils;
+import com.bluemobi.ybb.util.WebUtils;
+import com.bluemobi.ybb.view.LoadingPage;
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
+
+import java.math.BigDecimal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * Created by liufy on 2015/7/8.
+ * P6-4购物车
+ */
+public class ShopCarActivity extends BaseActivity implements View.OnClickListener {
+
+    private TitleBarManager titleBarManager;
+
+    private CommonAdapter<ShopCartResponse.ShopCartData.ShopCartDTo> adapter;
+
+    private List<ShopCartResponse.ShopCartData.ShopCartDTo> dataList = new ArrayList<ShopCartResponse.ShopCartData.ShopCartDTo>();
+
+    private List<ShopCartResponse.ShopCartData.ShopCartDTo> selectDataList = new ArrayList<ShopCartResponse.ShopCartData.ShopCartDTo>();
+
+
+    private boolean isShowEdit = false;
+
+    private CheckBox iv_shop_select;
+
+    private boolean isClick = false;
+
+    private boolean isAllSelect = false;
+
+    /**
+     * 单个item是否可以点击
+     */
+    private boolean isSingleClick = false;
+
+    private ShopCartRequest request;
+
+    private int sumShopCar;
+
+    private TextView tv_settlement;
+
+    private HashSet<Long> selectedItems = new HashSet<Long>();
+
+    private EditShopCarModel editShopCarModel ;
+
+    private List<EditShopCarDto> editShopCarDtos ;
+
+    private Map<Integer,EditShopCarDto> shopDatas = null;
+
+    private Map<List<ShopCartResponse.ShopCartData.ShopCartDTo>,Integer> mapSelectDataList = new HashMap<List<ShopCartResponse.ShopCartData.ShopCartDTo>,Integer>();
+
+    private Map<Integer,String> counts = null;
+
+    private TextView tv_total_money;
+
+    private double totalMoney;
+    private BigDecimal totalAmount;
+
+    private int selectedCount;//选中数量
+
+    private CompoundButton.OnCheckedChangeListener allListener;
+
+    private boolean isCommit;
+
+    private boolean isEdited;
+
+    private boolean firstInit = true;
+
+    private int totalCount;
+
+    private int currentPage = 0;
+
+    private String orgPrice;
+
+    private boolean alreadyEdit;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        titleBarManager = new TitleBarManager();
+        titleBarManager.init(ShopCarActivity.this, getSupportActionBar());
+        titleBarManager.showTitleTextBar(R.string.str_h_shopping, R.drawable.common_back, R.string.str_edit);
+        showLoadingPage(true);
+    }
+
+    @Override
+    protected YbbHttpJsonRequest initRequest() {
+
+        request = new ShopCartRequest
+                (
+                        new Response.Listener<ShopCartResponse>() {
+                            @Override
+                            public void onResponse(ShopCartResponse response) {
+                                firstInit = false;
+                                plv_refresh.onRefreshComplete();
+                                showListData(response.data);
+
+                            }
+                        }, this);
+        request.setUserId(YbbApplication.getInstance().getMyUserInfo().getUserId());
+        request.setCurrentnum(Constants.CURRENTNUMBASE + "");
+        request.setCurrentpage(0 + "");
+        return request;
+    }
+
+    @Override
+    protected void initBaseData() {
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        isCommit = false;
+        isEdited = false;
+        if(!firstInit){
+            getPage(LOAD_REFRESH);
+        }
+        totalCount = YbbApplication.getInstance().getCartCounts();
+
+    }
+
+    @Override
+    public View createSuccessView(LayoutInflater inflater) {
+
+        editShopCarModel = new EditShopCarModel();
+        editShopCarDtos =new ArrayList<EditShopCarDto>();
+        shopDatas = new HashMap<Integer,EditShopCarDto>();
+        counts = new HashMap<Integer, String>();
+        View addShopcarView = inflater.inflate(R.layout.activity_shopcar, null);
+        plv_refresh = (PullToRefreshListView) addShopcarView.findViewById(R.id.plv_refresh);
+        plv_refresh.getRefreshableView().setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+        iv_shop_select = (CheckBox) addShopcarView.findViewById(R.id.iv_shop_select);
+        tv_settlement = (TextView) addShopcarView.findViewById(R.id.tv_settlement);
+        tv_total_money = (TextView) addShopcarView.findViewById(R.id.tv_total_money);
+        tv_settlement.setOnClickListener(this);
+        allListener = new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(dataList != null && dataList.size()>0){
+                    for(ShopCartResponse.ShopCartData.ShopCartDTo item:dataList){
+                        item.selected = isChecked;
+                        adapter.notifyDataSetChanged();
+                    }
+                }else{
+                    getSelectCount();
+                    getTotalPrice();
+                }
+            }
+        };
+        iv_shop_select.setOnCheckedChangeListener(allListener);
+        iv_shop_select.setEnabled(true);
+        initPullToRefresh(plv_refresh);
+        tv_settlement.setText("去结算("+ selectedCount + ")");
+        tv_total_money.setText("￥" + "0.00");
+        return addShopcarView;
+    }
+
+
+    @Override
+    protected boolean getPage(int type) {
+        super.getPage(type);
+        connectToServer(type);
+        return true;
+
+    }
+
+    public void connectToServer(int type) {
+        if(type == LOAD_REFRESH){
+            currentPage = 0;
+            dataList.clear();
+        }else if(type == LOAD_MORE){
+            currentPage ++;
+        }
+        Utils.showProgressDialog(mContext);
+        ShopCartRequest request = new ShopCartRequest
+                (
+                        new Response.Listener<ShopCartResponse>() {
+                            @Override
+                            public void onResponse(ShopCartResponse response) {
+                                Utils.closeDialog();
+                                plv_refresh.onRefreshComplete();
+                                if (response.getStatus() == 2) {
+                                    adapter.notifyDataSetChanged();
+                                    iv_shop_select.setChecked(false);
+                                    return;
+                                }
+                                if (response.getStatus() == 0) {
+                                    showListData(response.data);
+                                } else {
+                                    Toast.makeText(mContext, response.getContent(),
+                                            Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        }, this);
+        request.setUserId(YbbApplication.getInstance().getMyUserInfo().getUserId());
+        request.setCurrentnum(Constants.CURRENTNUMBASE + "");
+        request.setCurrentpage(currentPage + "");
+        request.setHandleCustomErr(false);
+        WebUtils.doPost(request);
+    }
+
+    private class SortByTime implements java.util.Comparator<ShopCartResponse.ShopCartData.ShopCartDTo> {
+
+        @Override
+        public int compare(ShopCartResponse.ShopCartData.ShopCartDTo lhs, ShopCartResponse.ShopCartData.ShopCartDTo rhs) {
+
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            try {
+                if(lhs.reserveTime == null){
+                    return -1;
+                }
+                if(rhs.reserveTime == null){
+                    return 1;
+                }
+                Date date1 = simpleDateFormat.parse(lhs.reserveTime);
+                Date date2 = simpleDateFormat.parse(rhs.reserveTime);
+                int r=date1.compareTo(date2);
+                return r;
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            return 0;
+        }
+    }
+
+    private int currentSelection;
+    /**
+     * 显示列表数据
+     *
+     * @param list
+     */
+    private void showListData(ShopCartResponse.ShopCartData list) {
+
+        if (list == null) {
+            adapter.notifyDataSetChanged();
+            return;
+        }
+        if (list.info.size() == 0) {
+            adapter.notifyDataSetChanged();
+            return;
+        }
+
+        if (list.getCurrentpage().equals("0")) {
+            dataList.clear();
+        }
+
+        for (ShopCartResponse.ShopCartData.ShopCartDTo lineDto : list.info) {
+            dataList.add(lineDto);
+        }
+        Collections.sort(dataList, new SortByTime());
+        orgPrice = getTotalPriceIgnore();
+        if (adapter == null) {
+            adapter = new CommonAdapter<ShopCartResponse.ShopCartData.ShopCartDTo>(mContext,
+                    dataList, R.layout.lv__shop_item) {
+
+                @Override
+                public void convert(final ViewHolder helper, final ShopCartResponse.ShopCartData.ShopCartDTo bean) {
+                    Logger.e("wangzhijun", "convert");
+                    currentSelection = -1;
+                    TextView tv_reserveTime = (TextView) helper.getView(R.id.tv_reserveTime);
+                    TextView pre_status = (TextView) helper.getView(R.id.pre_status);
+                    final TextView tv_num = (TextView) helper.getView(R.id.tv_num);
+                    Button btn_del = (Button) helper.getView(R.id.btn_del);
+                    ImageView iv_minus = (ImageView) helper.getView(R.id.iv_minus);
+                    final EditText et_hint = (EditText) helper.getView(R.id.et_hint);
+                    ImageView iv_add = (ImageView) helper.getView(R.id.iv_add);
+                    RelativeLayout main_rl = helper.getView(R.id.main_rl);
+                    iv_add.setOnTouchListener(new View.OnTouchListener() {
+                        @Override
+                        public boolean onTouch(View v, MotionEvent event) {
+                            Logger.e("wangzhijun", dataList.indexOf(bean) + "-");
+                            currentSelection = dataList.indexOf(bean);
+                            return false;
+                        }
+                    });  iv_minus.setOnTouchListener(new View.OnTouchListener() {
+                        @Override
+                        public boolean onTouch(View v, MotionEvent event) {
+                            Logger.e("wangzhijun", dataList.indexOf(bean) + "-");
+                            currentSelection = dataList.indexOf(bean);
+                            return false;
+                        }
+                    });et_hint.setOnTouchListener(new View.OnTouchListener() {
+                        @Override
+                        public boolean onTouch(View v, MotionEvent event) {
+                            Logger.e("wangzhijun", dataList.indexOf(bean) + "-");
+                            currentSelection = dataList.indexOf(bean);
+                            return false;
+                        }
+                    });
+                    if(StringUtils.isNotEmpty(bean.preStatus)){
+                        pre_status.setVisibility(View.VISIBLE);
+                        pre_status.setText(bean.preStatus);
+                    }else{
+                        pre_status.setVisibility(View.GONE);
+                    }
+                    tv_num.setText(bean.productNum);
+                    helper.setText(R.id.et_hint, bean.productNum);
+                    helper.setText(R.id.tv_charge, bean.price);
+                    helper.setText(R.id.tv_search_item, bean.productName);
+                    helper.setImageByUrl(R.id.iv_image_bg, bean.imgPath, mContext);
+                    final CheckBox iv_select = (CheckBox) helper.getView(R.id.iv_select);
+                    tv_reserveTime.setText(bean.reserveTime);
+                    counts.put(dataList.indexOf(bean), et_hint.getText().toString());
+                    tv_num.setVisibility(View.VISIBLE);
+                    iv_select.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                        @Override
+                        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                            bean.selected = isChecked;
+                            getSelectCount();
+                            checkGroup();
+                        }
+                    });
+                    /*iv_select.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            isSingleClick = !isSingleClick;
+                            if (isSingleClick) {
+                                //TODO
+                                String totalNum = et_hint.getText().toString();
+                                EditShopCarDto editShopCarDto = new EditShopCarDto();
+                                editShopCarDto.setId(bean.productId);
+                                editShopCarDto.setCount(totalNum);
+                                editShopCarDto.setReserveTime(bean.reserveTime);
+                                iv_select.setImageResource(R.drawable.shop_select);
+
+                                shopDatas.put(dataList.indexOf(bean), editShopCarDto);
+                                selectedItems.add((long) dataList.indexOf(bean));
+                                selectDataList.add(dataList.get(dataList.indexOf(bean)));
+
+
+                            } else {
+
+
+                                if (shopDatas.containsKey(dataList.indexOf(bean)));
+                                {
+                                    selectDataList.remove(dataList.get(dataList.indexOf(bean)));
+                                    shopDatas.remove(dataList.indexOf(bean));
+                                    selectedItems.remove((long) dataList.indexOf(bean));
+
+                                }
+
+                                iv_select.setImageResource(R.drawable.shop_unselect);
+
+                            }
+
+                            getTotalPrice(selectDataList);
+
+                        }
+                    });*/
+
+
+
+
+                    if (isShowEdit) {
+
+                        isClick = false;
+                        isAllSelect = false;
+                        isSingleClick =false;
+                        shopDatas.clear();
+                        selectedItems.clear();
+                        editShopCarDtos.clear();
+                        if (selectDataList!=null)
+                            selectDataList.clear();
+                        tv_num.setVisibility(View.GONE);
+                        iv_minus.setVisibility(View.VISIBLE);
+                        et_hint.setVisibility(View.VISIBLE);
+                        iv_add.setVisibility(View.VISIBLE);
+                        btn_del.setVisibility(View.VISIBLE);
+                        btn_del.setOnClickListener(new View.OnClickListener() {
+                                                       @Override
+                                                       public void onClick(View v) {
+                                                           adapter.removeDates(dataList.indexOf(bean));
+                                                           getSelectCount();
+                                                           adapter.notifyDataSetChanged();
+                                                           isEdited = true;
+                                                       }
+                                                   }
+                        );
+
+                        totalMoney =0.0;
+                    } else {
+                        tv_num.setVisibility(View.VISIBLE);
+
+                        iv_minus.setVisibility(View.GONE);
+                        et_hint.setVisibility(View.GONE);
+                        iv_add.setVisibility(View.GONE);
+                        btn_del.setVisibility(View.GONE);
+                    }
+
+                    if (bean.selected) {
+                        iv_select.setChecked(true);
+                    } else {
+                        iv_select.setChecked(false);
+                    }
+                    et_hint.setTag(new Integer(dataList.indexOf(bean)));
+                    et_hint.addTextChangedListener(new TextWatcher() {
+                        @Override
+                        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                        }
+
+                        @Override
+                        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                        }
+
+                        @Override
+                        public void afterTextChanged(Editable s) {
+//                                    Logger.e("wangzhijun", et_hint.getTag() +"");
+                            int num = 0;
+                            String tempNum = s.toString();
+                            if (StringUtils.isEmpty(tempNum)) {
+                                num = 0;
+                            } else {
+                                num = Integer.parseInt(s.toString());
+                            }
+                            sumShopCar = num;
+                            if(currentSelection != -1){
+                            dataList.get(currentSelection).productNum
+                                    = String.valueOf(sumShopCar);
+                                currentSelection  = -1;
+                            adapter.notifyDataSetChanged();
+                                getTotalPrice();
+                                isEdited = true;
+                            }
+                        }
+                    });
+
+                    iv_add.setOnClickListener(new View.OnClickListener() {
+                                                  @Override
+                                                  public void onClick(View v) {
+                                                      int num = Integer.parseInt(et_hint.getText().toString());
+                                                      num++;
+                                                      et_hint.setText(String.valueOf(num));
+                                                      sumShopCar = num;
+                                                  }
+                                              }
+                    );
+                    iv_minus.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            int num = Integer.parseInt(et_hint.getText().toString());
+                            if (num <= 0) {
+                                et_hint.setText(0 + "");
+                                num = 0;
+                                sumShopCar = num;
+                            } else {
+                                num--;
+                                et_hint.setText(String.valueOf(num));
+                                sumShopCar = num;
+                            }
+                            //TODO
+                        }
+                    });
+                }
+            };
+            plv_refresh.setAdapter(adapter);
+        } else {
+            adapter.notifyDataSetChanged();
+        }
+    }
+
+    private void checkGroup() {
+        int count = 0;
+        for (ShopCartResponse.ShopCartData.ShopCartDTo item:dataList){
+            if(item.selected){
+                count ++;
+            }
+        }
+        iv_shop_select.setOnCheckedChangeListener(null);
+        if(dataList!=null && dataList.size() == count){
+            iv_shop_select.setChecked(true);
+        }else{
+            iv_shop_select.setChecked(false);
+        }
+        iv_shop_select.setOnCheckedChangeListener(allListener);
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+//            case R.id.iv_shop_select:
+               /* if (shopDatas!=null)
+                    shopDatas.clear();
+                isClick = !isClick;
+                if (isClick) {
+                    isSingleClick = true;
+                    isAllSelect = true;
+                    if (selectDataList!=null)
+                        selectDataList.clear();
+                    iv_shop_select.setImageResource(R.drawable.shop_select);
+                    adapter.notifyDataSetChanged();
+                    for (int i = 0;i<=dataList.size()-1;i++)
+                    {
+                        ShopCartResponse.ShopCartData.ShopCartDTo shopCartDTo = dataList.get(i);
+                        EditShopCarDto editShopCarDto =new EditShopCarDto();
+                        editShopCarDto.setId(shopCartDTo.productId);
+                        editShopCarDto.setCount(dataList.get(i).productNum);
+                        editShopCarDto.setReserveTime(shopCartDTo.reserveTime);
+                        shopDatas.put(i, editShopCarDto);
+                        selectDataList.add(dataList.get(i));
+                        double sumNum = Double.parseDouble(dataList.get(i).productNum);
+                        double singePrice =0.0;
+                        String tempSingePrice = dataList.get(i).price;
+                        if (StringUtils.isEmpty(tempSingePrice))
+                        {
+                            singePrice =0.0;
+                        }
+                        else
+                        {
+                            singePrice = Double.parseDouble(dataList.get(i).price);
+                        }
+                        totalMoney+=(sumNum*singePrice);
+                    }
+                    tv_total_money.setText(totalMoney+"");
+
+                } else {
+
+                    isClick = false;
+                    isAllSelect = false;
+                    isSingleClick =false;
+                    iv_shop_select.setImageResource(R.drawable.shop_unselect);
+                    adapter.notifyDataSetChanged();
+                    totalMoney = 0.0;
+                    tv_total_money.setText(totalMoney+"");
+                    shopDatas.clear();
+                    selectedItems.clear();
+                    editShopCarDtos.clear();
+                    if (selectDataList!=null)
+                        selectDataList.clear();
+                }*/
+//                break;
+            case R.id.tv_settlement://去结算
+                if(!checkPreDate()){
+                    break;
+                }
+                isCommit = true;
+                if(selectedCount ==0){
+                    Utils.makeToastAndShow(mContext,"请先选择购物车中物品");
+                    break;
+                }
+                selectDataList.clear();
+                for(int i=0; i<dataList.size();i++){
+                    ShopCartResponse.ShopCartData.ShopCartDTo item = dataList.get(i);
+                    if(item.selected){
+                        selectDataList.add(item);
+                    }
+                }
+                YbbApplication.getInstance().setSelectDataList(selectDataList);
+                Intent intent = new Intent(mContext,OrderMakeActivity.class);
+                intent.putExtra("FROM_SHOPCAR","FROM_SHOPCAR");
+                startActivity(intent);
+                break;
+        }
+    }
+    /**
+     *    if("1".equals(categoryId)){
+     category = "营养餐";
+     }if("2".equals(categoryId)){
+     category = "零点餐";
+     }if("3".equals(categoryId)){
+     category = "医护套餐";
+     }if("4".equals(categoryId)){
+     category = "医患套餐";
+     }
+     零点餐不做比较，其他套餐 按照餐次时间比较
+     */
+    private boolean checkPreDate() {
+        boolean temp = true;
+        for (ShopCartResponse.ShopCartData.ShopCartDTo item:dataList){
+            if(item.selected){
+                if("2".equals(item.categoryId)){
+                    continue;//不做处理
+                }else{
+                    HashMap<String, ParamModel.ProductAttributeEntity> map =
+                            YbbApplication.getInstance().getAttributeEntityHashMap();
+                    ParamModel.ProductAttributeEntity preItem = map.get(item.attributeId);
+                    if(preItem == null){
+                        Logger.e("wangzhijun", "preItem == null");
+                        continue;
+                    }
+                    String min = preItem.getMinValue();
+                    if(StringUtils.isEmpty(min) || !min.contains(":")){
+                        Logger.e("wangzhijun", "StringUtils.isEmpty(min) || !min.contains(\":\")");
+
+                        continue;
+                    }
+                    String[] time = min.split(":");
+                    int hour = Integer.parseInt(time[0]);
+                    int minute = Integer.parseInt(time[1]);
+                    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+                    SimpleDateFormat format2 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+                    Date date = null;//预定时间
+                    try {
+                        date = format.parse(item.reserveTime);
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+
+                    Calendar pre = Calendar.getInstance();
+                    pre.setTime(date);
+                    Logger.e("wangzhijun", "Calendar-->" + pre.getTime().toString());
+                    pre.set(pre.get(Calendar.YEAR), pre.get(Calendar.MONTH),pre.get(Calendar.DAY_OF_MONTH),
+                            hour, minute);
+                    Logger.e("wangzhijun", pre.getTime().toString());
+                    if(StringUtils.isNotEmpty(preItem.getOrderingTimeType()) &&
+                            StringUtils.isNotEmpty(preItem.getOrderingTime())){
+                        if("1".equals(preItem.getOrderingTimeType())
+                                ){//小时
+                            pre.add(Calendar.HOUR, -Integer.parseInt(preItem.getOrderingTime()));
+                        }else{
+                            pre.add(Calendar.DATE, -Integer.parseInt(preItem.getOrderingTime()));
+                        }
+                    }
+
+                    Logger.e("wangzhijun", pre.getTime().toString());
+                    Calendar current = Calendar.getInstance();
+    Logger.e("wangzhijun" , current.getTime().toString() +"--->"
+    + pre.getTime().toString());
+                    if(!current.before(pre)){//不满足条件
+                        temp = false;
+                        item.preStatus = "请在" + format2.format(pre.getTime()) + "之前下单";
+                        Logger.e("wangzhijun", item.preStatus);
+                    }
+
+                }
+            }
+        }
+        if(!temp){
+            Utils.makeToastAndShow(getBaseContext(), "部分餐品不满足下单条件，请处理后下单");
+            adapter.notifyDataSetChanged();
+        }
+        return temp;
+    }
+
+    private void getSelectCount(){
+        int count = 0;
+        for (ShopCartResponse.ShopCartData.ShopCartDTo item:dataList){
+            if(item.selected){
+                count ++;
+            }
+        }
+        selectedCount = count;
+        tv_settlement.setText("去结算("+ selectedCount + ")");
+        getTotalPrice();
+    }
+    private void getTotalPrice()
+    {
+        BigDecimal total = new BigDecimal(0.0d);
+        for (int i = 0;i<=dataList.size()-1;i++)
+        {
+            ShopCartResponse.ShopCartData.ShopCartDTo item = dataList.get(i);
+            if(item.selected){
+                String tempPrice = dataList.get(i).price;
+                BigDecimal priceDecimal = new BigDecimal(Double.parseDouble(
+                        StringUtils.isEmpty(tempPrice)?"0.0d":tempPrice
+                ));
+                String tempCount = dataList.get(i).productNum;
+                BigDecimal countDecimal = new BigDecimal(Double.parseDouble(
+                        StringUtils.isEmpty(tempCount)?"0.0d":tempCount
+                ));
+                total = total.add(priceDecimal.multiply(countDecimal));
+            }
+        }
+        total = total.setScale(2, BigDecimal.ROUND_UP);
+        totalAmount = total;
+        tv_total_money.setText("￥" + String.valueOf(totalAmount.doubleValue()));
+        Logger.e("wangzhijun", String.valueOf(totalAmount.doubleValue()));
+    }
+    private String getTotalPriceIgnore()
+    {
+        BigDecimal total = new BigDecimal(0.0d);
+        for (int i = 0;i<=dataList.size()-1;i++)
+        {
+            ShopCartResponse.ShopCartData.ShopCartDTo item = dataList.get(i);
+                String tempPrice = dataList.get(i).price;
+                BigDecimal priceDecimal = new BigDecimal(Double.parseDouble(
+                        StringUtils.isEmpty(tempPrice)?"0.0d":tempPrice
+                ));
+                String tempCount = dataList.get(i).productNum;
+                BigDecimal countDecimal = new BigDecimal(Double.parseDouble(
+                        StringUtils.isEmpty(tempCount)?"0.0d":tempCount
+                ));
+                total = total.add(priceDecimal.multiply(countDecimal));
+        }
+        total = total.setScale(2, BigDecimal.ROUND_UP);
+
+        Logger.e("wangzhijun", String.valueOf(total.doubleValue()));
+        return String.valueOf(total.doubleValue());
+    }
+
+    /**
+     * 将购物车信息提交到服务器
+     */
+    private void editShopCarRequest() {
+        getTotalCount();
+        EditShopCartRequest editShopCartRequest = new EditShopCartRequest
+                (
+                        new Response.Listener<CommonResponse>() {
+                            @Override
+                            public void onResponse(CommonResponse response) {
+                                Utils.closeDialog();
+                                orgPrice = getTotalPriceIgnore();
+                                Intent mIntent = new Intent(Constants.CART_COUNT);
+                                mIntent.putExtra("count", totalCount);
+                                mIntent.putExtra("orgPrice", orgPrice);
+                                //发送广播
+                                sendBroadcast(mIntent);
+                                YbbApplication.getInstance().setCartAmount(orgPrice);
+                                YbbApplication.getInstance().setCartCounts(totalCount);
+                            }
+                        }, this);
+        EditShopCarModel model = new EditShopCarModel();
+        model.setUserId(YbbApplication.getInstance().getMyUserInfo().getUserId());
+        model.setType("");
+        ArrayList<EditShopCarDto> lists = new ArrayList<EditShopCarDto>();
+        for (ShopCartResponse.ShopCartData.ShopCartDTo item: dataList)
+        {
+//                Map.Entry entry = (Map.Entry) iter.next();
+//                EditShopCarModel.EditShopCarDto val = (EditShopCarModel.EditShopCarDto) entry.getValue();
+//                editShopCarDtos.add(val);
+
+
+            EditShopCarDto dao = new EditShopCarDto();
+            dao.setId(item.productId);
+            dao.setCount(item.productNum);
+            dao.setPrice(item.price);
+            dao.setReserveTime(item.reserveTime);
+            lists.add(dao);
+        }
+        model.getInfo().addAll(lists);
+        editShopCartRequest.setUserId(YbbApplication.getInstance().getMyUserInfo().getUserId());
+        editShopCartRequest.setType("");
+        editShopCartRequest.setLists(model.getInfo());
+        WebUtils.doPost(editShopCartRequest);
+        Utils.showProgressDialog(this);
+    }
+
+
+
+    @Override
+    public void clickBarRight() {
+        isShowEdit = !isShowEdit;
+        if (adapter!=null){
+            adapter.notifyDataSetChanged();
+        }
+        if (isShowEdit) {
+            titleBarManager.setRightText(R.string.str_finish);
+        } else {
+            titleBarManager.setRightText(R.string.str_edit);
+        }
+        if(isEdited && !isShowEdit){
+            editShopCarRequest();
+        }
+
+    }
+
+    private void getTotalCount() {
+        totalCount = 0;
+        if(dataList == null || dataList.size() ==0){
+            totalCount = 0;
+        }else{
+            for(ShopCartResponse.ShopCartData.ShopCartDTo item :dataList){
+                int temp;
+                temp = Integer.parseInt(StringUtils.isEmpty(item.productNum)?"0":
+                item.productNum);
+                totalCount += temp;
+            }
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if(!isCommit && isEdited){
+//            editShopCarRequest();
+        }
+
+    }
+
+    @Override
+    public void clickBarleft() {
+        finish();
+    }
+
+    @Override
+    protected LoadingPage.LoadResult load() {
+        return LoadingPage.LoadResult.success;
+    }
+}

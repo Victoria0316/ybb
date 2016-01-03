@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:paddingTop="?android:attr/actionBarSize"
+    android:id="@+id/category">
+
+    <ExpandableListView
+        android:layout_marginTop="10dp"
+        android:layout_width="@dimen/category_list_width"
+        android:layout_height="match_parent"
+        android:id="@+id/category_list"
+        android:background="#ffffff"
+        android:cacheColorHint="#00000000"
+        android:childDivider="#B1D0DF"
+        android:divider="@color/line"
+        android:dividerHeight="1dip"
+        android:fadingEdge="vertical"
+        android:groupIndicator="@null"
+        android:listSelector="#00000000"
+        >
+
+    </ExpandableListView>
+    <TextView
+        android:id="@+id/split_line"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@color/line"
+        android:layout_toRightOf="@id/category_list"
+        >
+    </TextView>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/split_line"
+        >
+        <LinearLayout
+            android:id="@+id/right_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

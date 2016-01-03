@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/common_bg"
+    >
+
+    <ListView
+        android:id="@+id/listView"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="250dp">
+    </ListView>
+    <ExpandableListView
+        android:layout_below="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/alarms"
+        android:cacheColorHint="@color/transparent"
+        android:divider="@color/line"
+        android:dividerHeight="1dp"
+        android:listSelector="@color/transparent"
+        android:groupIndicator="@null"
+        android:scrollbars="none"
+        >
+
+    </ExpandableListView>
+</RelativeLayout>

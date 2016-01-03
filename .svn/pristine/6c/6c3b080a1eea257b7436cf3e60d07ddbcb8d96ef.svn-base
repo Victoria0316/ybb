@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:widget="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/rl_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/commodity_bottom_height"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/line" />
+
+        <RelativeLayout
+            android:id="@+id/rl_collect"
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/btn_coll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/common_distance"
+                android:background="@drawable/coll" />
+
+            <TextView
+                android:id="@+id/coll_label"
+                style="@style/ListTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/common_padding_distance"
+                android:layout_toRightOf="@id/btn_coll"
+                android:text="@string/commodity_detail_coll" />
+
+            <TextView
+                android:id="@+id/coll_count"
+                style="@style/text_13_sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/common_padding_distance"
+                android:layout_toRightOf="@id/coll_label"
+                android:text="(185)"
+                android:textColor="@color/common_red" />
+        </RelativeLayout>
+
+
+
+
+        <TextView
+            android:id="@+id/btn_buy_now"
+            style="@style/btn_light_blue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/common_distance"
+            android:text="@string/str_shop_buy_now" />
+
+        <TextView
+            android:id="@+id/tv_add_shop"
+            style="@style/btn_light_blue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/common_distance"
+            android:layout_toLeftOf="@id/btn_buy_now"
+            android:text="@string/str_shop_add_shop" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/rl_bottom">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <FrameLayout
+                android:id="@+id/fl_viewpaper"
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+                <com.bluemobi.ybb.view.AutoScrollViewPager
+                    android:id="@+id/auto_viewpaper"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp">
+
+                </com.bluemobi.ybb.view.AutoScrollViewPager>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="@dimen/switch_margin_bottom"
+                    android:orientation="vertical">
+
+                    <com.bluemobi.ybb.view.SwitchDotView
+                        android:id="@+id/swicth_dots"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal" />
+                </LinearLayout>
+
+            </FrameLayout>
+            <!-- commodity info -->
+
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/ListTitle"
+                android:layout_below="@id/fl_viewpaper"
+                android:layout_marginLeft="@dimen/common_distance"
+                android:layout_marginTop="@dimen/common_distance"
+                android:text="口味正宗" />
+
+            <TextView
+                android:id="@+id/price_now"
+                style="@style/ListTitle"
+                android:layout_alignLeft="@id/title"
+                android:layout_below="@id/title"
+                android:layout_marginTop="@dimen/common_distance"
+                android:text="￥30.00"
+                android:textColor="@color/common_red_Statistical" />
+
+            <TextView
+                android:id="@+id/price_old"
+                style="@style/text_13_sp"
+                android:layout_below="@id/title"
+                android:layout_marginLeft="@dimen/common_distance"
+                android:layout_marginTop="@dimen/common_distance"
+                android:layout_toRightOf="@id/price_now"
+                android:text="￥50.00"
+                android:textColor="@color/common_gray" />
+
+            <TextView
+                android:id="@+id/right_split"
+                android:layout_width="0.5dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/price_now"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@id/title"
+                android:layout_marginRight="@dimen/commodity_right_split"
+                android:background="@color/line" />
+
+
+            <TextView
+                android:id="@+id/info_line"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@id/price_now"
+                android:layout_marginTop="@dimen/common_distance"
+                android:background="@color/line" />
+
+            <LinearLayout
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/info_line"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/fl_viewpaper"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="@dimen/common_distance"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/breakfast"
+                    style="@style/text_13_sp"
+                    android:layout_below="@id/title"
+                    android:layout_toRightOf="@id/price_now"
+                    android:text="早餐"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/breakfast_below"
+                    style="@style/text_13_sp"
+                    android:layout_below="@id/title"
+                    android:layout_toRightOf="@id/price_now"
+                    android:text="回民灶"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/time_label"
+                style="@style/text_13_sp"
+                android:layout_alignLeft="@id/title"
+                android:layout_below="@id/info_line"
+                android:layout_marginTop="@dimen/common_distance"
+                android:text="@string/commodity_time_label"
+                android:textColor="@color/light_black" />
+
+            <TextView
+                android:id="@+id/time"
+                style="@style/text_13_sp"
+                android:layout_alignTop="@id/time_label"
+                android:layout_toRightOf="@id/time_label"
+                android:text="2015-7-1~2015-08-15"
+                android:textColor="@color/light_black" />
+
+
+            <TextView
+                android:id="@+id/commodity_count"
+                style="@style/text_13_sp"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@id/time_label"
+                android:layout_below="@id/info_line"
+                android:layout_marginRight="@dimen/common_List_Item"
+                android:text="月售300"
+                android:textColor="@color/light_black" />
+
+            <TextView
+                android:id="@+id/time_line"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@id/time_label"
+                android:layout_marginTop="@dimen/common_distance"
+                android:background="@color/line" />
+
+            <TextView
+                android:id="@+id/score_label"
+                style="@style/text_13_sp"
+                android:layout_alignLeft="@id/title"
+                android:layout_below="@id/time_line"
+                android:layout_marginTop="@dimen/common_distance"
+                android:text="@string/commodity_score_label"
+                android:textColor="@color/light_black" />
+
+            <RatingBar
+                android:id="@+id/score"
+                style="@style/roomRatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/score_label"
+                android:layout_toRightOf="@id/score_label"
+                android:isIndicator="true" />
+
+            <TextView
+                android:id="@+id/score_line"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@id/score_label"
+                android:layout_marginTop="@dimen/common_distance"
+                android:background="@color/line" />
+
+            <ImageView
+                android:id="@+id/user_avatar"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_alignLeft="@id/title"
+                android:layout_below="@id/score_line"
+                android:layout_marginTop="@dimen/common_distance"
+                 />
+
+            <TextView
+                android:id="@+id/user_nickname"
+                style="@style/text_13_sp"
+                android:layout_alignTop="@id/user_avatar"
+                android:layout_below="@id/info_line"
+                android:layout_marginLeft="@dimen/common_padding_distance"
+                android:layout_toRightOf="@id/user_avatar"
+                android:text="2231xw"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/user_reviews"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/text_13_sp"
+                android:layout_alignLeft="@id/user_nickname"
+                android:layout_below="@id/user_nickname"
+                android:layout_marginRight="@dimen/commodity_user_reviews"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:singleLine="false"
+                android:text=""
+                android:textColor="@color/light_black" />
+
+            <TextView
+                android:id="@+id/reviews_line"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@id/user_avatar"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/line" />
+
+            <TextView
+                android:id="@+id/more_reviews"
+                style="@style/text_13_sp"
+                android:layout_width="match_parent"
+                android:layout_below="@id/reviews_line"
+                android:layout_centerHorizontal="true"
+                android:text="更多评论"
+                android:textColor="@color/light_black"
+                android:gravity="center"
+                android:textSize="@dimen/common_ListTitle_27px" />
+
+            <TextView
+                android:id="@+id/more_reviews_line"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@id/more_reviews"
+                android:layout_marginTop="@dimen/common_distance"
+                android:background="@color/line" />
+
+            <TextView
+                android:id="@+id/more_reviews_split"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_distance"
+                android:layout_below="@id/more_reviews_line"
+                android:background="@color/common_bg" />
+
+
+            <!--<com.bluemobi.ybb.view.ExtRecommendView-->
+                <!--android:id="@+id/ext_view"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_below="@id/more_reviews_split"></com.bluemobi.ybb.view.ExtRecommendView>-->
+
+            <com.bluemobi.ybb.view.HorizontalListView
+                android:id="@+id/horizontalListView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                widget:dividerWidth="10dp"
+                android:layout_marginLeft="@dimen/common_distance"
+                android:layout_marginRight="@dimen/common_distance"
+                android:divider="@color/common_transparent"
+                android:layout_below="@id/more_reviews_split"
+                android:visibility="gone"
+                >
+
+            </com.bluemobi.ybb.view.HorizontalListView>
+
+
+
+            <TextView
+                android:id="@+id/ext_split"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_distance"
+                android:layout_below="@id/horizontalListView"
+                android:background="@color/common_bg" />
+
+            <TextView
+                android:id="@+id/commodity_detail_begin_line"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@id/ext_split"
+                android:background="@color/line" />
+
+            <TextView
+                android:id="@+id/commodity_detail_label"
+                style="@style/text_13_sp"
+                android:layout_alignLeft="@id/title"
+                android:layout_below="@id/commodity_detail_begin_line"
+                android:layout_marginTop="@dimen/common_big_distance"
+                android:text="@string/commodity_detail_label"
+                android:textColor="@color/light_black" />
+
+            <TextView
+                android:id="@+id/commodity_detail_end_line"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@id/commodity_detail_label"
+                android:layout_marginTop="@dimen/common_big_distance"
+                android:background="@color/line" />
+
+            <TextView
+                android:id="@+id/commodity_detail_main"
+                style="@style/ListTitle"
+                android:layout_alignLeft="@id/title"
+                android:layout_below="@id/commodity_detail_end_line"
+                android:layout_marginTop="@dimen/common_big_distance"
+                android:text="@string/commodity_detail_main"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/commodity_detail_main_all"
+                style="@style/text_13_sp"
+                android:layout_alignLeft="@id/title"
+                android:layout_below="@id/commodity_detail_main"
+                android:layout_marginTop="@dimen/common_big_distance"
+                android:gravity="left"
+                android:maxLines="3"
+                android:text="矛头        花卷      码头      花间      码头      黄华娟         豆浆      大蒜"
+                android:textColor="@color/light_black"
+                android:singleLine="false"
+                />
+
+            <TextView
+                android:id="@+id/commodity_detail_main_line"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@id/commodity_detail_main_all"
+                android:layout_marginTop="@dimen/common_distance"
+                android:background="@color/line" />
+
+            <TextView
+                android:id="@+id/commodity_detail_split"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_distance"
+                android:layout_below="@id/commodity_detail_main_line"
+                android:background="@color/common_bg" />
+
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+
+
+</RelativeLayout>

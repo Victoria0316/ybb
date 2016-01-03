@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+    <RelativeLayout
+        android:id="@+id/rl_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/order_make_bottom_height"
+        android:background="@color/white"
+        android:layout_alignParentBottom="true"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/line"
+            />
+        <TextView
+            android:id="@+id/pay_label"
+            style="@style/text_13_sp"
+            android:layout_marginLeft="@dimen/common_distance"
+            android:layout_marginTop="@dimen/order_make_margin_top"
+            android:text="@string/order_pay_amount"
+            android:textColor="@color/common_black"
+            android:layout_centerVertical="true"
+            />
+
+        <TextView
+            android:id="@+id/total_amount"
+            style="@style/text_13_sp"
+            android:layout_marginLeft="@dimen/common_distance"
+            android:layout_marginTop="@dimen/order_make_margin_top"
+            android:text="￥35.50"
+            android:textColor="@color/common_red"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/pay_label"
+            />
+
+        <TextView
+            style="@style/btn_light_blue"
+            android:layout_marginLeft="@dimen/common_distance"
+            android:layout_marginTop="@dimen/order_make_margin_top"
+            android:text="@string/order_make_sure"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/common_distance"
+            android:id="@+id/order_make_sure"
+            />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_above="@id/rl_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/common_bg"
+            >
+            <!-- 收货地址信息 -->
+            <include
+                android:id="@+id/receiver_rl"
+                layout="@layout/include_receiver"></include>
+
+            <!-- 配送信息 -->
+            <RelativeLayout
+                android:id="@+id/sender_rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/receiver_rl"
+                android:background="@color/white"
+                android:layout_marginTop="@dimen/common_distance"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/line" />
+
+                <TextView
+                    android:id="@+id/sender_label"
+                    style="@style/text_13_sp"
+                    android:layout_marginLeft="@dimen/common_distance"
+                    android:layout_marginTop="@dimen/order_make_margin_top"
+                    android:text="@string/order_make_receiver_sender"
+                    android:textColor="@color/common_black" />
+
+                <TextView
+                    android:id="@+id/sender"
+                    style="@style/text_13_sp"
+                    android:layout_alignBottom="@id/sender_label"
+                    android:layout_marginLeft="@dimen/common_padding_distance"
+                    android:layout_toRightOf="@id/sender_label"
+                    android:text="久久完"
+                    android:textColor="@color/common_black" />
+
+                <TextView
+                android:id="@+id/time"
+                style="@style/text_13_sp"
+                android:layout_alignBottom="@id/sender_label"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/common_distance"
+                android:text="2015/07/25"
+                android:textColor="@color/common_gray"
+                    android:visibility="gone"
+                    />
+
+                <TextView
+                    android:id="@+id/scheduled_time"
+                    style="@style/text_13_sp"
+                    android:layout_alignBottom="@id/sender_label"
+                    android:layout_marginRight="@dimen/common_distance"
+                    android:layout_toLeftOf="@id/time"
+                    android:text="@string/order_scheduled_time"
+                    android:textColor="@color/common_gray"
+                    android:visibility="gone"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_below="@id/sender_label"
+                    android:layout_marginTop="@dimen/order_make_margin_top"
+                    android:background="@color/line" />
+            </RelativeLayout>
+
+            <com.bluemobi.ybb.view.CustomListView
+                android:id="@+id/commodity_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cacheColorHint="@color/transparent"
+                android:divider="@color/common_bg"
+                android:dividerHeight="0dp"
+                android:listSelector="@color/transparent"
+                android:layout_below="@id/sender_rl"
+                android:layout_marginTop="@dimen/common_distance"
+                android:background="@color/white"
+                >
+
+            </com.bluemobi.ybb.view.CustomListView>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

@@ -1,0 +1,65 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/three_tab_bar">
+
+        <RelativeLayout
+            android:id="@+id/rl_nutritious_food"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1" >
+
+            <TextView
+                android:id="@+id/tv_nutritious_food"
+                android:text="@string/s_nutritious_food"
+                style="@style/three_tab_tv" />
+
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/three_tab_line"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_patients_meals"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1" >
+
+
+            <TextView
+                android:id="@+id/tv_patients_meals"
+                android:text="@string/s_patients_meals"
+                style="@style/three_tab_tv" />
+
+        </RelativeLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/three_tab_line"/>
+        <RelativeLayout
+            android:id="@+id/rl_zero_point_meal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+
+            <TextView
+                android:id="@+id/tv_zero_point_meal"
+                android:text="@string/s_zero_point_meal"
+                style="@style/three_tab_tv" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

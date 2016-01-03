@@ -1,0 +1,281 @@
+package com.bluemobi.ybb.activity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.bluemobi.ybb.R;
+import com.bluemobi.ybb.app.BackGroundTask;
+import com.bluemobi.ybb.app.DbManager;
+import com.bluemobi.ybb.app.TitleBarManager;
+import com.bluemobi.ybb.app.YbbApplication;
+import com.bluemobi.ybb.base.BaseActivity;
+import com.bluemobi.ybb.db.entity.Message;
+import com.bluemobi.ybb.db.entity.MessageFoods;
+import com.bluemobi.ybb.network.request.LoginRequest;
+import com.bluemobi.ybb.network.request.SmsCodeRequest;
+import com.bluemobi.ybb.network.response.LoginResponse;
+import com.bluemobi.ybb.util.AlipayUtil;
+import com.bluemobi.ybb.util.Constants;
+import com.bluemobi.ybb.util.SharedPreferencesUtil;
+import com.bluemobi.ybb.util.StringUtils;
+import com.bluemobi.ybb.util.Utils;
+import com.bluemobi.ybb.util.WebUtils;
+import com.bluemobi.ybb.view.LoadingPage;
+import com.igexin.sdk.PushManager;
+import com.lidroid.xutils.DbUtils;
+import com.lidroid.xutils.exception.DbException;
+
+/**
+ * Created by gaoyn on 2015/6/29.
+ * <p/>
+ * p3 登录
+ */
+public class LoginActivity extends BaseActivity implements View.OnClickListener {
+
+    private TextView FreeRegistration;
+    private TextView PasswordForget;
+    private Button button;
+    private ImageButton qq;
+    private ImageButton weibo;
+    private ImageButton sina;
+
+    private EditText username;
+    private EditText password;
+
+    TitleBarManager titleBarManager;
+
+    private ImageView iv_clear_username;
+    private ImageView iv_clear_password;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+
+        //保存用户名  和  密码   1记住   0没记住
+        if ("1".equals(SharedPreferencesUtil.getFromFile(LoginActivity.this, Constants.ISREMBERPWD))) {
+            String username = SharedPreferencesUtil.getFromFile(LoginActivity.this, Constants.USERACCOUNT);
+            String password = SharedPreferencesUtil.getFromFile(LoginActivity.this, Constants.USERPWD);
+
+//            LoginRequest(username, password);
+        }
+
+        titleBarManager = new TitleBarManager();
+        titleBarManager.init(LoginActivity.this, getSupportActionBar());
+        titleBarManager.showCommonTitleBar(R.string.Login, R.drawable.common_back, false);
+
+//        PushManager.getInstance().initialize(this.getApplicationContext());
+
+        showLoadingPage(false);
+    }
+
+
+    @Override
+    protected void initBaseData() {
+
+    }
+
+    @Override
+    public View createSuccessView(LayoutInflater inflater) {
+
+        View view = inflater.inflate(R.layout.activity_login, null);
+        FreeRegistration = (TextView) view.findViewById(R.id.free_registration);
+        FreeRegistration.setOnClickListener(this);
+        PasswordForget = (TextView) view.findViewById(R.id.password_forget);
+        PasswordForget.setOnClickListener(this);
+        button = (Button) view.findViewById(R.id.Login);
+        button.setOnClickListener(this);
+
+        /*二期做 第三方登入*/
+        qq = (ImageButton) view.findViewById(R.id.qq);
+        weibo = (ImageButton) view.findViewById(R.id.weibo);
+        sina = (ImageButton) view.findViewById(R.id.sina);
+        qq.setOnClickListener(this);
+        weibo.setOnClickListener(this);
+        sina.setOnClickListener(this);
+        username = (EditText) view.findViewById(R.id.username);
+        password = (EditText) view.findViewById(R.id.password);
+
+        iv_clear_username = (ImageView) view.findViewById(R.id.iv_clear_username);
+        iv_clear_username.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                username.setText("");
+            }
+        });
+
+        iv_clear_password = (ImageView) view.findViewById(R.id.iv_clear_password);
+        iv_clear_password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                password.setText("");
+            }
+        });
+
+        return view;
+    }
+
+    @Override
+    protected LoadingPage.LoadResult load() {
+
+        return LoadingPage.LoadResult.success;
+    }
+
+
+    @Override
+    public void clickBarleft() {
+
+        finish();
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.free_registration:
+                Utils.moveTo(LoginActivity.this, RegisteredActivity.class);
+                break;
+            case R.id.password_forget:
+                Utils.moveTo(LoginActivity.this, RetrievePasswordActivity.class);
+                break;
+            case R.id.Login:
+                //bh
+//                username.setText("13889293434");
+//                password.setText("123123");
+                //yh
+//                username.setText("13654990997");
+//                password.setText("wzhj0528");
+
+//                username.setText("15142007520");
+//                password.setText("yu123456");
+
+                username.setText("15840172517");
+                password.setText("111111");
+
+//                username.setText("15712439883");
+//                password.setText("111111");
+
+                if (checkUserPas()) {
+
+                    LoginRequest(username.getText().toString(), password.getText().toString());
+
+                }
+                break;
+            //二期做 第三方登入
+            case R.id.qq:
+                Toast.makeText(this, R.string.looking_forward_to, Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.weibo:
+                Toast.makeText(this, R.string.looking_forward_to, Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.sina:
+                Toast.makeText(this, R.string.looking_forward_to, Toast.LENGTH_SHORT).show();
+                break;
+
+        }
+    }
+
+
+    private void LoginRequest(final String username, final String password) {
+        LoginRequest request = new LoginRequest(new Response.Listener<LoginResponse>() {
+            @Override
+            public void onResponse(LoginResponse response) {
+
+                Utils.closeDialog();
+                if (response != null && response.getStatus() == 0) {// success
+
+                    //保存用户名  和  密码   1记住   0没记住
+                    if ("0".equals(SharedPreferencesUtil.getFromFileByDefault(LoginActivity.this, Constants.ISREMBERPWD,"0"))) {
+                        SharedPreferencesUtil.saveToFile(LoginActivity.this, Constants.USERACCOUNT, username);
+                        SharedPreferencesUtil.saveToFile(LoginActivity.this, Constants.USERPWD, password);
+                        SharedPreferencesUtil.saveToFile(LoginActivity.this, Constants.ISREMBERPWD, "1");
+                    }
+
+
+                    YbbApplication.getInstance().setUserPhone(username);
+                    YbbApplication.getInstance().setMyUserInfo(response.getData());
+                    BackGroundTask task = new BackGroundTask();
+                    task.execute();
+                    DbUtils dbUtils = DbManager.getInstance(mContext)
+                            .getDefaultDbUtils();
+                    try {
+                        boolean isExist = dbUtils.tableIsExist(Message.class);
+                        if (!isExist) {// insert
+                            dbUtils.createTableIfNotExist(Message.class);
+                        }
+                        boolean is = dbUtils.tableIsExist(MessageFoods.class);
+                        if (!is) {// insert
+                            dbUtils.createTableIfNotExist(MessageFoods.class);
+                        }
+
+                    } catch (DbException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                    if ("1".equals(response.getData().getIsBind())) {//是否绑定地址：1已绑定地址、0未绑定"
+                        // 把TokenID \ Userid \ Usertype 保存
+                        Utils.moveTo(LoginActivity.this, HomeActivity.class);
+//                                    finish();
+                    } else {
+                        Intent intent = new Intent();
+                        intent.putExtra("from", "login_register");
+                        if (YbbApplication.getInstance().role_bh.equals(response.getData().getTypeId())) {//病患
+                            intent.setClass(LoginActivity.this, ModificationAddressPatientActivity.class);
+                            //病患
+                        }
+                        if (YbbApplication.getInstance().role_yh.equals(response.getData().getTypeId())) {
+                            intent.setClass(LoginActivity.this, ModificationAddressMedicalActivity.class);
+                            //医护
+                        }
+                        startActivity(intent);
+                    }
+                    // 把TokenID \ Userid \ Usertype 保存
+//                                YbbApplication.getInstance().setMyUserInfo(response.getData());
+//                                Utils.moveTo(LoginActivity.this,HomeActivity.class);
+                    finish();
+                } else {
+                    Utils.makeToastAndShow(getBaseContext(), response.getMsg());
+                }
+            }
+        }
+
+                , LoginActivity.this);
+        request.setUsername(username);
+        request.setPassword(password);
+        request.setHandleCustomErr(false);
+        Utils.showProgressDialog(this);
+        WebUtils.doPost(request);
+
+
+    }
+
+    private boolean checkUserPas() {
+        if (StringUtils.isEmpty(username.getText().toString())) {
+            Toast.makeText(LoginActivity.this, "手机号不能为空", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (StringUtils.isEmpty(password.getText().toString())) {
+            Toast.makeText(LoginActivity.this, "密码不能为空", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (!Utils.checkPhoneNum(username.getText().toString())) {
+            Toast.makeText(LoginActivity.this, "手机号不合法", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (password.getText().toString().length() < 6 || password.getText().toString().length() > 16) {
+            Toast.makeText(this, "密码长度为6-16", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
+    }
+
+}

@@ -1,0 +1,266 @@
+<resources>
+    <string name="app_name">医帮宝</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="crop__saving">Saving picture…</string>
+    <string name="crop__wait">Please wait…</string>
+    <string name="crop__pick_error">No image sources available</string>
+
+    <string name="crop__done">DONE</string>
+    <string name="crop__cancel">CANCEL</string>
+<!--    common-->
+    <string name="str_edit">编辑</string>
+    <string name="str_finish">完成</string>
+
+    <!--  loading-->
+    <string name="load_error">加载失败,点击重试</string>
+    <string name="load_more">加载中...</string>
+    
+    <!--p2 注册-->
+    <string name="str_average_user">普通用户</string>
+    <string name="str_medical_staff">医护人员</string>
+    <string name="str_identity">选择身份</string>
+    <string name="str_phone_number">请输入手机号码</string>
+    <string name="str_verification_code">请输入验证码</string>
+    <string name="str_verification">获取验证码</string>
+    <string name="str_prompt">(请在60秒内完成验证，超时请点击重新发送)</string>
+    <string name="str_agree">我同意</string>
+    <string name="str_service_agreement">《医帮宝服务协议》</string>
+    <string name="str_next_step">下一步</string>
+
+   
+    <!--P2-1注册-手机-->
+    <string name="register">注册</string>
+    <string name="search">搜索</string>
+    <string name="str_nickname">请输入昵称</string>
+    <string name="str_password">请输入密码</string>
+    <string name="str_submit">提交</string>
+
+    <!--p2_3注册协议-->
+    <string name="registration_agreement">注册协议</string>
+
+    <!--p3 登录-->
+    <string name="Login">登录</string>
+    <string name="str_phone">请输入11位手机号</string>
+    <string name="str_password_input">请输入密码6-16个字符</string>
+    <string name="str_password_forget">忘记密码？</string>
+    <string name="str_free_registration">免费注册</string>
+    <string name="str_account_login">第三方账号登入</string>
+    <string name="looking_forward_to">敬请期待</string>
+    <string name="commodity_detail_title">餐品详情</string>
+
+    <!-- P4 找回密码-->
+    <string name="retrieve_password">找回密码</string>
+    <string name="confirm_password">确认密码</string>
+
+
+    <!-- P5首页-->
+    <string name="str_h_mine">我的</string>
+    <string name="str_h_shopping">购物车</string>
+    <string name="str_h_category">类目</string>
+    <string name="str_h_home">首页</string>
+
+
+    <string name="str_h_restaurant_booking">订餐服务</string>
+    <string name="str_h_ordering_goods">商品订购</string>
+    <string name="str_h_sales_promotion">促销活动</string>
+
+    <string name="str_h_search">请输入关键字进行搜索</string>
+
+<!--    P5-1 搜索-->
+    <string name="str_h_search_good">商品</string>
+    <string name="str_h_search_food">餐品</string>
+    <!-- P5-4 消息-->
+    <string name="message_title">消息</string>
+    <string name="regularly_remind">定时提醒</string>
+    <string name="order_remind">订单提醒</string>
+    <string name="activity_remind">活动提醒</string>
+    <string name="system_remind">系统提醒</string>
+
+    <!-- P5-5 活动提醒-->
+    <string name="read_more">阅读全文</string>
+    <string name="activity_head">活动</string>
+
+    <!--<P6-->
+    <string name="s_several_meals">餐次</string>
+    <string name="s_cooking_stove">灶别</string>
+    <string name="s_trage_data">预定日期</string>
+
+    <string name="s_zero_point_meal">零点餐</string>
+    <string name="s_nutritious_food">营养餐</string>
+    <string name="s_patients_meals">病患套餐</string>
+    <string name="s_medical_meals">医护套餐</string>
+
+    <string name="s_breakfast">早餐</string>
+    <string name="s_lunch">中餐</string>
+    <string name="s_dinner">晚餐</string>
+
+    <string name="Order_remind_details">订单详情</string>
+    <string name="Order_number">订单号:</string>
+    <string name="Order_tracking">订单跟踪</string>
+
+
+    <!-- P6-6 修改地址-->
+    <string name="modification_address">修改地址</string>
+    <string name="Manually_modify">手动修改</string>
+    <string name="submit">提交</string>
+    <string name="address_hospital">医院名称</string>
+    <string name="address_department">科室</string>
+    <string name="address_beds">床位</string>
+    <string name="address_name">姓名</string>
+    <string name="address_telephone">电话</string>
+    <string name="address_detailed">详细地址</string>
+
+    <!-- P11 资讯-->
+    <string name="information">资讯一览</string>
+    <string name="information_details">详情</string>
+
+
+    <string name="evaluation">评价</string>
+    <string name="MyEvaluation">我要评论</string>
+    <string name="Evaluation">评论</string>
+
+    <string name="basic_information">基本信息</string>
+    <string name="information_head">头像</string>
+    <string name="information_nickname">昵称</string>
+    <string name="information_save">保存</string>
+    <string name="Modify_success">修改成功</string>
+    <string name="shipping_address">收货地址管理</string>
+    <string name="scanning">扫一扫</string>
+    <string name="address">地址:</string>
+    <string name="message_notice">接受新消息通知</string>
+    <string name="message_notice_sound">提示音效</string>
+    <string name="message_notice_bell">铃声提醒</string>
+    <string name="message_notice_vibration">震动提醒</string>
+
+    <string name="commodity_time_label">预定日期：</string>
+    <string name="commodity_score_label">总评价：</string>
+    <string name="commodity_detail_label">餐品详情</string>
+    <string name="commodity_detail_main">主食：</string>
+    <string name="commodity_detail_coll">收藏</string>
+
+    <string name="set_up">设置</string>
+    <string name="feedback">意见反馈</string>
+    <string name="clear_cache">清除缓存</string>
+    <string name="service_center">服务中心</string>
+    <string name="set_up_about">关于医帮宝</string>
+    <string name="exit">退出当前账号</string>
+
+    <!--P14-33填写定制-->
+    <string name="message_notice_type">提醒类型</string>
+    <string name="message_medicineAlarms">订餐提醒</string>
+    <string name="message_mealAlarms">药物定时提醒</string>
+
+    <!--P6-3加入购物车-->
+    <string name="str_shop_add_num">添加数量</string>
+    <string name="str_shop_add_shop">加入购物车</string>
+    <string name="str_shop_buy_now">立即购买</string>
+    <string name="str_shop_payment">付款</string>
+    <string name="str_shop_meals">餐品</string>
+    <string name="str_shop_goods">商品</string>
+    <!--P6-7 付款-->
+    <string name="str_alipay">支付宝支付</string>
+    <string name="str_wechat_payment">微信支付</string>
+    <string name="str_balance_paid">余额支付</string>
+
+    <!--P23-->
+    <string name="products">餐品</string>
+    <string name="goods">商品</string>
+    <string name="Order_meal">代点餐</string>
+    <string name="distribution">配送单</string>
+    <string name="refund_meal_reason">退餐原因</string>
+
+    <string name="reason">原因详述</string>
+    <string name="upload">凭证上传（可传5张，每张不超5M）</string>
+
+
+    <string name="str_pay_psd">请输入支付密码</string>
+    <string name="order_make_receiver_name">收件人：</string>
+    <string name="order_make_receiver_phone">手机：</string>
+    <string name="order_make_receiver_tele">座机：</string>
+    <string name="order_make_receiver_sender">配餐员：</string>
+    <string name="order_scheduled_time">预定日期：</string>
+    <string name="order_pay_amount">实付款</string>
+    <string name="order_make_sure">确认订单</string>
+    <string name="order_make_title">填写订单</string>
+
+    <string name="my_account_balance">余额：</string>
+    <string name="my_account_out">转出</string>
+    <string name="my_account_in">转入</string>
+    <string name="my_account_pay_limit">支付限额：</string>
+    <string name="my_account_history">转入转出</string>
+    <string name="my_account_title">我的账户</string>
+    <string name="my_account_set_limit">设置支付限额</string>
+    <string name="my_account_set_pwd">设置支付密码</string>
+    <string name="my_account_all_record">查看所有明细</string>
+    <string name="my_account_score">积分</string>
+    <string name="my_account_pay_pwd">余额支付密码：</string>
+    <string name="my_account_verification_code">验证码</string>
+    <string name="my_account_pay_pwd_title">余额支付密码</string>
+    <string name="my_account_pay_limit_title">余额支付限额</string>
+    <string name="my_account_out_amount">转出金额：</string>
+    <string name="my_account_in_amount">转入金额：</string>
+    <string name="my_account_out_to">转出至</string>
+    <string name="my_account_wx">微信</string>
+    <string name="my_account_zfb">支付宝</string>
+    <string name="my_account_wx_pay">微信支付</string>
+    <string name="my_account_zfb_pay">支付宝支付</string>
+    <string name="my_account_remind">提醒</string>
+    <string name="my_account_alarm_repeat">重复</string>
+    <string name="my_account_alarm_remind_type">提醒类型</string>
+    <string name="my_account_alarm_remind_name">定制名称</string>
+    <string name="my_account_alarm_remind_edit">填写提醒</string>
+    <string name="my_account_alarm_week1">星期一</string>
+    <string name="my_account_alarm_week2">星期二</string>
+    <string name="my_account_alarm_week3">星期三</string>
+    <string name="my_account_alarm_week4">星期四</string>
+    <string name="my_account_alarm_week5">星期五</string>
+    <string name="my_account_alarm_week6">星期六</string>
+    <string name="my_account_alarm_week7">星期日</string>
+
+    <!--我的-->
+
+    <string name="str_collection_of_meals">收藏的餐品</string>
+    <string name="str_collection_of_goods">收藏的商品</string>
+    <string name="str_collection_of_info">收藏的资讯</string>
+    <string name="str_mine_order">我的订单</string>
+    <string name="str_mine_acccount">我的账户</string>
+    <string name="str_mine_diy">我的定制</string>
+    <string name="str_mine_card">我的卡券</string>
+    <string name="str_mine_address_mamager">收货地址管理</string>
+    <string name="str_mine_notice">消息通知</string>
+    <string name="str_addr_select">地址选择</string>
+
+    <!--我的订单-->
+    <string name="str_mine_order_all">全部</string>
+    <string name="str_mine_order_obligation">待付款</string>
+    <string name="str_mine_order_receive">待收货</string>
+    <string name="str_mine_order_to_evaluate">待评价</string>
+    <string name="str_mine_order_back">已退餐</string>
+
+    <string name="str_mine_order_to_delete">删除订单</string>
+    <string name="str_mine_order_addcomment">添加评价</string>
+    <string name="str_mine_order_cancle">取消订单</string>
+    <string name="str_mine_order_pay">付款</string>
+    <string name="str_mine_order_comment">待评价</string>
+
+    <string name="str_mine_order_refund_of">退款中</string>
+    <string name="str_mine_order_refunded">已退款</string>
+    <string name="str_mine_order_confirm">确认收货</string>
+    <string name="str_mine_order_add_evaluate">添加评价</string>
+    <string name="str_mine_order_Receiving">已收货</string>
+
+    <string name="str_mine_order_want_comment">我要评价</string>
+    <string name="dec">描述</string>
+
+<!--    我的积分-->
+    <string name="str_my_integral">我的积分</string>
+    <string name="str_redemption">积分兑换商品</string>
+    <string name="str_integral">积分：20000</string>
+    <string name="str_integral_water">积分流水</string>
+
+    <!--将二维码放入框内, 即可自动扫描-->
+    <string name="scan_text">将二维码放入框内, 即可自动扫描</string>
+</resources>

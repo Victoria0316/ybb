@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/common_RegisteredLeft"
+    android:paddingLeft="@dimen/common_RegisteredLeft"
+    android:paddingRight="@dimen/common_RegisteredLeft">
+
+    <EditText
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:background="@drawable/my_evaluation"
+        android:gravity="top"/>
+    <Button
+        android:id="@+id/str_submit"
+        style="@style/BlueButton"
+        android:text="@string/str_submit"
+        android:layout_marginTop="@dimen/common_List_Item"/>
+
+</LinearLayout>

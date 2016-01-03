@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/user_avatar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="@dimen/common_distance"
+        android:layout_marginLeft="@dimen/common_distance"
+        android:src="@drawable/loading" />
+
+    <TextView
+        android:id="@+id/time"
+        style="@style/text_12_sp"
+        android:layout_alignTop="@id/user_avatar"
+        android:layout_below="@id/info_line"
+        android:layout_marginRight="@dimen/common_padding_distance"
+        android:layout_alignParentRight="true"
+        android:text="2015/01/01"
+        />
+
+    <TextView
+        android:id="@+id/user_nickname"
+        style="@style/text_13_sp"
+        android:textSize="@dimen/common_Title_34px"
+        android:layout_alignTop="@id/user_avatar"
+        android:layout_marginLeft="@dimen/common_padding_distance"
+        android:layout_toRightOf="@id/user_avatar"
+        android:text="2231xw"
+        android:textColor="@color/black" />
+
+    <RatingBar
+        android:id="@+id/score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:isIndicator="true"
+        android:progressDrawable="@drawable/rating_bar"
+        android:layout_alignLeft="@id/user_nickname"
+        android:layout_below="@id/user_nickname"
+        android:maxHeight="12dip"
+        android:minHeight="12dip"
+        />
+    <TextView
+        android:id="@+id/user_reviews"
+        style="@style/text_13_sp"
+        android:layout_alignLeft="@id/score"
+        android:layout_below="@id/score"
+        android:layout_marginRight="@dimen/commodity_user_reviews"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:singleLine="false"
+        android:text="还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错还不错"
+        android:textColor="@color/light_black" />
+
+    <TextView
+        android:id="@+id/reviews_line"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@id/user_reviews"
+        android:layout_marginTop="@dimen/common_distance"
+        android:background="@color/line" />
+</RelativeLayout>

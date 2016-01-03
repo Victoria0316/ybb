@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:layout_marginTop="@dimen/common_RegisteredLeft"
+        style="@style/The_divider"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/common_RegisteredLeft"
+        android:paddingRight="@dimen/common_RegisteredLeft"
+        android:background="@drawable/message_notice_bacdground">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/message_notice"
+            android:textColor="@color/common_black"
+            android:textSize="@dimen/common_InputBox_28px"
+            android:layout_centerVertical="true"/>
+
+        <com.bluemobi.ybb.view.SwitchView
+            android:id="@+id/switch_button"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_width="40dip"
+            android:layout_height="40dp" />
+
+    </RelativeLayout>
+
+    <View
+        style="@style/The_divider"/>
+
+    <View
+        android:layout_marginTop="@dimen/common_RegisteredLeft"
+        style="@style/The_divider"/>
+
+    <com.bluemobi.ybb.view.CustomLongSpinner
+        android:id="@+id/remind_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true">
+    </com.bluemobi.ybb.view.CustomLongSpinner>
+
+</LinearLayout>

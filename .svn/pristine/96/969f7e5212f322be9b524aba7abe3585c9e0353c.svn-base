@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.bluemobi.ybb.view.WheelView
+                android:id="@+id/time_h"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </com.bluemobi.ybb.view.WheelView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.bluemobi.ybb.view.WheelView
+                android:id="@+id/time_m"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </com.bluemobi.ybb.view.WheelView>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line" />
+
+    <RelativeLayout
+        android:id="@+id/week_select"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/my_account_alarm_edit_week_w"
+        android:layout_marginTop="@dimen/common_distance"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/line" />
+
+        <TextView
+            android:id="@+id/label"
+            style="@style/text_13_sp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/common_distance"
+            android:text="@string/my_account_alarm_repeat"
+            android:textColor="@color/common_black"
+            android:textSize="@dimen/common_InputBox_28px"/>
+
+        <ImageView
+            android:id="@+id/arrow_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/common_distance"
+            android:src="@drawable/arrow_right_gray" />
+
+        <TextView
+            android:id="@+id/content"
+            style="@style/text_12_sp"
+            android:layout_width="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/arrow_right"
+            android:layout_toRightOf="@id/label"
+            android:gravity="right"
+            android:textSize="@dimen/common_InputBox_28px"
+            android:textColor="@color/common_InputBox" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/line" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/my_account_alarm_edit_week_w"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/line" />
+
+        <com.bluemobi.ybb.view.CustomLongSpinner
+            android:id="@+id/remind_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true">
+        </com.bluemobi.ybb.view.CustomLongSpinner>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/line" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/my_account_alarm_edit_week_w"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/line" />
+
+        <TextView
+            android:id="@+id/name_label"
+            style="@style/text_13_sp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/common_distance"
+            android:text="@string/my_account_alarm_remind_name"
+            android:textColor="@color/common_black"
+            android:textSize="@dimen/common_InputBox_28px"/>
+
+
+        <EditText
+            android:id="@+id/subheading"
+            style="@style/text_12_sp"
+            android:layout_width="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/common_distance"
+            android:layout_toRightOf="@id/name_label"
+            android:background="@null"
+            android:gravity="right"
+            android:text="晚餐定制"
+            android:textSize="@dimen/common_InputBox_28px"
+            android:textColor="@color/common_InputBox" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/line" />
+    </RelativeLayout>
+</LinearLayout>

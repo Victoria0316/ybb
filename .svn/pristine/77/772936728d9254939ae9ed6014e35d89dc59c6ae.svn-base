@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="@dimen/common_distance"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    >
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:src="@drawable/lv_item_image_bg"
+        android:id="@+id/iv_image_bg" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/iv_image_bg"
+        android:padding="@dimen/common_padding_distance"
+        android:layout_marginLeft="@dimen/common_padding_distance"
+        android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/tv_artTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textSize="@dimen/common_InputBox_28px"
+                android:textColor="@color/common_black"
+                android:text="感冒患者如何能够通过吃治愈"/>
+
+
+            <TextView
+                android:id="@+id/tv_artAbstract"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/common_padding_distance"
+                android:textSize="@dimen/common_identity_24px"
+                android:textColor="@color/common_InputBox"
+                android:text="生姜红糖水生姜红糖水生姜红糖水生姜红糖水生姜红糖水"/>
+
+        </LinearLayout>
+
+
+</RelativeLayout>

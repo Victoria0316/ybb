@@ -1,0 +1,62 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/modificationAddress"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/list_item"
+        android:background="@color/white"
+        android:padding="@dimen/common_RegisteredLeft"
+        android:layout_marginTop="@dimen/common_RegisteredLeft">
+
+        <TextView
+            android:id="@+id/nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/common_black"
+            android:textSize="@dimen/common_ListTitle_27px"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:id="@+id/telephone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/common_RegisteredTop_small"
+            android:layout_toRightOf="@id/nickname"
+            android:textColor="@color/common_black"
+            android:textSize="@dimen/common_ListTitle_27px"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nickname"
+            android:layout_marginTop="@dimen/common_RegisteredLeft"
+            android:text="@string/address"
+            android:textColor="@color/common_black"
+            android:textSize="@dimen/common_ListContent_25px" />
+
+        <TextView
+            android:id="@+id/address_detailed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nickname"
+            android:layout_marginLeft="@dimen/common_RegisteredTop_small"
+            android:layout_marginTop="@dimen/common_RegisteredLeft"
+            android:layout_toRightOf="@id/address"
+            android:textColor="@color/common_black"
+            android:textSize="@dimen/common_ListContent_25px" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/right_arrow" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/fl_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+    </FrameLayout>
+
+    <View
+        style="@style/The_divider"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_bottomMenu"
+        android:orientation="horizontal"
+        android:background="@color/white">
+
+        <RelativeLayout
+            android:id="@+id/rl_products"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="1" >
+
+
+
+            <ImageView
+                android:id="@+id/iv_products"
+                style="@style/Home_iv"
+                android:src="@drawable/products_bright" />
+
+            <TextView
+                android:id="@+id/tv_products"
+                android:layout_toRightOf="@id/iv_products"
+                android:text="@string/products"
+                style="@style/distribution_tv" />
+
+        </RelativeLayout>
+
+        <View
+            style="@style/The_vertical"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_goods"
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+
+
+            <ImageView
+                android:id="@+id/iv_goods"
+                style="@style/Home_iv"
+                android:src="@drawable/goods_bright" />
+
+            <TextView
+                android:id="@+id/tv_goods"
+                android:layout_toRightOf="@id/iv_goods"
+                android:text="@string/goods"
+                style="@style/distribution_tv" />
+
+        </RelativeLayout>
+
+        <View
+            style="@style/The_vertical"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_meal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="1" >
+
+
+            <ImageView
+                android:id="@+id/iv_meal"
+                style="@style/Home_iv"
+                android:src="@drawable/ordering_meal_bright" />
+
+            <TextView
+                android:id="@+id/tv_meal"
+                android:text="@string/Order_meal"
+                android:layout_toRightOf="@id/iv_meal"
+                style="@style/distribution_tv" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

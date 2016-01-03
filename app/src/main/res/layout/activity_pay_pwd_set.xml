@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line"
+        android:layout_marginTop="@dimen/common_distance"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/my_account_pwd_height"
+        android:background="@color/white">
+
+        <TextView
+            style="@style/ListTitle"
+            android:layout_marginLeft="@dimen/common_distance"
+            android:text="@string/my_account_pay_pwd"
+            android:layout_centerVertical="true"
+            />
+
+        <com.jungly.gridpasswordview.GridPasswordView
+            android:id="@+id/pwd"
+            android:layout_width="240dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/common_distance"
+            />
+    </RelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/my_account_pwd_height"
+        android:background="@color/white">
+
+
+        <Button
+            android:id="@+id/get_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/btn_light_blue"
+            android:text="@string/str_verification"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/common_distance"
+            android:paddingTop="@dimen/common_distance"
+            android:paddingBottom="@dimen/common_distance"
+            />
+        <EditText
+            android:id="@+id/validateCode"
+            style="@style/ListTitle"
+            android:layout_marginLeft="@dimen/common_distance"
+            android:layout_centerVertical="true"
+            android:hint="@string/my_account_verification_code"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_toLeftOf="@id/get_code"
+            android:textColor="@color/light_black"
+            />
+    </RelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/btn_light_blue"
+        android:text="@string/str_submit"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/common_distance"
+        android:layout_marginLeft="@dimen/common_distance"
+        android:layout_marginTop="@dimen/my_account_pwd_margin_top"
+        android:paddingTop="@dimen/common_distance"
+        android:paddingBottom="@dimen/common_distance"
+        android:gravity="center"
+        android:id="@+id/submit"
+        />
+</LinearLayout>

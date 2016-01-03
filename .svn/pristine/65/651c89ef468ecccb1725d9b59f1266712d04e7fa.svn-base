@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_line"
+        android:id="@+id/rl_wrap_kind"
+        android:padding="@dimen/common_distance"
+        android:background="@drawable/home_search_item">
+
+   <ImageView
+       android:layout_width="100dp"
+       android:layout_height="70dp"
+        android:src="@drawable/lv_item_image_bg"
+        android:id="@+id/iv_image_bg" />
+
+        <android.support.percent.PercentRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/common_padding_distance"
+            android:layout_marginLeft="@dimen/common_padding_distance"
+            android:layout_toRightOf="@id/iv_image_bg">
+
+        <RelativeLayout
+            android:id="@+id/rl_one"
+            android:layout_width="0dp"
+            app:layout_widthPercent="50%"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/lv_item_text"
+                android:id="@+id/tv_target_date"
+                android:text="@string/s_trage_data"/>
+
+            <TextView
+                style="@style/lv_item_text"
+                android:id="@+id/tv_several_meals"
+                android:text="@string/s_several_meals"
+                android:layout_marginTop="@dimen/common_padding_distance"
+                android:layout_below="@id/tv_target_date"/>
+
+            <TextView
+                style="@style/lv_item_text"
+                android:id="@+id/tv_cooking_stove"
+                android:text="@string/s_cooking_stove"
+                android:layout_marginTop="@dimen/common_padding_distance"
+                android:layout_below="@id/tv_several_meals"/>
+
+
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            app:layout_widthPercent="50%"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/rl_one">
+
+            <TextView
+                style="@style/lv_item_text"
+                android:id="@+id/tv_target_date_text"
+                android:text="2015/6/4"/>
+
+
+            <TextView
+                style="@style/lv_item_text"
+                android:id="@+id/tv_several_meals_text"
+                android:text="早餐"
+                android:layout_marginTop="@dimen/common_padding_distance"
+                android:layout_below="@id/tv_target_date_text"/>
+
+            <TextView
+                style="@style/lv_item_text"
+                android:id="@+id/tv_cooking_stove_text"
+                android:text="主食"
+                android:layout_marginTop="@dimen/common_padding_distance"
+                android:layout_below="@id/tv_several_meals_text"/>
+
+
+
+        </RelativeLayout>
+
+        </android.support.percent.PercentRelativeLayout>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

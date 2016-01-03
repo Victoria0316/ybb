@@ -1,0 +1,107 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:id="@+id/fl_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/common_padding_distance"
+        android:background="@color/white">
+
+        <RelativeLayout
+            android:id="@+id/rl_home"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:layout_weight="1" >
+
+
+
+                <ImageView
+                    android:id="@+id/iv_home"
+                    style="@style/Home_iv"
+                    android:src="@drawable/home_n" />
+
+                <TextView
+                    android:id="@+id/tv_home"
+                    android:layout_below="@id/iv_home"
+                    android:text="@string/str_h_home"
+                    style="@style/Home_tv" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_category"
+            android:layout_width="0dp"
+            android:gravity="bottom"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+
+
+                <ImageView
+                    android:id="@+id/iv_category"
+                    style="@style/Home_iv"
+                    android:src="@drawable/category_n" />
+
+                <TextView
+                    android:id="@+id/tv_category"
+                    android:layout_below="@id/iv_category"
+                    android:text="@string/str_h_category"
+                    style="@style/Home_tv" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_shopping"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:layout_weight="1" >
+
+
+                <ImageView
+                    android:id="@+id/iv_shopping"
+                    style="@style/Home_iv"
+                    android:src="@drawable/shopping_cart_n" />
+
+                <TextView
+                    android:id="@+id/tv_shopping"
+                    android:text="@string/str_h_shopping"
+                    android:layout_below="@id/iv_shopping"
+                    style="@style/Home_tv" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_mine"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:layout_weight="1" >
+
+
+                <ImageView
+                    android:id="@+id/iv_mine"
+                    style="@style/Home_iv"
+                    android:src="@drawable/mine_n" />
+
+                <TextView
+                    android:id="@+id/tv_mine"
+                    android:layout_below="@id/iv_mine"
+                    android:text="@string/str_h_mine"
+                    style="@style/Home_tv" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,274 @@
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg">
+
+    <RelativeLayout
+        android:id="@+id/rl_mine"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/mine_bg"
+        app:layout_heightPercent="50%">
+
+
+        <RelativeLayout
+            android:id="@+id/rl_mine_info"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_centerInParent="true">
+
+            <ImageView
+                android:id="@+id/iv_photo_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/mine_phote_bg" />
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iv_photo_bg"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/common_distance"
+                android:text="老七"
+                android:textColor="@color/white"
+                android:textSize="@dimen/common_DialogButton_30px" />
+
+
+
+            <RelativeLayout
+                android:id="@+id/rl_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_name"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/common_padding_distance"
+                android:background="@drawable/ratingbar_bg">
+
+            <RatingBar
+                android:id="@+id/roomRatingBar"
+                style="@style/roomRatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:numStars="5"
+                android:stepSize="0.5"
+                android:isIndicator="true" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+        <ImageView
+            android:id="@+id/iv_info_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/info"
+            android:paddingTop="@dimen/common_big_distance"
+            android:layout_above="@+id/linearLayout"
+            android:layout_toRightOf="@+id/rl_mine_info"
+            android:layout_toEndOf="@+id/rl_mine_info"
+            android:layout_marginBottom="43dp" />
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/common_padding_distance"
+            android:layout_marginTop="@dimen/common_padding_distance"
+            android:orientation="horizontal"
+            android:id="@+id/linearLayout">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tv_collect_meals"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="23"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/common_TitleRight_26px" />
+
+                <TextView
+                    android:id="@+id/tv_collect_meals_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_collect_meals"
+                    android:layout_centerHorizontal="true"
+                    android:text="餐品配送"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/common_TitleRight_26px" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/mine_line" />
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tv_collect_goods"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="23%"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/common_TitleRight_26px" />
+
+                <TextView
+                    android:id="@+id/tv_collect_goods_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_collect_goods"
+                    android:layout_centerHorizontal="true"
+                    android:text="好评率"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/common_TitleRight_26px" />
+
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/mine_line" />
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tv_collect_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="23"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/common_TitleRight_26px" />
+
+                <TextView
+                    android:id="@+id/tv_collect_info_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_collect_info"
+                    android:layout_centerHorizontal="true"
+                    android:text="排行榜"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/common_TitleRight_26px" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl_mine"
+        android:layout_marginTop="@dimen/common_distance"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:id="@+id/rl_total_money"
+                style="@style/pay_item_bg">
+
+                <TextView
+                    style="@style/pay_item_content"
+                    android:drawableLeft="@drawable/total_money"
+                    android:drawablePadding="@dimen/common_distance"
+                    android:gravity="center"
+                    android:text="商品配送总额" />
+
+                <TextView
+                    android:id="@+id/totalAmount"
+                    style="@style/pay_item_content"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:paddingRight="@dimen/common_distance"
+                    android:text="¥ 3000.00"
+                    android:textColor="@android:color/holo_red_light" />
+
+            </RelativeLayout>
+
+            <ImageView style="@style/pay_item_line" />
+
+
+            <RelativeLayout
+                android:id="@+id/rl_products_delivery"
+                style="@style/pay_item_bg">
+
+                <TextView
+                    style="@style/pay_item_content"
+                    android:drawableLeft="@drawable/meals_delivery_finish"
+                    android:drawablePadding="@dimen/common_distance"
+                    android:gravity="center"
+                    android:text="已完成商品配送" />
+
+                <ImageView style="@style/mine_item_next" />
+
+            </RelativeLayout>
+
+            <ImageView style="@style/pay_item_line" />
+
+
+            <RelativeLayout
+                android:id="@+id/rl_meals_delivery"
+                style="@style/pay_item_bg">
+
+                <TextView
+                    style="@style/pay_item_content"
+                    android:drawableLeft="@drawable/products_delivery"
+                    android:drawablePadding="@dimen/common_distance"
+                    android:gravity="center"
+                    android:text="已完成餐品配送" />
+
+                <ImageView style="@style/mine_item_next" />
+
+            </RelativeLayout>
+
+            <ImageView style="@style/pay_item_line" />
+
+            <RelativeLayout
+                android:id="@+id/Instead"
+                style="@style/pay_item_bg">
+
+                <TextView
+                    style="@style/pay_item_content"
+                    android:drawableLeft="@drawable/products_delivery"
+                    android:drawablePadding="@dimen/common_distance"
+                    android:gravity="center"
+                    android:text="代点餐订单" />
+
+                <ImageView style="@style/mine_item_next" />
+
+            </RelativeLayout>
+
+            <ImageView style="@style/pay_item_line" />
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</android.support.percent.PercentRelativeLayout>

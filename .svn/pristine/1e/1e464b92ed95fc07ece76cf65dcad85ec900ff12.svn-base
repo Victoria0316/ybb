@@ -1,0 +1,312 @@
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg">
+
+    <RelativeLayout
+        android:id="@+id/rl_mine"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_heightPercent ="50%"
+        android:background="@drawable/mine_bg">
+
+
+        <RelativeLayout
+            android:id="@+id/rl_mine_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <ImageView
+                android:id="@+id/iv_photo_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/mine_phote_bg" />
+
+            <TextView
+                android:id="@+id/iv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iv_photo_bg"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/common_padding_distance"
+                android:text="老七"
+                android:textColor="@color/white"
+                android:textSize="@dimen/common_DialogButton_30px" />
+
+            <TextView
+                android:id="@+id/tv_integrate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iv_name"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/common_padding_distance"
+                android:background="@drawable/mine_integrate"
+                android:gravity="center"
+                android:text="200积分"
+                android:textColor="@color/white"
+                android:textSize="@dimen/common_radioTitleImage_22px" />
+        </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="@dimen/common_padding_distance"
+                android:layout_marginBottom="@dimen/common_padding_distance"
+                 android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/collect_products"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tv_collect_meals"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="23"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/common_TitleRight_26px" />
+
+                    <TextView
+                        android:id="@+id/tv_collect_meals_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_collect_meals"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/str_collection_of_meals"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/common_TitleRight_26px" />
+                </RelativeLayout>
+                
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/mine_line"/>
+
+                <RelativeLayout
+                    android:id="@+id/collection_goods"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tv_collect_goods"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="23"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/common_TitleRight_26px" />
+
+                    <TextView
+                        android:id="@+id/tv_collect_goods_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@id/tv_collect_goods"
+                        android:text="@string/str_collection_of_goods"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/common_TitleRight_26px" />
+
+                </RelativeLayout>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/mine_line"/>
+
+                <RelativeLayout
+                    android:id="@+id/collection_consulting"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tv_collect_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="23" android:layout_centerHorizontal="true"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/common_TitleRight_26px" />
+
+                    <TextView
+                        android:id="@+id/tv_collect_info_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_collect_info"
+                        android:text="@string/str_collection_of_info"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/common_TitleRight_26px" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:scrollbars="none"
+        android:layout_below="@id/rl_mine"
+        android:layout_marginTop="@dimen/common_distance"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+
+            <RelativeLayout
+                android:id="@+id/rl_mine_order"
+                style="@style/pay_item_bg">
+
+                <TextView
+                    style="@style/pay_item_content"
+                    android:drawableLeft="@drawable/mine_order"
+                    android:gravity="center"
+                    android:drawablePadding="@dimen/common_distance"
+                    android:text="@string/str_mine_order" />
+
+                <ImageView
+                    style="@style/mine_item_next"/>
+
+            </RelativeLayout>
+
+            <ImageView
+                style="@style/pay_item_line" />
+
+
+
+            <RelativeLayout
+                android:id="@+id/rl_mine_account"
+                style="@style/pay_item_bg">
+
+                <TextView
+                    style="@style/pay_item_content"
+                    android:drawableLeft="@drawable/mine_acccount"
+                    android:gravity="center"
+                    android:drawablePadding="@dimen/common_distance"
+                    android:text="@string/str_mine_acccount" />
+
+                <ImageView
+                    style="@style/mine_item_next"/>
+
+            </RelativeLayout>
+
+            <ImageView
+                style="@style/pay_item_line" />
+
+
+
+            <RelativeLayout
+                android:id="@+id/rl_mine_card"
+                style="@style/pay_item_bg">
+
+                <TextView
+                    style="@style/pay_item_content"
+                    android:drawableLeft="@drawable/mine_card"
+                    android:gravity="center"
+                    android:drawablePadding="@dimen/common_distance"
+                    android:text="@string/str_mine_card" />
+
+                <ImageView
+                    style="@style/mine_item_next"/>
+
+            </RelativeLayout>
+
+            <ImageView
+                style="@style/pay_item_line" />
+            <RelativeLayout
+                android:id="@+id/rl_mine_diy"
+                style="@style/pay_item_bg">
+
+                <TextView
+                    style="@style/pay_item_content"
+                    android:drawableLeft="@drawable/mine_diy"
+                    android:gravity="center"
+                    android:drawablePadding="@dimen/common_distance"
+                    android:text="@string/str_mine_diy" />
+
+                <ImageView
+                    style="@style/mine_item_next"/>
+
+            </RelativeLayout>
+
+            <ImageView
+                style="@style/pay_item_line" />
+
+
+
+            <RelativeLayout
+                android:id="@+id/rl_mine_address"
+                android:layout_marginTop="@dimen/common_distance"
+                style="@style/pay_item_bg">
+
+                <TextView
+                    style="@style/pay_item_content"
+                    android:drawableLeft="@drawable/mine_address_mamager"
+                    android:gravity="center"
+                    android:drawablePadding="@dimen/common_distance"
+                    android:text="@string/str_mine_address_mamager" />
+
+                <ImageView
+                    style="@style/mine_item_next"/>
+
+            </RelativeLayout>
+
+            <ImageView
+                style="@style/pay_item_line" />
+
+            <RelativeLayout
+                android:id="@+id/rl_mine_notice"
+                android:layout_marginTop="@dimen/common_distance"
+                style="@style/pay_item_bg">
+
+                <TextView
+                    style="@style/pay_item_content"
+                    android:drawableLeft="@drawable/mine_notice"
+                    android:gravity="center"
+                    android:drawablePadding="@dimen/common_distance"
+                    android:text="@string/str_mine_notice" />
+
+                <ImageView
+                    style="@style/mine_item_next"/>
+
+            </RelativeLayout>
+
+
+           <!-- <ImageView
+                style="@style/pay_item_line" />
+
+            <RelativeLayout
+                android:id="@+id/rl_mine_setting"
+                android:layout_marginTop="@dimen/common_distance"
+                style="@style/pay_item_bg">
+
+                <TextView
+                    style="@style/pay_item_content"
+                    android:drawableLeft="@drawable/mine_notice"
+                    android:gravity="center"
+                    android:drawablePadding="@dimen/common_distance"
+                    android:text="@string/set_up" />
+
+                <ImageView
+                    style="@style/mine_item_next"/>
+
+            </RelativeLayout>-->
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</android.support.percent.PercentRelativeLayout>

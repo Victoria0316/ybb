@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    
+    <EditText
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/feedback_height"
+        android:background="@drawable/border_feedback"
+        android:hint="反馈内容"
+        android:layout_margin="@dimen/common_distance"
+        android:gravity="left"
+        android:padding="@dimen/common_distance"
+        />
+
+    <TextView
+        style="@style/btn_light_blue"
+        android:id="@+id/submit"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/common_distance"
+        android:layout_height="@dimen/btn_height"
+        android:text="@string/str_submit"
+        android:gravity="center"
+
+        />
+</LinearLayout>

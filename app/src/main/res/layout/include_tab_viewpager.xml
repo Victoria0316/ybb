@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/ll_tab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_search"
+        android:background="@drawable/home_search_tab_bg"
+        android:layout_marginBottom="@dimen/common_distance"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/rl_tab_breakfast"
+
+            style="@style/Home_search_tab_bg">
+
+            <TextView
+                style="@style/Home_btn"
+                android:id="@+id/tv_tab_breakfast"
+                android:layout_centerInParent="true"
+                android:text="@string/s_breakfast"
+
+                />
+
+            <ImageView
+                android:id="@+id/iv_tab_breakfast"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                />
+
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/tab_bar_line">
+
+        </ImageView>
+
+        <RelativeLayout
+            android:id="@+id/rl_tab_lunch"
+            android:layout_gravity="center_vertical"
+            style="@style/Home_search_tab_bg">
+
+            <TextView
+                style="@style/Home_btn"
+                android:id="@+id/tv_tab_lunch"
+                android:layout_centerInParent="true"
+                android:text="@string/s_lunch"
+
+                />
+            <ImageView
+                android:id="@+id/iv_tab_lunch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                />
+
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/tab_bar_line">
+
+        </ImageView>
+
+        <RelativeLayout
+            android:id="@+id/rl_tab_dinner"
+            android:layout_gravity="center_vertical"
+            style="@style/Home_search_tab_bg">
+
+            <TextView
+                style="@style/Home_btn"
+                android:id="@+id/tv_tab_dinner"
+                android:layout_centerInParent="true"
+                android:text="@string/s_dinner"
+
+                />
+            <ImageView
+                android:id="@+id/iv_tab_dinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                />
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+

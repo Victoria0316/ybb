@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/split"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_distance"
+        android:background="@color/common_bg"
+        />
+    <RelativeLayout
+        android:layout_below="@id/split"
+        android:id="@+id/title_rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/top_line"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/line" />
+
+        <TextView
+            android:id="@+id/type"
+            style="@style/text_13_sp"
+            android:layout_below="@id/top_line"
+            android:layout_marginLeft="@dimen/common_distance"
+            android:layout_marginTop="@dimen/order_make_margin_top"
+            android:text="预定餐"
+            android:textColor="@color/light_black" />
+        <TextView
+            android:id="@+id/type_ext"
+            style="@style/text_12_sp"
+            android:layout_below="@id/top_line"
+            android:layout_marginLeft="@dimen/common_padding_distance"
+            android:layout_marginTop="@dimen/order_make_margin_top"
+            android:text="(将在2个小时内送到)"
+            android:textColor="@color/common_gray"
+            android:layout_toRightOf="@id/type"
+            />
+
+        <TextView
+            android:id="@+id/bottom_line"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="@dimen/order_make_margin_top"
+            android:background="@color/line"
+            android:layout_below="@id/type"
+            />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:background="@drawable/temp_item"
+        android:layout_below="@id/title_rl"
+        android:layout_marginLeft="@dimen/common_distance"
+        android:layout_marginTop="@dimen/common_distance"
+        android:scaleType="fitXY"
+        />
+    <TextView
+        android:id="@+id/title"
+        style="@style/text_13_sp"
+        android:layout_marginLeft="@dimen/common_padding_distance"
+        android:layout_marginTop="@dimen/common_padding_distance"
+        android:layout_alignTop="@id/img"
+        android:text="紫薯庄园"
+        android:textColor="@color/light_black"
+        android:layout_toRightOf="@id/img"
+        />
+    <TextView
+        android:id="@+id/price"
+        style="@style/text_13_sp"
+        android:layout_marginLeft="@dimen/common_padding_distance"
+        android:layout_alignBottom="@id/img"
+        android:text="￥40.50"
+        android:textColor="@color/common_red"
+        android:layout_toRightOf="@id/img"
+        android:gravity="bottom"
+        />
+    <TextView
+        android:id="@+id/count"
+        style="@style/text_13_sp"
+        android:layout_marginLeft="@dimen/common_padding_distance"
+        android:layout_alignBottom="@id/price"
+        android:text="X 3"
+        android:textColor="@color/light_green"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/common_distance"
+        android:gravity="bottom"
+        />
+    <TextView
+        android:id="@+id/end_line"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="@dimen/common_distance"
+        android:background="@color/line"
+        android:layout_below="@id/img"
+        />
+    <TextView
+        android:id="@+id/pre_time"
+        style="@style/text_13_sp"
+        android:layout_marginLeft="@dimen/common_padding_distance"
+        android:layout_marginTop="@dimen/common_padding_distance"
+        android:layout_alignTop="@id/img"
+        android:text="2012-02-11"
+        android:textColor="@color/light_black"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/common_distance"
+        />
+
+    <TextView
+        android:id="@+id/pre_time_label"
+        style="@style/text_13_sp"
+        android:layout_marginLeft="@dimen/common_padding_distance"
+        android:layout_marginTop="@dimen/common_padding_distance"
+        android:layout_alignTop="@id/img"
+        android:text="预定日期："
+        android:textColor="@color/light_black"
+        android:layout_toLeftOf="@id/pre_time"
+        />
+</RelativeLayout>

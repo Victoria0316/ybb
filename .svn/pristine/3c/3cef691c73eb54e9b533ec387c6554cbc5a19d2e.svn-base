@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg">
+
+    <RelativeLayout
+        android:id="@+id/rl_wrap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_distance"
+        android:background="@drawable/home_search_item"
+        android:padding="@dimen/common_distance">
+
+        <ImageView
+            android:id="@+id/iv_image_bg"
+            android:layout_width="100dp"
+            android:layout_height="75dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/lv_item_image_bg" />
+
+
+        <TextView
+            android:id="@+id/tv_search_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/iv_image_bg"
+            android:layout_marginLeft="@dimen/common_distance"
+            android:layout_toRightOf="@id/iv_image_bg"
+            android:paddingTop="@dimen/common_padding_distance"
+            android:singleLine="true"
+            android:text="早餐（灶别内容）"
+            android:textColor="@color/common_black"
+            android:textSize="@dimen/common_InputBox_28px" />
+
+
+        <TextView
+            android:id="@+id/tv_charge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/iv_image_bg"
+            android:layout_marginLeft="@dimen/common_distance"
+            android:layout_toRightOf="@id/iv_image_bg"
+            android:text="口味"
+            android:textColor="@color/common_gray"
+            android:textSize="@dimen/common_InputBox_28px" />
+
+
+        <RatingBar
+            android:id="@+id/adapter_ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@+id/iv_image_bg"
+            android:layout_centerVertical="true"
+            style="@style/big_roomRatingBar"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_below="@id/rl_wrap"
+        android:background="@drawable/border"
+        android:layout_marginLeft="@dimen/common_distance"
+        android:layout_marginTop="@dimen/common_distance"
+        android:layout_marginRight="@dimen/common_distance"
+       >
+
+        <EditText
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/common_padding_distance"
+            android:background="@android:color/transparent"
+            android:textSize="@dimen/common_ListPrice_23px"
+            android:gravity="top"
+            android:hint="@string/dec"/>
+
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>

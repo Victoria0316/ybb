@@ -1,0 +1,194 @@
+package com.bluemobi.ybb.activity;
+
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import com.bluemobi.ybb.R;
+import com.bluemobi.ybb.app.TitleBarManager;
+import com.bluemobi.ybb.app.YbbApplication;
+import com.bluemobi.ybb.base.BaseActivity;
+import com.bluemobi.ybb.fragment.MedicalPlanFragment;
+import com.bluemobi.ybb.fragment.ZeroPointmealFragment;
+import com.bluemobi.ybb.util.PreferencesService;
+import com.bluemobi.ybb.util.StringUtils;
+import com.bluemobi.ybb.util.Utils;
+import com.bluemobi.ybb.view.LoadingPage;
+
+/**
+ * Created by liufy on 2015/7/6.
+ * P7医护套餐-医护
+ */
+public class MedicalPlanMealsActivity extends BaseActivity implements View.OnClickListener
+{
+
+    private MedicalPlanFragment medicalPlanFragment;
+
+    private ZeroPointmealFragment zeroPointmealFragment;
+
+    private FragmentManager fragmentManager;
+
+    private FrameLayout fl_content;
+
+    private TitleBarManager titleBarManager;
+
+    private  RelativeLayout rl_medical_food;
+
+    private RelativeLayout rl_zero_meals;
+
+    private TextView tv_medical_food;
+    private TextView tv_zero_meals;
+
+    private TextView tv_shopcar_total;
+
+    private RelativeLayout rl_shop;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        titleBarManager = new TitleBarManager();
+        titleBarManager.init(MedicalPlanMealsActivity.this,getSupportActionBar());
+        titleBarManager.showTwoTabTitleBar(R.drawable.common_back,R.drawable.common_search,R.string.s_medical_meals,R.string.s_zero_point_meal);
+        showLoadingPage(false);
+
+    }
+    public void setCarShopTotal(double price)
+    {
+        tv_shopcar_total.setText(price + "");
+    }
+
+    @Override
+    protected void initBaseData() {
+
+    }
+
+    public TextView getTv_shopcar_total() {
+        return tv_shopcar_total;
+    }
+
+    public void setTv_shopcar_total(TextView tv_shopcar_total) {
+        this.tv_shopcar_total = tv_shopcar_total;
+    }
+
+    @Override
+    public View createSuccessView(LayoutInflater inflater) {
+        View medicalMealView = inflater.inflate(R.layout.activity_medical_meals, null);
+        shopCart = (ImageView)medicalMealView. findViewById(R.id.iv_shop_car);
+        tv_shopcar_total = (TextView) medicalMealView.findViewById(R.id.tv_shopcar_total);
+        rl_shop = (RelativeLayout) medicalMealView.findViewById(R.id.rl_shop);
+        rl_medical_food = (RelativeLayout) titleBarManager.getTwoTabLeftView();
+        rl_zero_meals = (RelativeLayout) titleBarManager.getTwoTabRightView();
+        tv_medical_food = (TextView) rl_medical_food.getChildAt(0);
+        tv_zero_meals = (TextView) rl_zero_meals.getChildAt(0);
+        rl_shop.setOnClickListener(this);
+        fragmentManager = getFragmentManager();
+        setTabSelection(0);
+        return medicalMealView;
+    }
+
+    @Override
+    protected LoadingPage.LoadResult load() {
+        return LoadingPage.LoadResult.success;
+    }
+
+
+    @Override
+    public void clickTwoTableft() {
+        setTabSelection(0);
+    }
+
+    @Override
+    public void clickTwoTabright() {
+        setTabSelection(1);
+    }
+
+    @Override
+    public void clickImageRight() {
+        Intent intent = new Intent(mContext,HomeSearchActivity.class);
+        intent.putExtra("From","P7");
+        startActivity(intent);
+    }
+
+    private void setTabSelection(int index) {
+        clearSelection();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        hideFragments(transaction);
+        switch (index) {
+            case 0:
+
+                rl_medical_food.setBackgroundResource(R.drawable.two_tab_left);
+                tv_medical_food.setTextColor(getResources().getColor(R.color.common_blue));
+                if (medicalPlanFragment == null)
+                {
+                    medicalPlanFragment = new MedicalPlanFragment();
+                    transaction.add(R.id.fl_content, medicalPlanFragment);
+                    //transaction.add()
+                } else
+                {
+                    transaction.show(medicalPlanFragment);
+
+                }
+                break;
+            case 1:
+                rl_zero_meals.setBackgroundResource(R.drawable.two_tab_right);
+                tv_zero_meals.setTextColor(getResources().getColor(R.color.common_blue));
+                if (zeroPointmealFragment == null) {
+                    zeroPointmealFragment = new ZeroPointmealFragment();
+
+                    transaction.add(R.id.fl_content, zeroPointmealFragment);
+                } else {
+                    transaction.show(zeroPointmealFragment);
+                }
+                break;
+        }
+        transaction.commit();
+    }
+
+    /**
+     * 清除掉所有的选中状态。
+     */
+    private void clearSelection() {
+        rl_medical_food.setBackgroundResource(R.color.common_transparent);
+        rl_zero_meals.setBackgroundResource(R.color.common_transparent);
+        tv_medical_food.setTextColor(getResources().getColor(R.color.white));
+        tv_zero_meals.setTextColor(getResources().getColor(R.color.white));
+    }
+
+
+    private void hideFragments(FragmentTransaction transaction) {
+        if (zeroPointmealFragment != null) {
+            transaction.hide(zeroPointmealFragment);
+        }
+        if (medicalPlanFragment != null) {
+            transaction.hide(medicalPlanFragment);
+        }
+
+    }
+
+    @Override
+    public void clickBarleft() {
+        finish();
+    }
+
+    @Override
+    public void onClick(View v)
+    {
+        switch (v.getId())
+        {
+            case R.id.rl_shop:
+                Utils.moveTo(mContext,ShopCarActivity.class);
+                break;
+
+
+
+        }
+    }
+}

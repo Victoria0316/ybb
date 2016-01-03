@@ -1,0 +1,256 @@
+<resources
+    xmlns:tools="http://schemas.android.com/apk/res-auto"
+    >
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+
+
+    <!-- the theme applied to the application or activity -->
+    <style name="CustomActionBarTheme"
+        parent="@style/Theme.AppCompat.Light">
+        <item name="actionBarStyle">@style/MyActionBar</item>
+    </style>
+
+    <style name="MyActionBar"
+        parent="@style/Widget.AppCompat.ActionBar">
+        <item name="background">@color/common_blue</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <!-- 兼容支持库 -->
+        <item name="windowActionBarOverlay">true</item>
+    </style>
+
+    <!-- 标题字体 -->
+    <style name="CommonTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">@dimen/common_Title_34px</item>
+        <item name="android:textColor">@color/common_white</item>
+        <item name="android:layout_centerInParent">true</item>
+    </style>
+
+    <!-- 首页 Tab 页切换 style-->
+
+    <style name="Home_tv">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:textSize">@dimen/common_bottomTitleBelow_20px</item>
+        <item name="android:textColor">@color/common_blue</item>
+        <item name="android:layout_marginTop">@dimen/common_widget_padding_distance</item>
+
+    </style>
+
+    <style name="Home_iv">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+
+    </style>
+
+
+    <style name="Home_btn">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/common_bottomTitleRight_27px</item>
+        <item name="android:textColor">@color/common_blue</item>
+        <item name="android:drawablePadding">@dimen/common_big_distance</item>
+
+    </style>
+
+
+    <style name="Home_btn_bg">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/home_btn_bg</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center</item>
+
+    </style>
+
+    <style name="three_tab_tv">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:textSize">@dimen/common_InputBox_28px</item>
+        <item name="android:textColor">@color/white</item>
+
+    </style>
+
+    <style name="Home_search_tab_bg">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="rl_guide_tv">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">@color/common_blue</item>
+        <item name="android:textSize">@dimen/common_InputBox_28px</item>
+    </style>
+
+
+    <style name="Crop"></style>
+
+    <style name="Crop.DoneCancelBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/crop__bar_height</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:divider">@drawable/crop__divider</item>
+        <item name="android:showDividers" tools:ignore="NewApi">middle</item>
+        <item name="android:dividerPadding" tools:ignore="NewApi">12dp</item>
+        <item name="android:background">@color/crop__button_bar</item>
+    </style>
+
+    <style name="Crop.ActionButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/crop__selectable_background</item>
+    </style>
+
+    <style name="Crop.ActionButtonText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingRight">20dp</item> <!-- Offsets left drawable -->
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:textColor">@color/crop__button_text</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="Crop.ActionButtonText.Done">
+        <item name="android:drawableLeft">@drawable/crop__ic_done</item>
+        <item name="android:text">@string/crop__done</item>
+    </style>
+
+    <style name="Crop.ActionButtonText.Cancel">
+        <item name="android:drawableLeft">@drawable/crop__ic_cancel</item>
+        <item name="android:text">@string/crop__cancel</item>
+    </style>
+
+    <!-- 灰色的分割线 -->
+    <style name="The_divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/common_the_divider</item>
+        <item name="android:background">@drawable/the_divider</item>
+    </style>
+
+    <!-- 灰色的分割线  竖线-->
+    <style name="The_vertical">
+        <item name="android:layout_width">@dimen/common_the_divider</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@drawable/vertical</item>
+    </style>
+
+    <style name="distribution_tv">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:textSize">@dimen/common_InputBox_28px</item>
+        <item name="android:textColor">@color/common_blue</item>
+        <item name="android:layout_marginTop">@dimen/common_widget_padding_distance</item>
+        <item name="android:layout_marginLeft">@dimen/common_padding_distance</item>
+    </style>
+
+    <!-- 蓝色按钮 -->
+    <style name="BlueButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/bluebutton</item>
+        <item name="android:textSize">@dimen/common_blueButton_32px</item>
+        <item name="android:textColor">@color/common_white</item>
+    </style>
+
+    <style name="text_13_sp">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">@dimen/common_ListContent_25px</item>
+    </style>
+    <style name="text_12_sp">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">@dimen/common_ListPrice_23px</item>
+    </style>
+
+
+    <!-- 类似我的里面的item bg-->
+
+    <style name="pay_item_bg">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/common_item_bg</item>
+
+
+    </style>
+
+    <!-- 类似我的里面的item 内容 textView-->
+
+    <style name="pay_item_content">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/common_black</item>
+        <item name="android:textSize">@dimen/common_InputBox_28px</item>
+        <item name="android:paddingLeft">@dimen/common_distance</item>
+        <item name="android:layout_centerVertical">true</item>
+
+    </style>
+
+    <!-- 类似我的里面的item 底部line-->
+
+    <style name="pay_item_line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:src">@drawable/common_item_line</item>
+
+    </style>
+
+    <!-- 类似我的里面的item 底部line-->
+
+    <style name="mine_item_next">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:src">@drawable/mine_next</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:padding">@dimen/common_distance</item>
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
+    <style name="roomRatingBar" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/ratingbar_full</item>
+        <item name="android:minHeight">12dip</item>
+        <item name="android:maxHeight">12dip</item>
+    </style>
+
+    <style name="btn_light_blue">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">@dimen/common_ListContent_25px</item>
+        <item name="android:background">@drawable/light_blue_btn</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+
+    </style>
+
+    <style name="AnimBottom" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
+    </style>
+
+</resources>

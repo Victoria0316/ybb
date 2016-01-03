@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg">
+
+
+    <RelativeLayout
+    android:id="@+id/rl_alipay"
+    style="@style/pay_item_bg"
+    android:layout_marginTop="@dimen/common_distance">
+
+    <TextView
+        style="@style/pay_item_content"
+        android:text="@string/str_alipay" />\
+
+</RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_line1"
+        style="@style/pay_item_line"
+        android:layout_below="@id/rl_alipay"></ImageView>
+
+    <RelativeLayout
+        android:layout_below="@id/iv_line1"
+        android:id="@+id/rl_wechat"
+        style="@style/pay_item_bg">
+
+        <TextView
+            style="@style/pay_item_content"
+            android:text="@string/str_wechat_payment" />\
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_line"
+        style="@style/pay_item_line"
+        android:layout_below="@id/rl_wechat"></ImageView>
+
+    <RelativeLayout
+        android:id="@+id/rl_balance_pay"
+        style="@style/pay_item_bg"
+        android:layout_below="@id/iv_line">
+
+        <TextView
+            style="@style/pay_item_content"
+            android:text="余额支付" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:paddingRight="@dimen/common_big_distance"
+            android:textColor="@color/common_gray"
+            android:layout_centerVertical="true"
+            android:id="@+id/amount"
+            android:text="金额："/>
+
+    </RelativeLayout>
+
+    <ImageView
+        style="@style/pay_item_line"
+        android:layout_below="@id/rl_balance_pay"></ImageView>
+
+
+</RelativeLayout>

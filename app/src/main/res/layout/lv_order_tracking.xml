@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/dataleft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/common_distance"
+            android:text="06/05"
+            android:textSize="@dimen/common_ListTime_20px"
+            android:textColor="@color/common_InputBox"/>
+
+        <ImageView
+            android:id="@+id/round"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="53dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/order_tracking_grey" />
+
+        <TextView
+            android:id="@+id/timeright"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/round"
+            android:layout_marginLeft="@dimen/common_distance"
+            android:layout_marginRight="@dimen/common_distance"
+            android:text="13:14"
+            android:textSize="@dimen/common_ListTime_20px"
+            android:textColor="@color/common_InputBox"/>
+
+        <TextView
+            android:id="@+id/state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/timeright"
+            android:text="已评价"
+            android:textSize="@dimen/common_ListTime_20px"
+            android:textColor="@color/common_InputBox"/>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/tracking_vertical"
+        android:layout_width="10dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_title"
+        android:layout_marginLeft="53dp"
+        android:src="@drawable/order_tracking_vertical"/>
+
+</RelativeLayout>

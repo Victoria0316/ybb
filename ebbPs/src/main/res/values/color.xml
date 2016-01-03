@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="common_red">#FF3A2E</color>
+    <color name="crop__button_bar">#f3f3f3</color>
+    <color name="crop__button_text">#666666</color>
+    <color name="crop__selector_pressed">#1a000000</color>
+    <color name="crop__selector_focused">#77000000</color>
+    <color name="common_white">#FFF5FE</color>
+    <color name="common_InputBox">#979797</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="common_blue">#00CACF</color>
+    <color name="transparent">#00000000</color>
+    <color name="common_black">#323232</color>
+    <color name="line">#E5E5E5</color>
+    <color name="common_bg">#F7F7F7</color>
+
+    <color name="common_gray">#979797</color>
+    <color name="common_red_Statistical">#FF0415</color>
+    <color name="common_order_remind">#9A9A9A</color>
+
+
+</resources>

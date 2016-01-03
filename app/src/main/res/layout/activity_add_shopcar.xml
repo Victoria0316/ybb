@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/common_bg">
+
+    <android.support.percent.PercentRelativeLayout
+        android:id="@+id/rl_wrap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_distance"
+        android:background="@drawable/home_search_item"
+        android:padding="@dimen/common_distance">
+
+
+        <com.bluemobi.ybb.view.RatioLayout
+            android:id="@+id/rl_wrap_image"
+            app:layout_widthPercent="23.75%"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_image_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/lv_item_image_bg" />
+        </com.bluemobi.ybb.view.RatioLayout>
+
+        <TextView
+            android:id="@+id/tv_search_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/rl_wrap_image"
+            android:layout_marginLeft="@dimen/common_distance"
+            android:layout_toRightOf="@id/rl_wrap_image"
+            android:paddingTop="@dimen/common_padding_distance"
+            android:singleLine="true"
+            android:text="早餐（灶别内容）"
+            android:textColor="@color/common_black"
+            android:textSize="@dimen/common_InputBox_28px" />
+
+
+        <TextView
+            android:id="@+id/tv_charge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/rl_wrap_image"
+            android:layout_marginLeft="@dimen/common_distance"
+            android:layout_toRightOf="@id/rl_wrap_image"
+            android:text="¥20.00"
+            android:textColor="@color/common_red"
+            android:textSize="@dimen/common_InputBox_28px" />
+
+
+        <ImageView
+            android:id="@+id/iv_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/rl_wrap_image"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/add" />
+
+        <EditText
+            android:id="@+id/et_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/iv_add"
+            android:layout_marginLeft="@dimen/common_padding_distance"
+            android:layout_marginRight="@dimen/common_padding_distance"
+            android:layout_toLeftOf="@id/iv_add"
+            android:background="@drawable/hint"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:gravity="center"
+            android:text="1" />
+
+        <ImageView
+            android:id="@+id/iv_minus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/et_hint"
+            android:layout_toLeftOf="@id/et_hint"
+            android:src="@drawable/minus" />
+
+
+    </android.support.percent.PercentRelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_wrap"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/rl_add_shopcar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/btn_add_shopcar"
+                style="@style/shop_add_shopcar"
+                android:text="@string/str_shop_add_shop" />
+        </RelativeLayout>
+
+        <RelativeLayout
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/shop_buy_now"
+                style="@style/shop_add_shopcar"
+                android:background="@drawable/shop_buy_now"
+                android:textColor="@color/white"
+                android:text="@string/str_shop_buy_now" />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <include
+        layout="@layout/include_shop_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+    </include>
+
+</RelativeLayout>

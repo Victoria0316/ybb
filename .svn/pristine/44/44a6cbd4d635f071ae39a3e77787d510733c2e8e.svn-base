@@ -1,0 +1,316 @@
+package com.bluemobi.ybb.network.model;
+
+import java.io.Serializable;
+import java.util.List;
+
+/**
+ * Created by wangzhijun on 2015/8/26.
+ */
+public class OrderAttribute implements Serializable {
+    private String changeTime;//"2015-08-2114:48:52",
+    private String cityCode;//"8aba20b74ef76c49014ef79d6b9c0001",
+    private String cityName;//"耳鼻喉科一科",
+    private String createTime;//"2015-08-2114:48:52",
+    private String deliverymanCode;//"888",
+    private String deliverymanId;//"8aba20b64eec42ed014eec4a03390003",
+    private String deliverymanName;//"888",
+    private String deliverymanNickName;//"888",
+    private String deliverymanRealName;//"888",
+    private String deliverymanTelephone;//"13012345678",
+    private String distributionInfo;//"null",
+    private String distributionTime;//"2015-08-2114:48:52",
+    private String distributionType;//0,
+    private String districtCode;//"8aba20b74efbdff1014efbe0ee000000",
+    private String districtName;//"耳鼻喉科一科",
+    private String id;//"8aba20d94f4ef95b014f4f0466040057",
+    private String logisticsId;//"null",
+    private String logisticsName;//"null",
+    private String logisticsProductIdStr;//"25,26",
+    private String logisticsProductNumStr;//"1,2",
+    private String optTime;//"2015-08-21T14:48:52+08:00",
+    private String orderId;//"8aba20d94f4ef95b014f4f04652b004f"
+    private String orderPayed;
+    private List<OrderAttributeChild> productInfoDTOList;
+
+    private String provinceCode;//  private String 8aba20b74ef30df4014ef313389e0000",
+    private String provinceName;//  private String 中国医大附属医院",
+    private String receiverCellphone;//  private String 15940143778",
+    private String receiverName;//  private String 真实姓名",
+    private String remark;//  private String null",
+    private String reserveTime;//  private String null",
+    private String shopsId;//  private String -1",
+    private String status;// 0,
+    private String userId;//  private String 8aba20c94f00c82f014f00efcbbf0006",
+
+    public String getOrderPayed() {
+        return orderPayed;
+    }
+
+    public void setOrderPayed(String orderPayed) {
+        this.orderPayed = orderPayed;
+    }
+
+    public List<OrderAttributeChild> getProductInfoDTOList() {
+        return productInfoDTOList;
+    }
+
+    public void setProductInfoDTOList(List<OrderAttributeChild> productInfoDTOList) {
+        this.productInfoDTOList = productInfoDTOList;
+    }
+
+    public String getChangeTime() {
+        return changeTime;
+    }
+
+    public void setChangeTime(String changeTime) {
+        this.changeTime = changeTime;
+    }
+
+    public String getCityCode() {
+        return cityCode;
+    }
+
+    public void setCityCode(String cityCode) {
+        this.cityCode = cityCode;
+    }
+
+    public String getCityName() {
+        return cityName;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
+
+    public String getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getDeliverymanCode() {
+        return deliverymanCode;
+    }
+
+    public void setDeliverymanCode(String deliverymanCode) {
+        this.deliverymanCode = deliverymanCode;
+    }
+
+    public String getDeliverymanId() {
+        return deliverymanId;
+    }
+
+    public void setDeliverymanId(String deliverymanId) {
+        this.deliverymanId = deliverymanId;
+    }
+
+    public String getDeliverymanName() {
+        return deliverymanName;
+    }
+
+    public void setDeliverymanName(String deliverymanName) {
+        this.deliverymanName = deliverymanName;
+    }
+
+    public String getDeliverymanNickName() {
+        return deliverymanNickName;
+    }
+
+    public void setDeliverymanNickName(String deliverymanNickName) {
+        this.deliverymanNickName = deliverymanNickName;
+    }
+
+    public String getDeliverymanRealName() {
+        return deliverymanRealName;
+    }
+
+    public void setDeliverymanRealName(String deliverymanRealName) {
+        this.deliverymanRealName = deliverymanRealName;
+    }
+
+    public String getDeliverymanTelephone() {
+        return deliverymanTelephone;
+    }
+
+    public void setDeliverymanTelephone(String deliverymanTelephone) {
+        this.deliverymanTelephone = deliverymanTelephone;
+    }
+
+    public String getDistributionInfo() {
+        return distributionInfo;
+    }
+
+    public void setDistributionInfo(String distributionInfo) {
+        this.distributionInfo = distributionInfo;
+    }
+
+    public String getDistributionTime() {
+        return distributionTime;
+    }
+
+    public void setDistributionTime(String distributionTime) {
+        this.distributionTime = distributionTime;
+    }
+
+    public String getDistributionType() {
+        return distributionType;
+    }
+
+    public void setDistributionType(String distributionType) {
+        this.distributionType = distributionType;
+    }
+
+    public String getDistrictCode() {
+        return districtCode;
+    }
+
+    public void setDistrictCode(String districtCode) {
+        this.districtCode = districtCode;
+    }
+
+    public String getDistrictName() {
+        return districtName;
+    }
+
+    public void setDistrictName(String districtName) {
+        this.districtName = districtName;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getLogisticsId() {
+        return logisticsId;
+    }
+
+    public void setLogisticsId(String logisticsId) {
+        this.logisticsId = logisticsId;
+    }
+
+    public String getLogisticsName() {
+        return logisticsName;
+    }
+
+    public void setLogisticsName(String logisticsName) {
+        this.logisticsName = logisticsName;
+    }
+
+    public String getLogisticsProductIdStr() {
+        return logisticsProductIdStr;
+    }
+
+    public void setLogisticsProductIdStr(String logisticsProductIdStr) {
+        this.logisticsProductIdStr = logisticsProductIdStr;
+    }
+
+    public String getLogisticsProductNumStr() {
+        return logisticsProductNumStr;
+    }
+
+    public void setLogisticsProductNumStr(String logisticsProductNumStr) {
+        this.logisticsProductNumStr = logisticsProductNumStr;
+    }
+
+    public String getOptTime() {
+        return optTime;
+    }
+
+    public void setOptTime(String optTime) {
+        this.optTime = optTime;
+    }
+
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
+    }
+
+    public List<OrderAttributeChild> getProductComboGroupDTOList() {
+        return productInfoDTOList;
+    }
+
+    public void setProductComboGroupDTOList(List<OrderAttributeChild> productComboGroupDTOList) {
+        this.productInfoDTOList = productComboGroupDTOList;
+    }
+
+    public String getProvinceCode() {
+        return provinceCode;
+    }
+
+    public void setProvinceCode(String provinceCode) {
+        this.provinceCode = provinceCode;
+    }
+
+    public String getProvinceName() {
+        return provinceName;
+    }
+
+    public void setProvinceName(String provinceName) {
+        this.provinceName = provinceName;
+    }
+
+    public String getReceiverCellphone() {
+        return receiverCellphone;
+    }
+
+    public void setReceiverCellphone(String receiverCellphone) {
+        this.receiverCellphone = receiverCellphone;
+    }
+
+    public String getReceiverName() {
+        return receiverName;
+    }
+
+    public void setReceiverName(String receiverName) {
+        this.receiverName = receiverName;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
+    public String getReserveTime() {
+        return reserveTime;
+    }
+
+    public void setReserveTime(String reserveTime) {
+        this.reserveTime = reserveTime;
+    }
+
+    public String getShopsId() {
+        return shopsId;
+    }
+
+    public void setShopsId(String shopsId) {
+        this.shopsId = shopsId;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+}

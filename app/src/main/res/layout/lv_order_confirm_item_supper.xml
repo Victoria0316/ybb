@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/common_item_bg"
+    android:paddingLeft="@dimen/common_distance"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_meal_kind_item_3"
+        android:text="晚餐"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/common_distance"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:orientation="horizontal">
+
+        <!--<TextView-->
+            <!--style="@style/order_btn_bg"-->
+            <!--android:text="@string/str_mine_order_add_evaluate"-->
+            <!--/>-->
+        <!--<TextView-->
+            <!--style="@style/order_btn_bg"-->
+            <!--android:text="@string/str_mine_order_Receiving"-->
+            <!--/>-->
+        <TextView
+            android:id="@+id/tv_kind_right_dinner_item_3"
+            style="@style/order_btn_bg"
+            android:text="@string/str_mine_order_confirm"
+            />
+    </LinearLayout>
+
+</RelativeLayout>

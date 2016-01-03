@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="@dimen/common_distance"
+    android:background="@drawable/home_search_item"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/lv_item_image_bg"
+        android:id="@+id/iv_image_bg" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/iv_image_bg"
+        android:layout_centerInParent="true"
+        android:padding="@dimen/common_padding_distance"
+        android:layout_marginLeft="@dimen/common_padding_distance"
+       >
+
+
+            <TextView
+                android:id="@+id/tv_search_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textSize="@dimen/common_InputBox_28px"
+                android:textColor="@color/common_black"
+                android:text="紫薯庄园"/>
+
+
+            <RatingBar
+                android:id="@+id/rb_comment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:isIndicator="true"
+                style="@style/roomRatingBar"
+                android:layout_below="@id/tv_search_item"
+                android:layout_marginTop="@dimen/common_padding_distance" />
+
+
+            <TextView
+                android:layout_toRightOf="@+id/rb_comment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(18条评价)"
+                android:layout_below="@id/tv_search_item"
+                android:textColor="@color/common_InputBox"
+                android:layout_marginTop="@dimen/common_padding_distance"
+                android:layout_marginLeft="@dimen/common_padding_distance"
+                android:textSize="@dimen/common_DialogContent_21px"/>
+
+
+        <TextView
+            android:id="@+id/tv_charge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¥20.00"
+            android:layout_below="@id/rb_comment"
+            android:textColor="@color/common_red"
+            android:layout_marginTop="@dimen/common_padding_distance"
+            android:textSize="@dimen/common_InputBox_28px"/>
+
+
+        <TextView
+            android:id="@+id/tv_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/fl_image_bg"
+            android:layout_alignParentRight="true"
+            android:text="x 3"
+            android:textColor="@color/common_blue"
+            android:layout_alignTop="@id/tv_charge"
+            android:textSize="@dimen/common_InputBox_28px" />
+
+
+        </RelativeLayout>
+
+
+</RelativeLayout>

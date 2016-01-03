@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main">
+
+    <View
+        style="@style/The_divider"
+        android:layout_marginTop="@dimen/common_RegisteredLeft"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/message_item_left"
+        android:paddingLeft="@dimen/common_RegisteredLeft"
+        android:paddingRight="@dimen/common_RegisteredLeft"
+        android:background="@color/white"
+        android:id="@+id/pic_lay">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/information_head"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/common_Title_34px"
+            android:textColor="@color/common_black"/>
+
+        <ImageView
+            android:id="@+id/right_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="@dimen/common_RegisteredLeft"
+            android:src="@drawable/right_arrow"/>
+
+        <com.bluemobi.ybb.view.CircleImageView
+            android:id="@+id/avatar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_toLeftOf="@id/right_arrow"
+            android:layout_centerVertical="true"
+            android:src="@drawable/comment_list_head"/>
+
+    </RelativeLayout>
+
+    <View
+        style="@style/The_divider"/>
+
+    <View
+        style="@style/The_divider"
+        android:layout_marginTop="@dimen/common_RegisteredLeft"/>
+
+    <RelativeLayout
+        android:id="@+id/nickname"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/message_item_left"
+        android:paddingLeft="@dimen/common_RegisteredLeft"
+        android:paddingRight="@dimen/common_RegisteredLeft"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/information_nickname"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/common_Title_34px"
+            android:textColor="@color/common_black"/>
+
+        <ImageView
+            android:id="@+id/right_arrow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="@dimen/common_RegisteredLeft"
+            android:src="@drawable/right_arrow"/>
+
+        <TextView
+            android:id="@+id/nickname_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/common_Title_34px"
+            android:textColor="@color/common_InputBox"
+            android:layout_toLeftOf="@id/right_arrow1"
+            android:src="@drawable/comment_list_head"/>
+
+    </RelativeLayout>
+
+    <View
+        style="@style/The_divider"/>
+
+</LinearLayout>

@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/common_distance"
+        android:background="@color/line" />
+
+    <RelativeLayout
+        android:id="@+id/week1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/my_account_alarm_edit_week_w"
+        android:background="@color/white"
+        android:onClick="doSelect"
+        android:tag="1"
+        >
+
+
+        <TextView
+            android:id="@+id/label"
+            style="@style/text_13_sp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/common_distance"
+            android:text="@string/my_account_alarm_week1"
+            android:textColor="@color/black" />
+
+        <ImageView
+            android:id="@+id/arrow_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/common_distance"
+            android:src="@drawable/selected"
+            android:tag="status"
+            />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/line" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/week2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/my_account_alarm_edit_week_w"
+        android:background="@color/white"
+        android:onClick="doSelect"
+        android:tag="2"
+        >
+
+
+        <TextView
+            style="@style/text_13_sp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/common_distance"
+            android:text="@string/my_account_alarm_week2"
+            android:textColor="@color/black" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/common_distance"
+            android:src="@drawable/selected"
+            android:tag="status"
+
+            />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/line" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/week3"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/my_account_alarm_edit_week_w"
+        android:background="@color/white"
+        android:onClick="doSelect"
+        android:tag="3"
+        >
+
+
+        <TextView
+            style="@style/text_13_sp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/common_distance"
+            android:text="@string/my_account_alarm_week3"
+            android:textColor="@color/black" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/common_distance"
+            android:src="@drawable/selected"
+            android:tag="status"
+
+            />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/line" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/week4"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/my_account_alarm_edit_week_w"
+        android:background="@color/white"
+        android:onClick="doSelect"
+        android:tag="4"
+        >
+
+
+        <TextView
+            style="@style/text_13_sp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/common_distance"
+            android:text="@string/my_account_alarm_week4"
+            android:textColor="@color/black" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/common_distance"
+            android:src="@drawable/selected"
+            android:tag="status"
+
+            />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/line" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/week5"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/my_account_alarm_edit_week_w"
+        android:background="@color/white"
+        android:onClick="doSelect"
+        android:tag="5"
+        >
+
+
+        <TextView
+            style="@style/text_13_sp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/common_distance"
+            android:text="@string/my_account_alarm_week5"
+            android:textColor="@color/black" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/common_distance"
+            android:src="@drawable/selected"
+            android:tag="status"
+
+            />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/line" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/week6"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/my_account_alarm_edit_week_w"
+        android:background="@color/white"
+        android:onClick="doSelect"
+        android:tag="6"
+        >
+
+
+        <TextView
+            style="@style/text_13_sp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/common_distance"
+            android:text="@string/my_account_alarm_week6"
+            android:textColor="@color/black" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/common_distance"
+            android:src="@drawable/selected"
+            android:tag="status"
+
+            />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/line" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/week7"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/my_account_alarm_edit_week_w"
+        android:background="@color/white"
+        android:onClick="doSelect"
+        android:tag="7"
+        >
+
+
+        <TextView
+            style="@style/text_13_sp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/common_distance"
+            android:text="@string/my_account_alarm_week7"
+            android:textColor="@color/black" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/common_distance"
+            android:src="@drawable/selected"
+            android:tag="status"
+
+            />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/line" />
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <View
+        style="@style/The_divider"
+        android:layout_marginTop="@dimen/common_RegisteredLeft"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/list_item_background">
+
+        <ImageView
+            android:id="@+id/goods_list_head_image"
+            android:layout_width="75dp"
+            android:layout_height="61dp"
+            android:background="#A349A4"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/common_RegisteredLeft"
+            android:layout_marginRight="@dimen/common_RegisteredLeft"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="心心相印纸巾"
+            android:textSize="@dimen/common_ListTitle_27px"
+            android:textColor="@color/common_black"
+            android:layout_toRightOf="@id/goods_list_head_image"
+            android:layout_marginTop="@dimen/activity_top"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="￥20.00"
+            android:textSize="@dimen/common_ListPrice_23px"
+            android:textColor="@color/common_red_Statistical"
+            android:layout_toRightOf="@id/goods_list_head_image"
+            android:layout_marginTop="@dimen/message_item"/>
+    </RelativeLayout>
+
+    <View
+        style="@style/The_divider"/>
+
+
+
+
+</LinearLayout>

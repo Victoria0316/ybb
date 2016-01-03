@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/common_RegisteredLeft"
+    android:paddingRight="@dimen/common_RegisteredLeft">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_RegisteredTop_small"
+        android:background="@drawable/radiogroupbackground"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_RegisteredLeft"
+            android:gravity="center"
+            android:text="@string/str_identity"
+            android:textColor="@color/common_InputBox"
+            android:textSize="@dimen/common_Login_30px" />
+
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/radio_button_dimen"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/average_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:button="@null"
+                android:checked="true"
+                android:drawablePadding="@dimen/radio_button_image"
+                android:drawableTop="@drawable/average_user"
+                android:gravity="center"
+                android:text="@string/str_average_user"
+                android:textColor="@color/common_blue"
+                android:textSize="@dimen/common_identity_24px" />
+
+            <RadioButton
+                android:id="@+id/medical_staff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:button="@null"
+                android:drawablePadding="@dimen/radio_button_image"
+                android:drawableTop="@drawable/medical_staff"
+                android:gravity="center"
+                android:text="@string/str_medical_staff"
+                android:textColor="@color/common_blue"
+                android:textSize="@dimen/common_identity_24px" />
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_RegisteredLeft"
+        android:background="@drawable/phone_number_background"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/phone_number_dimen"
+            android:layout_marginRight="@dimen/phone_number_dimen"
+            android:src="@drawable/phone_number" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/phone"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:background="@null"
+                android:hint="@string/str_phone_number"
+                android:maxLength="11"
+                android:numeric="integer"
+                android:singleLine="true"
+                android:textColor="@color/common_InputBox"
+                android:textSize="@dimen/common_InputBox_28px" />
+
+            <ImageView
+                android:id="@+id/iv_clear_phone"
+                android:layout_width="@dimen/common_InputBox_28px"
+                android:layout_height="@dimen/common_InputBox_28px"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/image_left"
+                android:background="@drawable/clear" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_RegisteredLeft"
+      >
+
+        <LinearLayout
+            android:id="@+id/verification_code_Linear"
+            android:layout_width="match_parent"
+            android:layout_toLeftOf="@+id/get_code"
+            android:layout_height="wrap_content"
+            android:background="@drawable/verification_code_background"
+            android:layout_marginRight="@dimen/common_RegisteredLeft"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/phone_number_dimen"
+                android:layout_marginRight="@dimen/phone_number_dimen"
+                android:src="@drawable/verification_code" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+
+                <EditText
+                    android:id="@+id/validateCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:background="@null"
+                    android:hint="@string/str_verification_code"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:textColor="@color/common_InputBox"
+                    android:textSize="@dimen/common_InputBox_28px" />
+
+                <ImageView
+                    android:id="@+id/iv_clear_code"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/image_left"
+                    android:layout_width="@dimen/common_big_distance"
+                    android:layout_height="@dimen/common_big_distance"
+                    android:background="@drawable/clear"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/get_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/verification_code_blue"
+            android:gravity="center"
+            android:text="@string/str_verification"
+            android:textColor="@color/white"
+            android:textSize="@dimen/common_blueButton_32px" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/radio_button_image"
+        android:layout_marginTop="@dimen/radio_button_image"
+        android:text="@string/str_prompt"
+        android:textColor="@color/common_InputBox"
+        android:textSize="@dimen/common_validation60s_22px" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/agree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:button="@drawable/check_the_number_xml"
+            android:checked="true"
+            android:paddingLeft="@dimen/radio_button_image"
+            android:text="@string/str_agree"
+            android:textSize="@dimen/common_validation60s_22px" />
+
+        <TextView
+            android:id="@+id/service_agreement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/str_service_agreement"
+            android:textColor="@color/common_blue"
+            android:textSize="@dimen/common_validation60s_22px" />
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/next_step"
+        style="@style/BlueButton"
+        android:layout_marginTop="@dimen/common_BlueButtonTop"
+        android:text="@string/str_next_step" />
+
+
+</LinearLayout>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:padding="@dimen/common_distance"
+        android:background="@drawable/home_search_item"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="65dp"
+            android:src="@drawable/lv_item_image_bg"
+            android:id="@+id/iv_image_bg" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/iv_image_bg"
+            android:layout_centerInParent="true"
+            android:padding="@dimen/common_padding_distance"
+            android:layout_marginLeft="@dimen/common_padding_distance"
+            >
+
+
+            <TextView
+                android:id="@+id/tv_search_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textSize="@dimen/common_InputBox_28px"
+                android:textColor="@color/common_black"
+                android:text="紫薯庄园 蕨菜粉条"/>
+
+
+            <TextView
+                android:id="@+id/tv_charge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¥20.00"
+                android:layout_below="@id/tv_search_item"
+                android:textColor="@color/common_red"
+                android:layout_marginTop="@dimen/common_padding_distance"
+                android:textSize="@dimen/common_InputBox_28px"/>
+
+            <TextView
+                android:id="@+id/et_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tv_charge"
+                android:layout_alignBottom="@id/tv_charge"
+                android:layout_alignParentRight="true"
+                android:text="x4"
+                android:textSize="@dimen/common_InputBox_28px"
+                android:textColor="@color/common_blue"
+                android:layout_marginLeft="@dimen/common_padding_distance"
+                android:layout_marginRight="@dimen/common_padding_distance"
+                android:gravity="right|center_vertical"/>
+
+        </RelativeLayout>
+
+
+</RelativeLayout>
+

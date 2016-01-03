@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/il_order_date"
+        layout="@layout/lv_order_date_item"></include>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/line_h" />
+
+    <include
+        android:id="@+id/il_order_detail"
+        layout="@layout/lv_order_detail_item">
+
+    </include>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/line_h" />
+
+    <include
+        android:id="@+id/il_order_btn"
+        layout="@layout/lv_order_btn_item"></include>
+
+
+</LinearLayout>

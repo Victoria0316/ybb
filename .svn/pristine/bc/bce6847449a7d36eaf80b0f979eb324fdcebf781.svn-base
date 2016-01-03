@@ -1,0 +1,116 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/common_distance"
+        android:background="@drawable/title_edittext"
+        android:padding="@dimen/common_padding_distance">
+
+
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:imeOptions="actionSearch"
+            android:drawablePadding="@dimen/common_padding_distance"
+            android:hint="@string/str_h_search"
+            android:singleLine="true"
+            android:textColor="@color/common_InputBox"
+            android:textSize="@dimen/common_titlebar_search_hint" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/search_delete_icon"
+            android:id="@+id/delete" />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_tab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_search"
+        android:background="@drawable/home_search_tab_bg"
+        android:layout_marginBottom="@dimen/common_distance"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/rl_tab_goods"
+
+            style="@style/Home_search_tab_bg">
+
+            <TextView
+                style="@style/Home_btn"
+                android:id="@+id/tv_tab_goods"
+                android:layout_centerInParent="true"
+                android:text="@string/str_h_search_good"
+
+                />
+
+            <ImageView
+                android:id="@+id/iv_tab_goods"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:src="@drawable/search_bar_tab_line"
+                />
+
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/tab_bar_line">
+
+        </ImageView>
+
+        <RelativeLayout
+            android:id="@+id/rl_tab_foods"
+            android:layout_gravity="center_vertical"
+            style="@style/Home_search_tab_bg">
+
+            <TextView
+                style="@style/Home_btn"
+                android:id="@+id/tv_tab_foods"
+                android:layout_centerInParent="true"
+                android:text="@string/str_h_search_food"
+
+                />
+            <ImageView
+                android:id="@+id/iv_tab_foods"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+
+                android:src="@drawable/search_bar_tab_line"/>
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ll_tab"
+         >
+    </FrameLayout>
+
+    <include layout="@layout/include_shop_bottom"/>
+
+
+</RelativeLayout>

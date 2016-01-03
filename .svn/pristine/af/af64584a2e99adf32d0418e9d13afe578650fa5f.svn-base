@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        style="@style/The_divider"
+        android:layout_marginTop="@dimen/common_RegisteredLeft"/>
+
+    <RelativeLayout
+        android:id="@+id/nickname"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/message_item_left"
+        android:paddingLeft="@dimen/common_RegisteredLeft"
+        android:paddingRight="@dimen/common_RegisteredLeft"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/information_nickname"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/common_Title_34px"
+            android:textColor="@color/common_black"/>
+
+        <EditText
+            android:id="@+id/nickname_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="请输入昵称"
+            android:background="@null"
+            android:maxLength="10"
+            android:singleLine="true"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/common_Title_34px"
+            android:textColor="@color/common_InputBox"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/comment_list_head"
+            android:gravity="right"/>
+
+    </RelativeLayout>
+
+    <View
+        style="@style/The_divider"/>
+
+</LinearLayout>

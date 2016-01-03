@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <include
+        android:id="@+id/il_order_detail"
+        layout="@layout/lv_order_confirm_item_dinner">
+
+    </include>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/line_h" />
+
+    <include
+        android:id="@+id/il_order_detail"
+        layout="@layout/lv_order_detail_item_dinner">
+
+    </include>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/line_h" />
+
+
+</merge>

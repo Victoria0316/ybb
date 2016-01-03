@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/common_distance"
+        android:background="@color/line" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/my_account_pwd_height"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/label"
+            style="@style/text_13_sp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/common_distance"
+            android:text="@string/my_account_in_amount"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/amount"
+            style="@style/text_13_sp"
+            android:layout_width="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/label"
+            android:background="@null"
+            android:gravity="left|center_vertical"
+            android:inputType="numberDecimal"
+            android:textColor="@color/black" />
+    </RelativeLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line" />
+
+    <RelativeLayout
+        android:id="@+id/rl_wx"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/my_account_pwd_height"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/wx"
+            style="@style/text_13_sp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/common_distance"
+            android:text="@string/my_account_wx_pay"
+            android:textColor="@color/light_black" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line" />
+
+    <RelativeLayout
+        android:id="@+id/rl_zfb"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/my_account_pwd_height"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/zfb"
+            style="@style/text_13_sp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/common_distance"
+            android:text="@string/my_account_zfb_pay"
+            android:textColor="@color/light_black" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line" />
+</LinearLayout>

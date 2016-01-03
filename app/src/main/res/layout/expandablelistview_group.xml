@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/regularly_reminded_background"
+    android:layout_marginTop="@dimen/common_RegisteredLeft"
+    android:layout_height="@dimen/activity_item">
+
+
+    <TextView
+        android:id="@+id/content_head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="餐品订单"
+        android:textSize="@dimen/common_ListTitle_27px"
+        android:textColor="@color/common_black"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/common_RegisteredLeft"/>
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2015/06/04 20:43"
+        android:layout_toRightOf="@id/content_head"
+        android:textSize="@dimen/common_ListTitle_27px"
+        android:textColor="@color/common_black"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/common_RegisteredLeft"/>
+
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="已收货"
+        android:textSize="@dimen/common_ListTime_20px"
+        android:textColor="@color/common_InputBox"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/common_RegisteredLeft"/>
+
+
+
+</RelativeLayout>

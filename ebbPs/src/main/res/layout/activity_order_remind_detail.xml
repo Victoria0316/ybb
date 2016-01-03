@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white"
+        >
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/common_distance"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/order_code"
+                    style="@style/text_13_sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="订单号: 12345648" />
+
+                <TextView
+                    android:id="@+id/order_time"
+                    style="@style/text_13_sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2015/08/14"
+                    android:textColor="@color/common_gray" />
+
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/text_13_sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/common_distance"
+                android:text="待评价"
+                android:textColor="@color/common_blue" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/line" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp">
+
+            <ImageView
+                android:id="@+id/item_img"
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/common_distance"
+                android:scaleType="fitXY"
+                android:src="@drawable/temp_item" />
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/text_13_sp"
+                android:layout_alignTop="@id/item_img"
+                android:layout_marginLeft="@dimen/common_padding_distance"
+                android:layout_marginTop="@dimen/common_padding_distance"
+                android:layout_toRightOf="@id/item_img"
+                android:text="心相印手纸"
+                android:textColor="@color/common_black" />
+
+            <TextView
+                android:id="@+id/desc"
+                style="@style/text_13_sp"
+                android:layout_alignLeft="@id/title"
+                android:layout_below="@id/title"
+                android:layout_toRightOf="@id/item_img"
+                android:text="好手纸"
+                android:textColor="@color/common_gray" />
+
+            <TextView
+                android:id="@+id/price"
+                style="@style/text_13_sp"
+                android:layout_alignBottom="@id/item_img"
+                android:layout_alignLeft="@id/desc"
+                android:layout_toRightOf="@id/item_img"
+                android:text="￥20.20"
+                android:textColor="@color/common_red_Statistical" />
+
+            <TextView
+                android:id="@+id/count"
+                style="@style/text_13_sp"
+                android:layout_alignBottom="@id/item_img"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/common_distance"
+                android:text="X 5"
+                android:textColor="@color/common_blue" />
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/line" />
+
+        <TextView
+            android:id="@+id/label_detail"
+            style="@style/text_13_sp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="left|center"
+            android:paddingLeft="@dimen/common_distance"
+            android:text="订单跟踪"
+            android:textColor="@color/common_black" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/line" />
+        <com.bluemobi.ybb.ps.view.CustomListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@null"
+            android:listSelector="@color/transparent"
+            android:cacheColorHint="@color/transparent"
+            android:scrollbars="none"
+            android:id="@+id/listview"
+            >
+
+        </com.bluemobi.ybb.ps.view.CustomListView>
+    </LinearLayout>
+</ScrollView>

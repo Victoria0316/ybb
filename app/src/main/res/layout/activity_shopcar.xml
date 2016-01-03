@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/common_bg">
+
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/plv_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cacheColorHint="@android:color/white"
+        android:divider="@null"
+        android:dividerHeight="10dp"
+        android:layout_weight="1"
+        android:fadingEdge="none"
+        android:listSelector="@android:color/transparent"
+        android:scrollbars="none">
+        >
+    </com.handmark.pulltorefresh.library.PullToRefreshListView>
+
+
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:paddingLeft="@dimen/common_distance"
+        android:paddingRight="@dimen/common_distance"
+        android:background="@drawable/shop_bottom_bar_settlemen">
+
+        <RelativeLayout
+            android:id="@+id/rl_shop"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            app:layout_widthPercent="25%">
+
+            <CheckBox
+                android:id="@+id/iv_shop_select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@drawable/check_cart"
+                android:button="@null"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/iv_shop_select"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:textSize="16sp"
+                android:text="全选 "/>
+
+        </RelativeLayout>
+
+        <ImageView
+            style="@style/shop_gap_line"
+            android:layout_toRightOf="@id/rl_shop"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_shop_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/rl_shop"
+
+            app:layout_widthPercent="75%">
+
+
+
+
+
+            <TextView
+                android:id="@+id/tv_settlement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/common_white"
+                android:background="@drawable/shop_settlement"
+                android:gravity="center"
+                android:text="去结算（2）"
+                android:layout_alignParentRight="true"
+                android:textSize="@dimen/common_bottomTitleRight_27px"
+
+                />
+            <TextView
+                android:id="@+id/tv_total_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/tv_settlement"
+                android:layout_marginLeft="@dimen/common_distance"
+
+                android:textColor="@color/common_red"
+                android:textSize="16sp"
+                android:layout_marginRight="@dimen/common_distance"
+                android:text="¥ 0.0"
+                />
+
+            <TextView
+                android:id="@+id/tv_text"
+                android:layout_toLeftOf="@+id/tv_total_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/common_gray"
+                android:layout_centerVertical="true"
+
+                android:textSize="@dimen/common_bottomTitleRight_27px"
+                android:text="合计"
+                />
+        </RelativeLayout>
+
+
+
+
+    </android.support.percent.PercentRelativeLayout>
+
+</LinearLayout>

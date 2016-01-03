@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/my_account_alarm_child_h"
+    android:id="@+id/child_item"
+    android:background="@color/white"
+    >
+    <RelativeLayout
+        android:id="@+id/rl_del"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:paddingLeft="@dimen/common_distance"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/del"
+            android:layout_centerVertical="true"
+            android:id="@+id/del"
+            android:visibility="visible"
+            />
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_toRightOf="@id/rl_del"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/common_distance"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/time"
+            style="@style/text_13_sp"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="06:00"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tip"
+            style="@style/text_12_sp"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_distance"
+            android:text="早餐吃药"
+            android:textColor="@color/common_gray" />
+    </LinearLayout>
+
+    <com.bluemobi.ybb.view.SwitchView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/common_distance"
+        android:id="@+id/switchView"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/common_distance"
+        android:src="@drawable/arrow_right_gray"
+        android:id="@+id/arrow_right"
+        />
+</RelativeLayout>

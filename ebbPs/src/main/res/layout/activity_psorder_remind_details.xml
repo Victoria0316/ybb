@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:background="@drawable/regularly_reminded_background"
+    android:layout_marginTop="@dimen/common_RegisteredLeft"
+    android:layout_height="wrap_content">
+
+    <View
+        style="@style/The_divider" />
+    <TextView
+        android:id="@+id/content_head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Order_number"
+        android:textSize="@dimen/common_ListTitle_27px"
+        android:textColor="@color/common_black"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/common_RegisteredLeft"/>
+
+    <TextView
+        android:id="@+id/orderid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1234642757345634"
+        android:layout_toRightOf="@id/content_head"
+        android:textSize="@dimen/common_ListTitle_27px"
+        android:textColor="@color/common_black"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/common_RegisteredLeft"/>
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2015/03/02 10:20"
+        android:textSize="@dimen/common_ListTime_20px"
+        android:textColor="@color/common_InputBox"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/common_RegisteredLeft"/>
+
+</RelativeLayout>
+
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Order_tracking"
+        android:textSize="@dimen/common_ListTitle_27px"
+        android:textColor="@color/common_black"
+        android:paddingLeft="@dimen/common_RegisteredLeft"
+        android:background="@drawable/regularly_reminded_background"
+        android:gravity="center_vertical"/>
+    <View
+        style="@style/The_divider"/>
+
+    <ListView
+        android:id="@+id/order_goods"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:cacheColorHint="@android:color/white"
+        android:divider="@null"
+        android:fadingEdge="none"
+        android:listSelector="@android:color/transparent"
+        android:scrollbars="none"/>
+
+
+
+</LinearLayout>

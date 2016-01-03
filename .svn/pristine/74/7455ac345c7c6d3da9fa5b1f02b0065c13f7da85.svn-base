@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/white"
+    >
+
+    <TextView
+        android:id="@+id/top_split"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_distance"
+        android:background="@color/common_bg" />
+    <ExpandableListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:cacheColorHint="@color/transparent"
+        android:divider="@color/line"
+        android:dividerHeight="0.5dp"
+        android:listSelector="@color/transparent"
+        android:groupIndicator="@null"
+        android:layout_below="@id/top_split"
+        android:id="@+id/all_his"
+        >
+    </ExpandableListView>
+</RelativeLayout>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <WebView
+        android:id="@+id/set_up_about"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></WebView>
+        <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0px"-->
+            <!--android:layout_weight="2.4"-->
+            <!-->-->
+            <!--<TextView-->
+                <!--android:id="@+id/version"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="版本1.0"-->
+                <!--android:layout_alignParentBottom="true"-->
+                <!--android:layout_centerHorizontal="true"-->
+
+                <!--/>-->
+            <!--<TextView-->
+                <!--android:id="@+id/desc"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="医院订餐，上医帮宝"-->
+                <!--android:layout_above="@id/version"-->
+                <!--android:layout_centerHorizontal="true"-->
+                <!--android:layout_marginBottom="10dp"-->
+                <!--android:textColor="@color/common_blue"-->
+                <!--/>-->
+            <!--<ImageView-->
+                <!--android:layout_marginBottom="10dp"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:src="@drawable/app"-->
+                <!--android:layout_above="@id/desc"-->
+                <!--android:layout_centerHorizontal="true"-->
+
+                <!--/>-->
+        <!--</RelativeLayout>-->
+
+    <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0px"-->
+        <!--android:layout_weight="2.8"-->
+        <!-->-->
+
+    <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerInParent="true"-->
+        <!-->-->
+        <!--<TextView-->
+            <!--android:id="@+id/user"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="用户服务协议"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:textColor="@color/black"-->
+
+            <!--/>-->
+        <!--<TextView-->
+            <!--android:id="@+id/line"-->
+            <!--android:layout_width="120dp"-->
+            <!--android:layout_height="0.5dp"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:background="@color/line"-->
+            <!--android:layout_marginTop="15dp"-->
+            <!--android:layout_below="@id/user"-->
+            <!--/>-->
+        <!--<TextView-->
+            <!--android:id="@+id/qa1"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="欢迎页"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_below="@id/line"-->
+            <!--android:layout_marginTop="15dp"-->
+            <!--android:textColor="@color/black"-->
+
+            <!--/>-->
+        <!--</RelativeLayout>-->
+        <!--<TextView-->
+            <!--android:id="@+id/comp1"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Copyright 2015 All Rights Reserved."-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_marginBottom="10dp"-->
+            <!--/>-->
+        <!--<TextView-->
+            <!--android:id="@+id/comp"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="北京市健坤餐饮有限责任公司"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_marginBottom="5dp"-->
+            <!--android:layout_above="@id/comp1"-->
+            <!--/>-->
+    <!--</RelativeLayout>-->
+</LinearLayout>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/common_distance"
+    >
+
+    <ImageView
+        android:id="@+id/item_img"
+        android:layout_width="100dp"
+        android:layout_height="75dp"
+        android:layout_margin="@dimen/common_distance"
+        android:background="@drawable/temp_item" />
+    <TextView
+        style="@style/text_13_sp"
+        android:textColor="@color/black"
+        android:layout_toRightOf="@id/item_img"
+        android:layout_alignTop="@id/item_img"
+        android:layout_marginTop="@dimen/common_padding_distance"
+        android:id="@+id/title"
+        android:text="大蒜"
+        />
+    <TextView
+        style="@style/text_13_sp"
+        android:textColor="@color/common_red"
+        android:layout_toRightOf="@id/item_img"
+        android:id="@+id/price"
+        android:text="￥50.00"
+        android:layout_centerVertical="true"
+        />
+    <TextView
+        style="@style/text_13_sp"
+        android:textColor="@color/common_red"
+        android:layout_toRightOf="@id/price"
+        android:id="@+id/score"
+        android:text="+20"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/common_distance"
+        android:layout_alignTop="@id/price"
+        />
+    <TextView
+        style="@style/text_13_sp"
+        android:textColor="@color/common_gray"
+        android:layout_toRightOf="@id/score"
+        android:id="@+id/score_label"
+        android:text="@string/my_account_score"
+        android:layout_centerVertical="true"
+        android:layout_alignTop="@id/price"
+        />
+    <TextView
+        style="@style/text_13_sp"
+        android:textColor="@color/light_green"
+        android:id="@+id/count"
+        android:text="X 3"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/common_distance"
+        />
+    <TextView
+        style="@style/text_13_sp"
+        android:textColor="@color/common_gray"
+        android:id="@+id/coupon"
+        android:text="医帮宝优惠券5元"
+        android:layout_alignBottom="@id/item_img"
+        android:layout_toRightOf="@id/item_img"
+        android:gravity="bottom"
+        />
+</RelativeLayout>

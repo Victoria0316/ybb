@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:paddingLeft="@dimen/common_RegisteredLeft"
+    android:paddingRight="@dimen/common_RegisteredLeft"
+    android:layout_height="@dimen/list_item">
+
+    <ImageView
+        android:id="@+id/head"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="@dimen/common_RegisteredLeft"
+        android:src="@drawable/comment_list_head"/>
+
+    <TextView
+        android:id="@+id/nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/common_RegisteredLeft"
+        android:layout_alignTop="@id/head"
+        android:layout_toRightOf="@id/head"
+        android:text="267918**"/>
+
+    <TextView
+        android:id="@+id/content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/head"
+        android:paddingBottom="@dimen/common_RegisteredLeft"
+        android:layout_marginLeft="@dimen/common_RegisteredLeft"
+        android:layout_below="@id/nickname"
+        android:layout_marginTop="@dimen/common_RegisteredLeft"
+        android:text="很好吃，手切羊肉不错！服务也很好！很好吃，手切羊肉不错！服务也很好！很好吃，手切羊肉不错！服务也很好！"/>
+
+
+</RelativeLayout>

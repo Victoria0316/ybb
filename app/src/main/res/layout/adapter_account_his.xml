@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:paddingTop="@dimen/my_account_item_height"
+    android:paddingBottom="@dimen/my_account_item_height"
+    >
+
+    <TextView
+        android:id="@+id/time"
+        style="@style/text_13_sp"
+        android:textColor="@color/common_gray"
+        android:text="2015-07-12 10:40"
+        />
+    <TextView
+        android:id="@+id/detail"
+        style="@style/text_13_sp"
+        android:textColor="@color/common_gray"
+        android:text="转入10.5元"
+        android:layout_alignParentRight="true"
+        android:gravity="right"
+        />
+</RelativeLayout>

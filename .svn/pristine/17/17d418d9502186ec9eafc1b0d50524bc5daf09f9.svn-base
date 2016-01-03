@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        style="@style/The_divider"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_item"
+        android:background="@color/white"
+        android:paddingLeft="@dimen/common_RegisteredLeft"
+        android:paddingRight="@dimen/common_RegisteredLeft">
+
+        <TextView
+            android:id="@+id/ID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="急诊科04床"
+            android:textColor="@color/crop__button_text"
+            android:textSize="@dimen/common_InputBox_28px"
+            android:layout_centerVertical="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="早餐"
+            android:layout_toRightOf="@id/ID"
+            android:layout_marginLeft="50dp"
+            android:textColor="@color/crop__button_text"
+            android:textSize="@dimen/common_InputBox_28px"
+            android:layout_centerVertical="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="配送完成"
+            android:layout_toLeftOf="@+id/return_button"
+            android:layout_marginRight="@dimen/common_RegisteredLeft"
+            android:textColor="@color/common_InputBox"
+            android:textSize="@dimen/common_StatisticalTop_23px"
+            android:layout_centerVertical="true"/>
+
+        <TextView
+            android:id="@+id/return_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="退餐"
+            android:background="@drawable/button_background"
+            android:textColor="@color/common_blue"
+            android:textSize="@dimen/common_InputBox_28px"
+            android:gravity="center"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+
+    <View
+        style="@style/The_divider"/>
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:background="@color/white"
+        android:text="馒头 X3          馒头 X3           馒头 X3         馒头 X3          馒头 X3"
+        android:textColor="@color/crop__button_text"
+        android:textSize="@dimen/common_InputBox_28px"
+        android:paddingLeft="@dimen/common_RegisteredLeft"
+        android:paddingRight="@dimen/common_RegisteredLeft"
+        android:gravity="center_vertical"/>
+
+</LinearLayout>

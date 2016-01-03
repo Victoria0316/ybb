@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--公共字体颜色 common  -->
+
+    <color name="white">#FFFFFF</color>
+    <color name="common_bg">#F7F7F7</color>
+    <color name="common_white">#FFF5FE</color>
+    <color name="common_InputBox">#979797</color>
+    <color name="common_gray">#979797</color>
+    <color name="common_blue">#00CACF</color>
+    <color name="common_red">#FF3A2E</color>
+    <color name="common_red_Statistical">#FF0415</color>
+    <color name="common_black">#323232</color>
+    <color name="common_transparent">#00000000</color>
+    <color name="common_light_gray">#e6e6e6</color>
+    <color name="common_light_black">#656565</color>
+
+    <color name="crop__button_bar">#f3f3f3</color>
+    <color name="crop__button_text">#666666</color>
+    <color name="crop__selector_pressed">#1a000000</color>
+    <color name="crop__selector_focused">#77000000</color>
+    <color name="line">#E5E5E5</color>
+    <color name="black">#000000</color>
+    <color name="light_green">#35CDD8</color>
+    <color name="category_list">#F7F7F7</color>
+    <color name="transparent">#00000000</color>
+
+    <color name="trans">#00000000</color>
+
+    <color name="light_black">#6B6B6B</color>
+
+    <color name="result_view">#b0000000</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="possible_result_points">#c0ffff00</color>
+
+    <color name="common_yellow">#ff9b23</color>
+    <color name="common_black_lighter">#656565</color>
+
+    <!--dialog-->
+    <color name="dialog_btn_press">#EAEAEA</color>
+    <color name="btntextcolor">#ff1E90FF</color>
+    <!--dialog中按钮字体颜色 -->
+
+    <!--二维码扫描-->
+
+</resources>

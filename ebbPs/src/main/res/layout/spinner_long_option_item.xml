@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/message_notice_up"
+    android:descendantFocusability="blocksDescendants"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    android:orientation="horizontal"
+    android:gravity="right"
+    android:paddingRight="28dp">
+
+    <TextView
+        android:id="@+id/tv_number_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/common_InputBox"
+        android:layout_gravity="center_vertical"
+        android:gravity="right"
+        android:singleLine="true"
+        android:textSize="@dimen/common_InputBox_28px" />
+
+
+</LinearLayout>

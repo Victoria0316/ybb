@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="60dp"
+    android:background="@color/white"
+    >
+
+    <ImageView
+        android:id="@+id/order_remind_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/common_distance"
+        android:src="@drawable/order_remind" />
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/text_13_sp"
+        android:layout_alignTop="@id/order_remind_img"
+        android:layout_marginLeft="@dimen/common_padding_distance"
+        android:layout_toRightOf="@id/order_remind_img"
+        android:text="@string/order_remind"
+        android:textColor="@color/common_black" />
+
+    <TextView
+        style="@style/text_13_sp"
+        android:layout_alignBottom="@id/order_remind_img"
+        android:layout_marginLeft="@dimen/common_padding_distance"
+        android:layout_toRightOf="@id/order_remind_img"
+        android:text="@string/setting_new_remind" />
+
+    <TextView
+        style="@style/text_12_sp"
+        android:layout_alignBottom="@id/order_remind_img"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@id/title"
+        android:layout_marginRight="@dimen/common_padding_distance"
+        android:text="2015/06/21" />
+</RelativeLayout>

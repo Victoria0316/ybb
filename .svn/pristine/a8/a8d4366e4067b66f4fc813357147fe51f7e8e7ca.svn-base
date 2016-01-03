@@ -1,0 +1,299 @@
+package com.bluemobi.ybb.ps.network;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.NetworkResponse;
+import com.android.volley.ParseError;
+import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.HttpHeaderParser;
+import com.android.volley.toolbox.JsonRequest;
+
+import com.bluemobi.base.utils.Logger;
+import com.bluemobi.base.utils.StringUtils;
+import com.bluemobi.ybb.ps.app.YbbPsApplication;
+import com.bluemobi.ybb.ps.network.exception.CustomResponseError;
+import com.bluemobi.ybb.ps.network.exception.TokenInvalid;
+import com.bluemobi.ybb.ps.network.util.DefaultTranslateErrorToCn;
+import com.bluemobi.ybb.ps.network.util.TranslateErrorToCn;
+import com.bluemobi.ybb.ps.util.Constants;
+import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.UnsupportedEncodingException;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+
+public abstract class YbbHttpJsonRequest<T extends YbbHttpResponse> extends
+        JsonRequest<T> implements YbbHttpBase<T>, YbbHttpError {
+
+    private static final String PROTOCOL_CHARSET = "utf-8";
+
+    private final Gson mGson;
+
+    private final Response.Listener<T> mListener;
+
+    private String mRequestBody;
+
+    private static final int TOKENINVALID = 4;
+
+    private static final int RESPONSE_SUCCESS = 0;
+
+    private boolean showToast = true;
+
+    private boolean handleCustomErr = true;
+
+    protected RetryPolicy retryPolicy;
+
+    private TranslateErrorToCn translateErrorToCn;
+
+    private com.bluemobi.ybb.ps.network.NetWorkResponseListener netWorkResponseListener;
+
+
+    public YbbHttpJsonRequest(String partUrl, Response.Listener<T> listener,
+                              Response.ErrorListener errorListener) {
+        this(Method.POST, Constants.SERVER_URL + partUrl, null, listener,
+                errorListener, false);
+    }
+
+    public YbbHttpJsonRequest(String partUrl, Response.Listener<T> listener,
+                              Response.ErrorListener errorListener, boolean noRetryPolicy) {
+        this(Method.POST, Constants.SERVER_URL + partUrl, null, listener,
+                errorListener, noRetryPolicy);
+    }
+
+    public YbbHttpJsonRequest(int method, String partUrl,
+                              Response.Listener<T> listener, Response.ErrorListener errorListener) {
+        this(method, Constants.SERVER_URL + partUrl, null, listener,
+                errorListener, false);
+    }
+
+    public YbbHttpJsonRequest(int method, String partUrl,
+                              Response.Listener<T> listener, Response.ErrorListener errorListener, boolean noRetryPolicy) {
+        this(method, Constants.SERVER_URL + partUrl, null, listener,
+                errorListener, noRetryPolicy);
+    }
+    /**
+     *
+     * @param method
+     * @param url
+     * @param requestBody
+     * @param listener
+     * @param errorListener
+     * @param noRetryPolicy
+     */
+    public YbbHttpJsonRequest(int method, String url, String requestBody,
+                              Response.Listener<T> listener, Response.ErrorListener errorListener, boolean noRetryPolicy) {
+        super(method, url , null, listener,
+                errorListener);
+        if(noRetryPolicy){
+            retryPolicy = new DefaultRetryPolicy(mCurrentTimeoutMs, 0, mMaxNumRetries);
+        }else{
+            retryPolicy = new DefaultRetryPolicy(mCurrentTimeoutMs, 0, mMaxNumRetries);
+        }
+        setRetryPolicy(retryPolicy);
+        translateErrorToCn = new DefaultTranslateErrorToCn();
+        this.mListener = listener;
+        mGson = new Gson();
+    }
+
+    public String requestUrl() {
+        return Constants.SERVER_URL + GetApiPath();
+    }
+
+    abstract public String GetApiPath();
+
+
+    abstract public Map<String, String> GetParameters();
+
+
+    abstract public Class<T> getResponseClass();
+
+    @Override
+    protected Map<String, String> getParams() throws AuthFailureError {
+        return GetParameters();
+    }
+
+
+    @Override
+    protected void deliverResponse(T response) {
+        mListener.onResponse(response);
+    }
+
+
+    @Override
+    protected Response<T> parseNetworkResponse(NetworkResponse response) {
+        try {
+           /* long endTime = new Date().getTime();
+            Logger.d("XtbdHttpRequestTime", GetApiPath()
+                    + "-->"
+                    + (endTime - XtbdApplication.requestTime.get(GetApiPath())
+                    .longValue()) + "ms");*/
+            // Logger.d("XtbdHttpRequest",requestUrl() + "?" +
+            // WebUtils.buildQuery(GetParameters()));
+            Logger.d("YbbHttpJsonRequest", requestUrl() + "?"
+                    + new String(getBody(), "utf-8"));
+            String json = new String(response.data,
+                    HttpHeaderParser.parseCharset(response.headers));
+
+            Logger.dl("YbbHttpJsonRequest", StringUtils.unicodeToChinese(json));
+
+			/*//todo remove later
+			if(this instanceof BiddingDetailRequest){
+				return Response.error(new TimeoutError());
+				try {s
+
+					JSONObject obj = new JSONObject(json);
+					obj.put("status", "3");
+					return doAnalyse(obj.toString(), response);
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+			}*/
+            return doAnalyse(json, response);
+        } catch (UnsupportedEncodingException e) {
+            return Response.error(new ParseError(e));
+        } catch (JsonSyntaxException e) {
+            return Response.error(new ParseError(e));
+        }
+    }
+
+    private Response<T> doAnalyse(String json, NetworkResponse response) {
+        JSONObject obj = null;
+        try {
+            obj = new JSONObject(json);
+            if(obj.has("status") && netWorkResponseListener != null){
+                netWorkResponseListener.processResponseStatus(obj.getString("status"));
+            }
+            if (obj.has("status") && TOKENINVALID == obj.getInt("status")) {// �û���֤ʧЧ
+                return Response.error(new TokenInvalid());
+            } else if (handleCustomErr && obj.has("status")
+                    && RESPONSE_SUCCESS != obj.getInt("status")) {
+                return Response.error(new CustomResponseError(
+                        obj.has("status") ? translateErrorToCn(obj
+                                .getInt("status")) : "δ֪����", showToast,obj.getInt("status")));
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return Response.error(new ParseError(e));
+        }
+        return Response.success(mGson.fromJson(json, getResponseClass()),
+                HttpHeaderParser.parseCacheHeaders(response));
+    }
+
+    protected Map<String, Object> getExtParams(){
+        return null;
+    }
+
+
+    @Override
+    public String getParamJson() {
+
+        Map<String, String> map = GetParameters();
+
+        //map.put("serverType", "android");
+
+        if (YbbPsApplication.getInstance().getMyUserInfo() != null) {
+            if (map != null) {
+                if (StringUtils.isNotEmpty(YbbPsApplication.getInstance().getMyUserInfo().getSsid())) {
+                    map.put("ssid", YbbPsApplication.getInstance().getMyUserInfo().getSsid());
+                    map.put("checkUserId", YbbPsApplication.getInstance().getMyUserInfo().getUserId());
+                }
+            }
+        }else {
+            map.put("pass", "n");
+        }
+        map.put("pageTime",String.valueOf(YbbPsApplication.getInstance().getPageTime()));
+        JSONObject obj = new JSONObject(map);
+        com.google.gson.JsonObject gsonObj = new com.google.gson.JsonObject();
+        Map<String, Object> extMap = getExtParams();
+//            if(extMap != null){
+//                for (String key : extMap.keySet()) {
+//                    System.out.println("key= "+ key + " and value= " + extMap.get(key));
+//                    try {
+//                        obj.put(key, extMap.get(key));
+//
+//                    } catch (JSONException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            }
+        if(extMap == null){
+            extMap = new HashMap<String, Object>();
+        }
+        for (String key : map.keySet()) {
+            System.out.println("key= "+ key + " and value= " + map.get(key));
+            extMap.put(key, map.get(key));
+        }
+        Gson gson = new Gson();
+        mRequestBody = gson.toJson(extMap);
+//            if (map != null) {
+//                mRequestBody = obj.toString();
+//            }
+
+        long requestTime = new Date().getTime();
+        return mRequestBody == null ? null : mRequestBody;
+
+    }
+
+    @Override
+    public byte[] getBody() {
+        try {
+            return mRequestBody == null ? null : mRequestBody
+                    .getBytes(PROTOCOL_CHARSET);
+        } catch (UnsupportedEncodingException uee) {
+            Logger.e("wangzhijun", "Unsupported Encoding");
+            VolleyLog
+                    .wtf("Unsupported Encoding while trying to get the bytes of %s using %s",
+                            mRequestBody, PROTOCOL_CHARSET);
+            return null;
+        }
+    }
+
+    @Override
+    public String translateErrorToCn(int errorCode) {
+        if(translateErrorToCn != null){
+            translateErrorToCn = new DefaultTranslateErrorToCn();
+        }
+        return translateErrorToCn.translateErrorToCn(errorCode);
+    }
+
+    public boolean isShowToast() {
+        return showToast;
+    }
+
+    public void setShowToast(boolean showToast) {
+        this.showToast = showToast;
+    }
+
+    public boolean isHandleCustomErr() {
+        return handleCustomErr;
+    }
+
+    public void setHandleCustomErr(boolean handleCustomErr) {
+        this.handleCustomErr = handleCustomErr;
+    }
+
+    public TranslateErrorToCn getTranslateErrorToCn() {
+        return translateErrorToCn;
+    }
+    public void setTranslateErrorToCn(TranslateErrorToCn translateErrorToCn) {
+        this.translateErrorToCn = translateErrorToCn;
+    }
+
+    public com.bluemobi.ybb.ps.network.NetWorkResponseListener getNetWorkResponseListener() {
+        return netWorkResponseListener;
+    }
+
+    public void setNetWorkResponseListener(NetWorkResponseListener netWorkResponseListener) {
+        this.netWorkResponseListener = netWorkResponseListener;
+    }
+}

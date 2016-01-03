@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/common_distance"
+        android:background="@drawable/nutritious_food_search"
+        android:padding="@dimen/common_padding_distance">
+
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_search"
+            android:layout_centerInParent="true"
+            android:drawableLeft="@drawable/search"
+            android:background="@null"
+            android:cursorVisible="false"
+            android:textSize="@dimen/common_titlebar_search_hint"
+            android:singleLine="true"
+            android:maxLength="20"
+            android:textColor="@color/common_InputBox"
+            android:drawablePadding="@dimen/common_padding_distance"
+            android:imeOptions="actionSearch"
+            android:hint="@string/search"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_tab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_search"
+        android:background="@drawable/home_search_tab_bg"
+        android:layout_marginBottom="@dimen/common_distance"
+        android:orientation="horizontal">
+
+        <com.bluemobi.ybb.view.CustomSpinner
+            android:id="@+id/cs_breakfast"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+        </com.bluemobi.ybb.view.CustomSpinner>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/tab_bar_line">
+
+        </ImageView>
+
+        <com.bluemobi.ybb.view.CustomSpinner
+            android:id="@+id/cs_lunch"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+        </com.bluemobi.ybb.view.CustomSpinner>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+
+            android:background="@drawable/tab_bar_line">
+
+        </ImageView>
+        <com.bluemobi.ybb.view.CustomSpinner
+            android:id="@+id/cs_dinner"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+        </com.bluemobi.ybb.view.CustomSpinner>
+    </LinearLayout>
+
+
+
+
+
+
+
+
+    <com.handmark.pulltorefresh.library.PullToRefreshExpandableListView
+        android:id="@+id/prel_refresh"
+        android:layout_below="@id/ll_tab"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cacheColorHint="@android:color/white"
+        android:divider="@drawable/line"
+        android:fadingEdge="none"
+        android:listSelector="@android:color/transparent"
+        android:scrollbars="none">
+    </com.handmark.pulltorefresh.library.PullToRefreshExpandableListView>
+
+</RelativeLayout>

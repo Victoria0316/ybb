@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:background="@drawable/regularly_reminded_background"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/content_head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="感冒，午间吃药。"
+        android:textSize="@dimen/common_ListTitle_27px"
+        android:textColor="@color/common_black"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/common_RegisteredLeft"/>
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2015/05/05 12:36"
+        android:textSize="@dimen/common_ListTime_20px"
+        android:textColor="@color/common_InputBox"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/common_RegisteredLeft"/>
+
+    <View
+        style="@style/The_divider"/>
+
+
+</RelativeLayout>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/common_distance"
+    >
+    <RelativeLayout
+        android:id="@+id/ext_rl1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        >
+        <ImageView
+            android:id="@+id/img1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            />
+        <TextView
+            android:id="@+id/title1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/img1"
+            style="@style/text_13_sp"
+            android:textColor="@color/black"
+            android:text="紫薯庄园"
+            />
+        <TextView
+            android:id="@+id/price1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/text_13_sp"
+            android:textColor="@color/common_red"
+            android:text="￥50.00"
+            android:layout_below="@id/title1"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/ext_rl2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+
+        >
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/ext_rl3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+
+        >
+
+    </RelativeLayout>
+</LinearLayout>

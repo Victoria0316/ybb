@@ -1,0 +1,51 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:padding="10dp"/>
+
+    <TextView
+        android:id="@+id/tv_title"
+        style="@style/CommonTitle" />
+
+
+    <TextView
+        android:id="@+id/tv_title_right"
+        style="@style/CommonTitle"
+        android:layout_alignParentRight="true"
+        android:textSize="@dimen/common_TitleRight_26px" />
+
+    <ImageView
+        android:id="@+id/iv_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:visibility="gone"
+        />
+
+
+    <include
+        android:id="@+id/il_search_bar"
+        layout="@layout/include_search_titlebar"></include>
+
+    <include
+        android:id="@+id/il_three_tab_titlebar"
+        layout="@layout/include_three_tab_titlebar"></include>
+
+    <include
+        android:id="@+id/il_two_tab_titlebar"
+        layout="@layout/include_two_tab_titlebar"></include>
+
+    <include
+        android:id="@+id/il_spinner"
+        layout="@layout/include_spinner_titlebar"></include>
+
+</RelativeLayout>

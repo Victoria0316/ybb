@@ -1,0 +1,109 @@
+package com.bluemobi.ybb.activity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.android.volley.Response;
+import com.bluemobi.ybb.R;
+import com.bluemobi.ybb.app.TitleBarManager;
+import com.bluemobi.ybb.app.YbbApplication;
+import com.bluemobi.ybb.base.BaseActivity;
+import com.bluemobi.ybb.network.request.BasicInformationNicknameRequest;
+import com.bluemobi.ybb.network.request.RegisteredRequest;
+import com.bluemobi.ybb.network.response.BasicInformationNicknameResponse;
+import com.bluemobi.ybb.network.response.RegisteredResponse;
+import com.bluemobi.ybb.util.StringUtils;
+import com.bluemobi.ybb.util.Utils;
+import com.bluemobi.ybb.util.WebUtils;
+import com.bluemobi.ybb.view.LoadingPage;
+
+/**
+ * Created by gaoyn on 2015/7/6.
+ *
+ * p14-18
+ */
+public class BasicInformationNicknameActivity extends BaseActivity {
+
+    private EditText nickname_edit;
+
+    private String nickname;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        TitleBarManager titleBarManager = new TitleBarManager();
+        titleBarManager.init(BasicInformationNicknameActivity.this, getSupportActionBar());
+        titleBarManager.showTitleTextBar(R.string.basic_information, R.drawable.common_back, R.string.information_save);
+
+        nickname = getIntent().getStringExtra("nickname");
+
+        showLoadingPage(false);
+    }
+
+    @Override
+    protected void initBaseData() {
+
+    }
+
+    @Override
+    public View createSuccessView(LayoutInflater inflater) {
+        View view = inflater.inflate(R.layout.activity_basic_information_nickname,null);
+
+        nickname_edit = (EditText)view.findViewById(R.id.nickname_edit);
+        nickname_edit.setText(nickname);
+        return view;
+    }
+
+    @Override
+    protected LoadingPage.LoadResult load() {
+        return LoadingPage.LoadResult.success;
+    }
+
+    @Override
+    public void clickBarleft() {
+        finish();
+    }
+
+    @Override
+    public void clickBarRight() {
+        Request();
+    }
+
+    private void Request() {
+
+        if (StringUtils.isEmpty(nickname_edit.getText().toString())) {
+            Toast.makeText(this, "昵称不能为空", Toast.LENGTH_SHORT).show();
+            return ;
+        }
+        if (nickname_edit.getText().toString().length() > 10) {
+            Toast.makeText(this, "昵称长度需在10位以内", Toast.LENGTH_SHORT).show();
+            return ;
+        }
+        BasicInformationNicknameRequest request = new BasicInformationNicknameRequest(new Response.Listener<BasicInformationNicknameResponse>() {
+            @Override
+            public void onResponse(BasicInformationNicknameResponse response) {
+                Utils.closeDialog();
+                if (response != null && response.getStatus() == 0) {// success
+                    Intent intent = getIntent();
+                    intent.putExtra("name",nickname_edit.getText().toString());
+                    YbbApplication.getInstance().getMyUserInfo().setNickName(nickname_edit.getText().toString());
+                    setResult(201, intent);
+                    finish();
+                    Toast.makeText(mContext,R.string.Modify_success,Toast.LENGTH_SHORT).show();
+                }else {// failed
+                    Log.e("error", "error");
+                }
+            }
+        },this);
+        request.setNickName(nickname_edit.getText().toString());
+        request.setUserId(YbbApplication.getInstance().getMyUserInfo().getUserId());
+        Utils.showProgressDialog(this);
+        WebUtils.doPost(request);
+    }
+}

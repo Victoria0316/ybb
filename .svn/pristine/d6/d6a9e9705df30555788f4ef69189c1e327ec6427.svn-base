@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="@dimen/common_distance"
+    android:background="@drawable/home_search_item"
+    android:layout_height="wrap_content"
+    android:id="@+id/main"
+    >
+
+    <FrameLayout
+        android:id="@+id/left_frame"
+        android:layout_width="@dimen/category_commodity_img_w"
+        android:layout_height="@dimen/category_commodity_img_h"
+        >
+        <ImageView
+            android:id="@+id/iv_image_bg"
+            android:layout_width="100dp"
+            android:layout_height="75dp"
+            android:scaleType="fitXY"
+            />
+
+        <ImageView
+            android:id="@+id/isColl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/un_coll"
+            android:layout_gravity="left|bottom"
+            android:layout_marginLeft="@dimen/common_distance"
+            android:layout_marginBottom="@dimen/common_distance"
+            />
+    </FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/left_frame"
+        android:layout_centerInParent="true"
+        android:padding="@dimen/common_padding_distance"
+        android:layout_marginLeft="@dimen/common_padding_distance"
+       >
+
+
+            <TextView
+                android:id="@+id/tv_search_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textSize="@dimen/common_InputBox_28px"
+                android:textColor="@color/common_black"
+                android:text="紫薯庄园"/>
+
+
+            <RatingBar
+                android:id="@+id/rb_comment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:isIndicator="true"
+                style="@style/roomRatingBar"
+                android:layout_below="@id/tv_search_item"
+                android:layout_marginTop="@dimen/common_padding_distance" />
+
+
+            <TextView
+                android:id="@+id/reviewCount"
+                android:layout_toRightOf="@+id/rb_comment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(18条评价)"
+                android:layout_below="@id/tv_search_item"
+                android:textColor="@color/common_InputBox"
+                android:layout_marginTop="@dimen/common_padding_distance"
+                android:layout_marginLeft="@dimen/common_padding_distance"
+                android:textSize="@dimen/common_DialogContent_21px"/>
+
+
+        <TextView
+            android:id="@+id/tv_charge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¥20.00"
+            android:layout_below="@id/rb_comment"
+            android:textColor="@color/common_red"
+            android:layout_marginTop="@dimen/common_padding_distance"
+            android:textSize="@dimen/common_InputBox_28px"/>
+
+
+           <ImageView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:src="@drawable/search_more"
+               android:layout_alignParentRight="true"
+               android:padding="@dimen/common_padding_distance"
+               android:id="@+id/iv_search_more"/>
+
+
+
+        <ImageView
+            android:id="@+id/iv_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/add"
+            android:layout_alignRight="@id/iv_search_more"
+            android:layout_alignBottom="@+id/tv_charge"
+           />
+
+        <EditText
+            android:id="@+id/et_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/hint"
+            android:layout_toLeftOf="@id/iv_add"
+            android:text="1"
+            android:gravity="center"
+            android:cursorVisible="true"
+            android:layout_marginLeft="@dimen/common_padding_distance"
+            android:layout_marginRight="@dimen/common_padding_distance"
+            android:layout_alignTop="@+id/iv_add"
+            />
+
+        <ImageView
+            android:id="@+id/minus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/minus"
+            android:layout_toLeftOf="@id/et_hint"
+            android:layout_alignTop="@+id/et_hint"
+            />
+
+
+        </RelativeLayout>
+
+
+</RelativeLayout>

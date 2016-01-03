@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_dropDown"
+        android:text="2015/05/05 12:35"
+        android:textSize="@dimen/common_dropDown_21px"
+        android:textColor="@color/common_InputBox"
+        android:gravity="center"/>
+
+    <View
+        style="@style/The_divider"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="6.1儿童节儿童商品五折购买"
+            android:textSize="@dimen/common_Login_30px"
+            android:textColor="@color/common_black"
+            android:layout_marginLeft="@dimen/common_RegisteredLeft"
+            android:layout_marginTop="@dimen/common_RegisteredLeft"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/activity_remind_image"
+            android:layout_marginTop="@dimen/common_RegisteredLeft"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/common_RegisteredLeft"
+            android:layout_marginRight="@dimen/common_RegisteredLeft"
+            android:layout_marginTop="@dimen/common_RegisteredLeft"
+            android:text="啦啦啦啦啦啦啦啦啦啦啦啦啦啦"
+            android:textSize="@dimen/common_Item_27px"
+            android:textColor="@color/common_InputBox"/>
+        <View
+            style="@style/The_divider"
+            android:layout_marginTop="@dimen/common_RegisteredLeft"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_dropDown">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/read_more"
+                android:textSize="@dimen/common_Item_27px"
+                android:textColor="@color/common_black"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="@dimen/common_RegisteredLeft"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/right_arrow"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/common_RegisteredLeft"
+                android:layout_alignParentRight="true"/>
+
+        </RelativeLayout>
+
+        <View
+            style="@style/The_divider"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

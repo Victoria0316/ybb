@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main">
+
+    <EditText
+        android:id="@+id/content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/refund_reason_background"
+        android:layout_marginTop="@dimen/common_RegisteredLeft"
+        android:layout_gravity="center_horizontal"
+        android:padding="@dimen/common_RegisteredLeft"
+        android:hint="@string/reason"
+        android:textSize="@dimen/common_StatisticalTop_23px"
+        android:textColorHint="@color/common_InputBox"
+        android:gravity="top"/>
+
+    <View
+        style="@style/The_divider"
+        android:layout_marginTop="@dimen/common_RegisteredLeft"/>
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_item"
+        android:paddingLeft="@dimen/common_RegisteredLeft"
+        android:text="@string/upload"
+        android:textColor="@color/common_black"
+        android:textSize="@dimen/common_InputBox_28px"
+        android:gravity="center_vertical"
+        android:background="@color/white"/>
+
+    <View
+        style="@style/The_divider"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/common_RegisteredLeft"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/add_image1"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:src="@drawable/add_image"/>
+
+        <ImageView
+            android:id="@+id/add_image2"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:src="@drawable/add_image"/>
+
+        <ImageView
+            android:id="@+id/add_image3"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:src="@drawable/add_image"/>
+
+        <ImageView
+            android:id="@+id/add_image4"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:src="@drawable/add_image"/>
+
+        <ImageView
+            android:id="@+id/add_image5"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:src="@drawable/add_image"/>
+
+
+    </LinearLayout>
+
+    <View
+        style="@style/The_divider"/>
+
+
+    <Button
+        android:id="@+id/next_step"
+        android:layout_marginTop="@dimen/common_BlueButtonTop"
+        android:layout_marginLeft="@dimen/common_RegisteredLeft"
+        android:layout_marginRight="@dimen/common_RegisteredLeft"
+        style="@style/BlueButton"
+        android:text="@string/str_submit"/>
+
+
+
+
+</LinearLayout>

@@ -1,0 +1,365 @@
+package com.bluemobi.ybb.fragment;
+
+import android.os.Bundle;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import com.bluemobi.base.utils.Logger;
+import com.bluemobi.ybb.R;
+import com.bluemobi.ybb.adapter.CommonAdapter;
+import com.bluemobi.ybb.fragment.page.BasePage;
+import com.bluemobi.ybb.fragment.page.MineOrderAllPage;
+import com.bluemobi.ybb.fragment.page.MineOrderBackPage;
+import com.bluemobi.ybb.fragment.page.MineOrderObligationPage;
+import com.bluemobi.ybb.fragment.page.MineOrderReceivePage;
+import com.bluemobi.ybb.fragment.page.MineOrderToEvaluatePage;
+import com.bluemobi.ybb.view.LoadingPage;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Created by liufy on 2015/6/29.
+ * P14-1我的订单-餐品
+ */
+public class
+        MineOrderMealsFragment extends BaseFragment implements View.OnClickListener{
+
+    private CommonAdapter<String> adapter;
+
+    private List<String> dataList;
+
+    private ViewPager mViewPager;
+    private PagerAdapter mAdapter;
+
+    private RelativeLayout rl_mine_order_all;
+    private RelativeLayout rl_mine_order_obligation;
+    private RelativeLayout rl_mine_order_receive;
+    private RelativeLayout rl_mine_order_to_evaluate;
+    private RelativeLayout rl_mine_order_back;
+
+    private TextView tv_mine_order_all;
+    private TextView tv_mine_order_obligation;
+    private TextView tv_mine_order_receive;
+    private TextView tv_mine_order_to_evaluate;
+    private TextView tv_mine_order_back;
+
+    private ImageView iv_mine_order_all;
+    private ImageView iv_mine_order_obligation;
+    private ImageView iv_mine_order_receive;
+    private ImageView iv_mine_order_to_evaluate;
+    private ImageView iv_mine_order_back;
+
+    private MineOrderAllPage mineOrderAllPage;
+    private MineOrderObligationPage mineOrderObligationPage;
+    private MineOrderReceivePage mineOrderReceivePage;
+    private MineOrderToEvaluatePage mineOrderToEvaluatePage;
+    private MineOrderBackPage mineOrderBackPage;
+
+
+    private List<View> mPages = new ArrayList<View>();
+    private List<BasePage> basePages = new ArrayList<BasePage>();
+
+    @Override
+    public void initData(Bundle savedInstanceState) {
+
+        isShowLoadPage = false;
+        mineOrderAllPage = new MineOrderAllPage(mContext,this);
+        mineOrderObligationPage = new MineOrderObligationPage(mContext,this);
+        mineOrderReceivePage = new MineOrderReceivePage(mContext,this);
+        mineOrderToEvaluatePage = new MineOrderToEvaluatePage(mContext,this);
+        mineOrderBackPage = new MineOrderBackPage(mContext,this);
+        mPages.add(mineOrderAllPage.getRootView());
+        mPages.add(mineOrderObligationPage.getRootView());
+        mPages.add(mineOrderReceivePage.getRootView());
+        mPages.add(mineOrderToEvaluatePage.getRootView());
+        mPages.add(mineOrderBackPage.getRootView());
+
+        basePages.add(mineOrderAllPage);
+        basePages.add(mineOrderObligationPage);
+        basePages.add(mineOrderReceivePage);
+        basePages.add(mineOrderToEvaluatePage);
+        basePages.add(mineOrderBackPage);
+    }
+
+
+
+    @Override
+    public View createSuccessView(LayoutInflater inflater) {
+
+        View mineOrderMealsView = inflater.inflate(R.layout.fragment_mine_order_meals, null);
+
+        mViewPager = (ViewPager) mineOrderMealsView.findViewById(R.id.vp_tab);
+
+        rl_mine_order_all = (RelativeLayout) mineOrderMealsView.findViewById(R.id.rl_mine_order_all);
+        rl_mine_order_obligation = (RelativeLayout) mineOrderMealsView.findViewById(R.id.rl_mine_order_obligation);
+        rl_mine_order_receive = (RelativeLayout) mineOrderMealsView.findViewById(R.id.rl_mine_order_receive);
+        rl_mine_order_to_evaluate = (RelativeLayout) mineOrderMealsView.findViewById(R.id.rl_mine_order_to_evaluate);
+        rl_mine_order_back = (RelativeLayout) mineOrderMealsView.findViewById(R.id.rl_mine_order_back);
+
+
+        tv_mine_order_all = (TextView) mineOrderMealsView.findViewById(R.id.tv_mine_order_all);
+        tv_mine_order_obligation = (TextView) mineOrderMealsView.findViewById(R.id.tv_mine_order_obligation);
+        tv_mine_order_receive = (TextView) mineOrderMealsView.findViewById(R.id.tv_mine_order_receive);
+        tv_mine_order_to_evaluate = (TextView) mineOrderMealsView.findViewById(R.id.tv_mine_order_to_evaluate);
+        tv_mine_order_back = (TextView) mineOrderMealsView.findViewById(R.id.tv_mine_order_back);
+
+        iv_mine_order_all = (ImageView) mineOrderMealsView.findViewById(R.id.iv_mine_order_all);
+        iv_mine_order_obligation = (ImageView) mineOrderMealsView.findViewById(R.id.iv_mine_order_obligation);
+        iv_mine_order_receive = (ImageView) mineOrderMealsView.findViewById(R.id.iv_mine_order_receive);
+        iv_mine_order_to_evaluate = (ImageView) mineOrderMealsView.findViewById(R.id.iv_mine_order_to_evaluate);
+        iv_mine_order_back = (ImageView) mineOrderMealsView.findViewById(R.id.iv_mine_order_back);
+
+        rl_mine_order_all.setOnClickListener(this);
+        rl_mine_order_obligation.setOnClickListener(this);
+        rl_mine_order_receive.setOnClickListener(this);
+        rl_mine_order_to_evaluate.setOnClickListener(this);
+        rl_mine_order_back.setOnClickListener(this);
+
+        mViewPager.setCurrentItem(0);
+        iv_mine_order_all.setImageResource(R.drawable.search_bar_tab_line);
+        tv_mine_order_all.setTextColor(getResources().getColor(R.color.common_blue));
+        mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener()
+        {
+
+            @Override
+            public void onPageSelected(int arg0)
+            {
+                int currentItem = mViewPager.getCurrentItem();
+                clearState();
+                switch (currentItem)
+                {
+                    case 0:
+                        iv_mine_order_all.setImageResource(R.drawable.search_bar_tab_line);
+                        tv_mine_order_all.setTextColor(getResources().getColor(R.color.common_blue));
+                        mineOrderAllPage.initData();
+                        mineOrderAllPage.loaded();
+
+//                        mineOrderObligationPage.loadingPage=null;
+//                        mineOrderReceivePage.isShowLoadPage=true;
+//                        mineOrderToEvaluatePage.isShowLoadPage=true;
+//                        mineOrderBackPage.isShowLoadPage=true;
+//                        mineOrderObligationPage.loaded();
+                        break;
+                    case 1:
+                        iv_mine_order_obligation.setImageResource(R.drawable.search_bar_tab_line);
+                        tv_mine_order_obligation.setTextColor(getResources().getColor(R.color.common_blue));
+                        mineOrderObligationPage.initData();
+                        mineOrderObligationPage.loaded();
+
+//                        mineOrderAllPage.isShowLoadPage=true;
+//                        mineOrderReceivePage.isShowLoadPage=true;
+//                        mineOrderToEvaluatePage.isShowLoadPage=true;
+//                        mineOrderBackPage.isShowLoadPage=true;
+//                        mineOrderAllPage.loaded();
+                        break;
+                    case 2:
+                        iv_mine_order_receive
+                                .setImageResource(R.drawable.search_bar_tab_line);
+                        tv_mine_order_receive.setTextColor(getResources().getColor(R.color.common_blue));
+                        mineOrderReceivePage.initData();
+                        mineOrderReceivePage.loaded();
+
+//                        mineOrderAllPage.isShowLoadPage=true;
+//                        mineOrderObligationPage.isShowLoadPage=true;
+//                        mineOrderToEvaluatePage.isShowLoadPage=true;
+//                        mineOrderBackPage.isShowLoadPage=true;
+                        break;
+
+                    case 3:
+                        iv_mine_order_to_evaluate.setImageResource(R.drawable.search_bar_tab_line);
+                        tv_mine_order_to_evaluate.setTextColor(getResources().getColor(R.color.common_blue));
+                        mineOrderToEvaluatePage.initData();
+                        mineOrderToEvaluatePage.loaded();
+
+//                        mineOrderAllPage.isShowLoadPage=true;
+//                        mineOrderObligationPage.isShowLoadPage=true;
+//                        mineOrderReceivePage.isShowLoadPage=true;
+//                        mineOrderBackPage.isShowLoadPage=true;
+                        break;
+                    case 4:
+                        iv_mine_order_back
+                                .setImageResource(R.drawable.search_bar_tab_line);
+                        tv_mine_order_back.setTextColor(getResources().getColor(R.color.common_blue));
+                        mineOrderBackPage.initData();
+                        mineOrderBackPage.loaded();
+
+//                        mineOrderAllPage.isShowLoadPage=true;
+//                        mineOrderObligationPage.isShowLoadPage=true;
+//                        mineOrderReceivePage.isShowLoadPage=true;
+//                        mineOrderToEvaluatePage.isShowLoadPage=true;
+                        break;
+
+                }
+
+            }
+
+            @Override
+            public void onPageScrolled(int arg0, float arg1, int arg2)
+            {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int arg0)
+            {
+
+            }
+        });
+        mineOrderAllPage.loaded();
+        MyTabPageAdapter myTabPageAdapter = new MyTabPageAdapter();
+        mViewPager.setAdapter(myTabPageAdapter);
+        return mineOrderMealsView;
+    }
+
+    @Override
+    protected LoadingPage.LoadResult load() {
+        return LoadingPage.LoadResult.success;
+    }
+
+    public void clearState()
+    {
+        tv_mine_order_all.setTextColor(getResources().getColor(R.color.common_gray));
+        tv_mine_order_obligation.setTextColor(getResources().getColor(R.color.common_gray));
+        tv_mine_order_receive.setTextColor(getResources().getColor(R.color.common_gray));
+        tv_mine_order_to_evaluate.setTextColor(getResources().getColor(R.color.common_gray));
+        tv_mine_order_back.setTextColor(getResources().getColor(R.color.common_gray));
+
+        iv_mine_order_all.setImageResource(R.color.trans);
+        iv_mine_order_obligation.setImageResource(R.color.trans);
+        iv_mine_order_receive.setImageResource(R.color.trans);
+        iv_mine_order_to_evaluate.setImageResource(R.color.trans);
+        iv_mine_order_back.setImageResource(R.color.trans);
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId())
+        {
+            case R.id.rl_mine_order_all:
+                mViewPager.setCurrentItem(0);
+                break;
+
+            case R.id.rl_mine_order_obligation:
+                mViewPager.setCurrentItem(1);
+                break;
+
+            case R.id.rl_mine_order_receive:
+                mViewPager.setCurrentItem(2);
+                break;
+
+            case R.id.rl_mine_order_to_evaluate:
+                mViewPager.setCurrentItem(3);
+                break;
+
+            case R.id.rl_mine_order_back:
+                mViewPager.setCurrentItem(4);
+                break;
+        }
+
+    }
+
+    /**
+     * need refresh
+     * receive del and sureReceive
+     * refresh all page
+     */
+    public void notifyChanged() {
+        int index = mViewPager.getCurrentItem();
+//        basePages.get(index).setNeedReload(true);
+        basePages.get(index).reload();
+        for(int i=0;i<basePages.size();i++){
+            if(i != index){
+                basePages.get(i).setNeedReload(true);
+            }
+        }
+    }
+
+    /**
+     * receive comment
+     * refresh allPage and commentPage
+     */
+    public void notifyCommentChanged() {
+        Logger.e("wangzhijun","notifyCommentChanged");
+        int index = mViewPager.getCurrentItem();
+//        basePages.get(index).setNeedReload(true);
+        if(index == 0){
+            basePages.get(index).reload();
+            basePages.get(3).setNeedReload(true);
+        }else if(index == 3){
+            basePages.get(index).reload();
+            basePages.get(0).setNeedReload(true);
+        }else{
+            basePages.get(0).setNeedReload(true);
+            basePages.get(3).setNeedReload(true);
+        }
+
+
+    }
+    /**
+     * receive pay
+     * refresh allPage and waitPayPage
+     */
+    public void notifyPayChanged() {
+        int index = mViewPager.getCurrentItem();
+//        basePages.get(index).setNeedReload(true);
+        if(index == 0){
+            basePages.get(index).reload();
+            basePages.get(1).setNeedReload(true);
+        }else if(index == 1){
+            basePages.get(index).reload();
+            basePages.get(0).setNeedReload(true);
+        }else{
+            basePages.get(0).setNeedReload(true);
+            basePages.get(1).setNeedReload(true);
+        }
+    }
+
+    private  class MyTabPageAdapter extends  PagerAdapter
+    {
+
+
+
+        @Override
+        public Object instantiateItem(ViewGroup container, int position) {
+            container.addView(mPages.get(position));
+            return mPages.get(position);
+
+        }
+
+        @Override
+        public int getCount() {
+            return mPages.size();
+        }
+
+
+        @Override
+        public void destroyItem(ViewGroup container, int position, Object object)
+        {
+
+            container.removeView((View) object);
+        }
+
+        @Override
+        public boolean isViewFromObject(View view, Object object)
+        {
+            if (view == object)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+
+}

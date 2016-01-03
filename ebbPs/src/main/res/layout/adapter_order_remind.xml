@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/date"
+        style="@style/text_13_sp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/common_distance"
+        android:text="08/05" />
+
+    <RelativeLayout
+        android:id="@+id/point_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/common_distance"
+        android:layout_toRightOf="@id/date"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/point"
+            style="@style/text_13_sp"
+            android:src="@drawable/order_tracking_blue"
+            android:layout_centerInParent="true"
+            />
+
+        <TextView
+            android:id="@+id/line_up"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:layout_above="@id/point"
+            android:background="@color/common_order_remind"
+            android:layout_centerHorizontal="true"
+            />
+
+
+        <TextView
+            android:id="@+id/line_down"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:layout_below="@id/point"
+            android:background="@color/common_order_remind"
+            android:layout_centerHorizontal="true"
+            />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/time"
+        style="@style/text_13_sp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/common_distance"
+        android:layout_toRightOf="@id/point_ll"
+        android:text="14:20" />
+
+    <TextView
+        android:id="@+id/status"
+        style="@style/text_13_sp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/common_distance"
+        android:layout_toRightOf="@id/time"
+        android:text="已评价" />
+
+</RelativeLayout>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <WebView
+        android:id="@+id/information_details"
+        android:layout_width="match_parent"
+        android:layout_above="@+id/ll_bottom_menu"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/common_RegisteredLeft">
+
+    </WebView>
+
+    <LinearLayout
+        android:id="@+id/ll_bottom_menu"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_bottomMenu"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/common_RegisteredLeft"
+        android:orientation="horizontal"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/comments_list"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text=""
+            android:textColor="@color/common_InputBox"
+            android:gravity="center"
+            android:drawableLeft="@drawable/bottom_comments_more"
+            android:paddingLeft="@dimen/common_DialogTitle_30px"
+            android:paddingRight="@dimen/common_DialogTitle_30px"/>
+
+        <TextView
+            android:id="@+id/collection"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textColor="@color/common_InputBox"
+            android:gravity="center"
+            android:drawableLeft="@drawable/bottom_like"
+            android:paddingLeft="@dimen/common_DialogTitle_30px"
+            android:paddingRight="@dimen/common_DialogTitle_30px"/>
+
+        <TextView
+            android:id="@+id/praise"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text=""
+            android:textColor="@color/common_InputBox"
+            android:gravity="center"
+            android:drawableLeft="@drawable/bottom_praise"
+            android:paddingLeft="@dimen/common_DialogTitle_30px"
+            android:paddingRight="@dimen/common_DialogTitle_30px"/>
+
+        <TextView
+            android:id="@+id/comments"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/Evaluation"
+            android:textColor="@color/common_InputBox"
+            android:gravity="center"
+            android:drawableLeft="@drawable/bottom_comments"
+            android:paddingLeft="@dimen/common_DialogTitle_30px"
+            android:paddingRight="@dimen/common_DialogTitle_30px"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
